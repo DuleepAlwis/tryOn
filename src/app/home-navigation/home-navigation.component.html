@@ -1,48 +1,49 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
-  <a class="navbar-brand justify-content-center ml-5" href="#" style="font-size: 35px"><img src="../../assets/img/images1.jpg"
-      class="rounded-circle" style="width:35%;height:35%">TryOn</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-    aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-    <ul class="navbar-nav mt-5" style="font-size: 25px">
-      <li class="nav-item">
-        <!--<a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>-->
-        <button class="btn btn-outline-info mr-3"><a class="nav-link" routerLink="/Register" style="color:white">Home</a></button>
-      </li>
-      <li class="nav-item">
-        <!-- Example split danger button -->
-        <div class="btn-group">
-          <!--<button type="button" class="btn btn-info">Costumes & Accessories</button>-->
-          <button class="btn btn-outline-info"><a class="nav-link" href="#" style="color:white">Costumes & Accessories</a></button>
-          <button type="button" class="btn btn-outline-info dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="#" style="color:black">Men</a>
-            <a class="dropdown-item" href="#" style="color:black">Ladies</a>
-            <a class="dropdown-item" href="#" style="color:black">Belts</a>
-            <a class="dropdown-item" href="#" style="color:black">Accessories</a>
-            <div class="dropdown-divider"></div>
-            <!--<a class="dropdown-item" href="#">Separated link</a>-->
+<div class="bg-success">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
+    <a class="navbar-brand justify-content-center ml-5" href="#" style="font-size: 35px"><img src="../../assets/img/images1.jpg"
+        class="rounded-circle" style="width:35%;height:35%">TryOn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav mt-5" style="font-size: 25px">
+        <li class="nav-item">
+          <!--<a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>-->
+          <a class="nav-link" routerLink='' style="color:white">Home</a>
+        </li>
+        <li class="nav-item">
+          <!-- Example split danger button -->
+          <div class="btn-group">
+            <!--<button type="button" class="btn btn-info">Costumes & Accessories</button>-->
+            <a class="nav-link" href="#" style="color:white">Costumes & Accessories</a>
+            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item" href="#" style="color:black">Men</a>
+              <a class="dropdown-item" href="#" style="color:black">Ladies</a>
+              <a class="dropdown-item" href="#" style="color:black">Belts</a>
+              <a class="dropdown-item" href="#" style="color:black">Accessories</a>
+              <div class="dropdown-divider"></div>
+              <!--<a class="dropdown-item" href="#">Separated link</a>-->
+            </div>
           </div>
-        </div>
-      </li>
-      <li class="nav-item">
-        <button class="btn btn-outline-info mr-3"><a class="nav-link" href='' style="color:white">About us</a></button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href='' style="color:white">About us</a>
 
-      </li>
-      <li class="nav-item">
-        <button type="button" class="btn btn-outline-info mr-3" data-toggle="modal" data-target="#exampleModal"><a
-            class="nav-link" style="color:white">Login</a></button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-info mr-3" data-toggle="modal" data-target="#exampleModal"><a
+              class="nav-link" style="color:white">Login</a></button>
 
-      </li>
-    </ul>
-  </div>
-</nav>
-
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -54,23 +55,31 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form [formGroup]="form" (submit)="login()">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp"
+              placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password"
+              placeholder="Password">
           </div>
           <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
           <small id="emailHelp" class="form-text text-muted mb-3">Don't have an account. Then <a routerLink="/Register">SignUp</a></small>
+          <div class="form-group row">
+            <div class="col-md-4">
+              <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+            <div class="col-md-4">
+              <button type="reset" class="btn btn-primary ml-5" data-dismiss="modal">Cancel</button>
+            </div>
+          </div>
 
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button><button type="reset" class="btn btn-primary ml-5"
-            data-dismiss="modal">Cancel</button>
         </form>
       </div>
     </div>
