@@ -7,16 +7,28 @@ import { HomeComponent } from "./home/home.component";
 import { RouterModule, Routes } from "@angular/router";
 import { RegisterComponent } from "./register/register.component";
 import { HomeNavigationComponent } from "./home-navigation/home-navigation.component";
+import { AuthService } from "./services/auth.service";
+import { HttpClient, HttpParams } from "@angular/common/http";
+import { HttpClientModule } from "@angular/common/http";
+import { ReceptionistNavigationComponent } from "./receptionist-navigation/receptionist-navigation.component";
+import { ProductsComponent } from "./products/products.component";
+import { ReceptionistProductsComponent } from "./receptionist-products/receptionist-products.component";
+import { MenSuitsFormComponent } from "./men-suits-form/men-suits-form.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegisterComponent,
-    HomeNavigationComponent
+    HomeNavigationComponent,
+    ReceptionistNavigationComponent,
+    ProductsComponent,
+    ReceptionistProductsComponent,
+    MenSuitsFormComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
@@ -29,10 +41,23 @@ import { HomeNavigationComponent } from "./home-navigation/home-navigation.compo
       {
         component: RegisterComponent,
         path: "Register"
+      },
+      {
+        component: ProductsComponent,
+        path: "Products"
+      },
+      {
+        component: ReceptionistProductsComponent,
+        path: "Receptionist"
+      },
+      {
+        component: MenSuitsFormComponent,
+        path: "mensform",
+        outlet: "receptionistProducts"
       }
     ])
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
