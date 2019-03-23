@@ -1,19 +1,13 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
-.carousel-item>img {
-  width: 25%;
-  height: 25%
-}
 
-.img-box {
-  width: 100%;
-  height: 100%
-}
-
-.stock-details {
-  background-color: antiquewhite
-}
-
-.img-box {
-  background-color: lightyellow
+@media only screen and (max-width: 500px) {
+  .navbar{
+		width: 70%;
+		float: left;
+	}
+	.navbar a{
+		font-size: 12px;
+	}
+  
 }
