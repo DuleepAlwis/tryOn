@@ -1,0 +1,13 @@
+{ 
+    "_id" : ObjectId("5c84d6f203a2526a9ee29a82"), 
+    "name" : "", 
+    "large" : {
+        "quantity" : 0.0, 
+        "price" : ""
+    }, 
+    "medium" : {
+        "quantity" : 0.0, 
+        "price" : ""
+    }, 
+    "color" : ""
+}

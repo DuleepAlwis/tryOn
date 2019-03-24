@@ -48,12 +48,13 @@ import { MenSuitsFormComponent } from "./men-suits-form/men-suits-form.component
       },
       {
         component: ReceptionistProductsComponent,
-        path: "Receptionist"
-      },
-      {
-        component: MenSuitsFormComponent,
-        path: "mensform",
-        outlet: "receptionistProducts"
+        path: "Receptionist",
+        children: [
+          {
+            component: MenSuitsFormComponent,
+            path: "suitform/:title"
+          }
+        ]
       }
     ])
   ],

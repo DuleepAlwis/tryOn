@@ -1,0 +1,31 @@
+{ 
+    "_id" : ObjectId("5c84c62603a2526a9ee29a7c"), 
+    "name" : "", 
+    "large" : {
+        "price" : "", 
+        "available" : false, 
+        "quantity" : 0.0, 
+        "chest" : [
+            NumberLong(88), 
+            NumberLong(90)
+        ], 
+        "waist" : 1.1, 
+        "hips" : 1.1
+    }, 
+    "medium" : {
+        "price" : "", 
+        "available" : false, 
+        "chest" : 1.1, 
+        "waist" : 1.1, 
+        "hips" : 1.1
+    }, 
+    "small" : {
+        "price" : "", 
+        "available" : false, 
+        "quantity" : 0.0, 
+        "chest" : 1.1, 
+        "waist" : 1.1, 
+        "hips" : 1.1
+    }, 
+    "color" : ""
+}

@@ -6,17 +6,40 @@ const cors = require('cors');
 const userRoute = require("./routes/user");
 
 const app = express();
+const CONNECTION_URL = "mongodb+srv://dulip:dulip123@cluster0-gwlhh.mongodb.net/tryondb?retryWrites=true";
+const mongoLocal = 'mongodb://localhost:27017/tryondb';
 
+/*const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://dulip:<password>@cluster0-gwlhh.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, {
+  useNewUrlParser: true
+});
+*/
+con = 0;
 mongoose
-  .connect('mongodb://localhost:27017/tryondb', {
+  .connect(CONNECTION_URL, {
     useNewUrlParser: true
   })
   .then(() => {
-    console.log("connected to the database");
+    con = 1;
+    console.log("connected to the remote database");
   })
   .catch(() => {
-    console.log("connection failed");
+    console.log("connection failed to the remote server");
   })
+
+if (con != 1) {
+  mongoose
+    .connect(mongoLocal, {
+      useNewUrlParser: true
+    })
+    .then(() => {
+      console.log("connected to the local database");
+    })
+    .catch(() => {
+      console.log("connection failed to the local server");
+    })
+}
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({

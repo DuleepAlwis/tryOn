@@ -1,14 +1,15 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-1"></div>
+    <div class="col-md-3"></div>
     <div class="col-md-7">
-      <h1>Men's items</h1>
+      <h1>{{ this.title }}</h1>
     </div>
     <div class="col-md-4"></div>
   </div>
   <div class="row">
-    <form>
+    <!--<form>
       <div class="form-row">
+        <div class="col-md-3"></div>
         <div class="form-group col-md-6">
           <label for="inputEmail4">Description</label>
           <input type="text" class="form-control" id="inputEmail4" placeholder="">
@@ -16,20 +17,164 @@
 
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
+        <div class="col-md-3"></div>
+        <div class="form-group col-md-5">
           <label for="inputEmail4">
             <h3>Sizes</h3>
           </label>
-          <ul>
-            <li>Small : <input type="number" min="0"> - <input type="number" min="0"></li>
-            <li>Medium : <input type="number" min="0"> - <input type="number" min="0"></li>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+        </div>
+        <div class="form-group col-md-3">
+          Small :
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" class="form-control" min="0">
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" class="form-control" min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+        </div>
+        <div class="form-group col-md-3">
+          Medium :
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" class="form-control" min="0">
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" class="form-control" min="0">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-3">
+        </div>
+        <div class="form-group col-md-3">
+          Large :
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" class="form-control" min="0">
+        </div>
+        <div class="form-group col-md-2">
+          <input type="number" class="form-control" min="0">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-3">
+        </div>
+        <div class="form-group col-md-3">
+          <button type="submit" class="btn btn-primary">Save</button>
 
-            <li>Large : <input type="number" min="0"> - <input type="number" min="0"></li>
-          </ul>
+        </div>
+        <div class="form-group col-md-3">
+          <button type="reset" class="btn btn-primary">Clear</button>
+
+        </div>
+      </div>
+    </form>-->
+    <div class="col-md-1"></div>
+    <div class="col-md-8">
+      <form [formGroup]="form">
+        <label for="inputEmail4">Description</label>
+        <input type="text" class="form-control" id="inputEmail4" placeholder="" formControlName="description">
+        <table class="table table-bordered">
+          <h5>Measurements</h5>
+          <tr>
+            <th>#</th>
+            <th colspan="2" class="text-center table-light">Chest(cm)</th>
+            <th colspan="2" class="text-center">Waist(cm)</th>
+            <th colspan="2" class="text-center">Hips(cm)</th>
+            <th class="text-center">Quantity</th>
+            <th class="text-center">Price(RS.)</th>
+
+          </tr>
+          <tr>
+            <td>Small</td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSC1" value="0">
+            </td>
+            <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSC2" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSW1" value="0">
+            </td>
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementSW2"
+                value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSH1" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSH2" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSQ" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSP" value="0">
+            </td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementMC1"
+                value="0">
+            </td>
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementMC2"
+                value="0">
+            </td>
+
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementMW1"
+                value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMW2" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMH1" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMH2" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMQ" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMP" value="0">
+            </td>
+          </tr>
+          <tr>
+            <td>Large</td>
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementLC1"
+                value="0">
+            </td>
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementLC2"
+                value="0">
+            </td>
+
+            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementLW1"
+                value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLW2" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLH1" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLH2" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLQ" value="0">
+            </td>
+            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLP" value="0">
+            </td>
+          </tr>
+        </table>
+        <div class="form-row">
+
+          <div class="form-group col-md-1"></div>
+          <div class="form-group col-md-3">
+            <input type="submit" class="btn btn-primary" value="Save">
+          </div>
+          <div class="form-group col-md-1"></div>
+
+          <div class="form-group col-md-3">
+            <input type="reset" class="btn btn-primary" value="Cancel">
+          </div>
         </div>
 
-      </div>
-      <button type="submit" class="btn btn-primary">Sign in</button>
-    </form>
+
+      </form>
+    </div>
   </div>
 </div>
