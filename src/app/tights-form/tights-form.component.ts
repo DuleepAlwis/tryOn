@@ -4,12 +4,13 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { ProductService } from "../services/product.service";
 import { Cloth } from "../modules/Cloth";
+
 @Component({
-  selector: "app-men-suits-form",
-  templateUrl: "./men-suits-form.component.html",
-  styleUrls: ["./men-suits-form.component.css"]
+  selector: "app-tights-form",
+  templateUrl: "./tights-form.component.html",
+  styleUrls: ["./tights-form.component.css"]
 })
-export class MenSuitsFormComponent implements OnInit {
+export class TightsFormComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl("", Validators.required),
     MeasurementSC1: new FormControl("", Validators.required),
@@ -39,6 +40,7 @@ export class MenSuitsFormComponent implements OnInit {
   });
 
   title: string;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private productService: ProductService
@@ -52,7 +54,7 @@ export class MenSuitsFormComponent implements OnInit {
     });
   }
 
-  addCloth() {
+  addTights() {
     const cloth: Cloth = {
       category: this.title,
       name: this.form.get("name").value,
@@ -82,6 +84,6 @@ export class MenSuitsFormComponent implements OnInit {
       MeasurementLP: this.form.get("MeasurementLP").value
     };
 
-    this.productService.addClothes(cloth);
+    this.productService.addTights(cloth);
   }
 }

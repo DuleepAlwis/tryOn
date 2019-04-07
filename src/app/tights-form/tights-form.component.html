@@ -1,4 +1,4 @@
-<div class="container-fluid bg-light">
+<div class="container-fluid ">
   <div class="row">
     <div class="col-md-3"></div>
     <div class="col-md-7">
@@ -78,14 +78,14 @@
     </form>-->
     <div class="col-md-1"></div>
     <div class="col-md-8">
-      <form [formGroup]="form" (submit)="addCloth()">
+      <form [formGroup]="form" (submit)="addTights()">
         <label for="inputEmail4">Description</label>
         <input type="text" class="form-control mb-3" id="inputEmail4" placeholder="" formControlName="name">
-        <table class="table table-bordered rounded" style="background-color:LightBlue">
+        <table class="table table-bordered text-black rounded" style="background-color:LightBlue">
           <h5><b>Measurements</b></h5>
           <tr>
             <th>#</th>
-            <th colspan="2" class="text-center">Chest(cm)</th>
+            <th colspan="2" class="text-center">Height(cm)</th>
             <th colspan="2" class="text-center">Waist(cm)</th>
             <th colspan="2" class="text-center">Hips(cm)</th>
             <th class="text-center">Quantity</th>

@@ -1,31 +1,7 @@
-{ 
-    "_id" : ObjectId("5c84c62603a2526a9ee29a7c"), 
-    "name" : "", 
-    "large" : {
-        "price" : "", 
-        "available" : false, 
-        "quantity" : 0.0, 
-        "chest" : [
-            NumberLong(88), 
-            NumberLong(90)
-        ], 
-        "waist" : 1.1, 
-        "hips" : 1.1
-    }, 
-    "medium" : {
-        "price" : "", 
-        "available" : false, 
-        "chest" : 1.1, 
-        "waist" : 1.1, 
-        "hips" : 1.1
-    }, 
-    "small" : {
-        "price" : "", 
-        "available" : false, 
-        "quantity" : 0.0, 
-        "chest" : 1.1, 
-        "waist" : 1.1, 
-        "hips" : 1.1
-    }, 
-    "color" : ""
-}
+{"_id":{"$oid":"5c84c62603a2526a9ee29a7c"},"name":"","category":"","large":{"price":"","available":false,"quantity":{"$numberInt":"0"},"chest":[{"$numberInt":"88"},{"$numberDouble":"9.1"}],"waist":[{"$numberInt":"0"},{"$numberInt":"1"}],"hips":[{"$numberInt":"0"},{"$numberInt":"1"}]},"medium":{"price":"","available":false,"chest":[{"$numberInt":"0"},{"$numberInt":"1"}],"waist":[{"$numberInt":"0"},{"$numberInt":"1"}],"hips":[{"$numberInt":"1"},{"$numberInt":"1"}]},"small":{"price":"","available":false,"quantity":{"$numberInt":"0"},"chest":[{"$numberInt":"0"},{"$numberInt":"1"}],"waist":[{"$numberInt":"0"},{"$numberInt":"1"}],"hips":[{"$numberInt":"0"},{"$numberInt":"1"}]},"color":[""]}
+{"_id":{"$oid":"5c9775df47bbbf3e9c853f0b"},"color":[],"category":"T-Shirts","large":{"chest":[{"$numberInt":"85"},{"$numberInt":"91"}],"weist":[{"$numberInt":"85"},{"$numberInt":"91"}],"hips":[{"$numberInt":"85"},{"$numberInt":"91"}]},"medium":{"chest":[{"$numberInt":"81"},{"$numberInt":"83"}],"weist":[{"$numberInt":"81"},{"$numberInt":"83"}],"hips":[{"$numberInt":"81"},{"$numberInt":"83"}]},"small":{"chest":[{"$numberInt":"77"},{"$numberInt":"81"}],"weist":[{"$numberInt":"77"},{"$numberInt":"81"}],"hips":[{"$numberInt":"77"},{"$numberInt":"81"}]},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c9776e647bbbf3e9c853f0c"},"color":[],"name":"","category":"T-Shirts","large":{"chest":[{"$numberInt":"81"},{"$numberInt":"87"}],"weist":[{"$numberInt":"81"},{"$numberInt":"87"}],"hips":[{"$numberInt":"81"},{"$numberInt":"87"}]},"medium":{"chest":[{"$numberInt":"79"},{"$numberInt":"83"}],"weist":[{"$numberInt":"79"},{"$numberInt":"83"}],"hips":[{"$numberInt":"79"},{"$numberInt":"83"}]},"small":{"chest":[{"$numberInt":"77"},{"$numberInt":"81"}],"weist":[{"$numberInt":"77"},{"$numberInt":"81"}],"hips":[{"$numberInt":"77"},{"$numberInt":"81"}]},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c979fa55760125038e61d17"},"color":[],"name":null,"category":"T-Shirts","large":{"price":{"$numberInt":"91"},"quantity":{"$numberInt":"89"},"chest":[{"$numberInt":"89"},{"$numberInt":"91"}],"weist":[{"$numberInt":"89"},{"$numberInt":"91"}],"hips":[{"$numberInt":"89"},{"$numberInt":"91"}]},"medium":{"price":{"$numberInt":"250"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"82"},{"$numberInt":"87"}],"weist":[{"$numberInt":"82"},{"$numberInt":"87"}],"hips":[{"$numberInt":"82"},{"$numberInt":"87"}]},"small":{"price":{"$numberInt":"155"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"77"},{"$numberInt":"81"}],"weist":[{"$numberInt":"77"},{"$numberInt":"81"}],"hips":[{"$numberInt":"77"},{"$numberInt":"81"}]},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c979ffdf5c1fa51f8146b52"},"color":[],"name":null,"category":"T-Shirts","large":{"price":{"$numberInt":"91"},"quantity":{"$numberInt":"89"},"chest":[{"$numberInt":"89"},{"$numberInt":"91"}],"weist":[{"$numberInt":"89"},{"$numberInt":"91"}],"hips":[{"$numberInt":"89"},{"$numberInt":"91"}]},"medium":{"price":{"$numberInt":"250"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"82"},{"$numberInt":"87"}],"weist":[{"$numberInt":"82"},{"$numberInt":"87"}],"hips":[{"$numberInt":"82"},{"$numberInt":"87"}]},"small":{"price":{"$numberInt":"155"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"77"},{"$numberInt":"81"}],"weist":[{"$numberInt":"77"},{"$numberInt":"81"}],"hips":[{"$numberInt":"77"},{"$numberInt":"81"}]},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c97a074f5c1fa51f8146b53"},"color":[],"name":"","category":"T-Shirts","large":{"price":{"$numberInt":"350"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"88"},{"$numberInt":"91"}],"weist":[{"$numberInt":"88"},{"$numberInt":"91"}],"hips":[{"$numberInt":"88"},{"$numberInt":"91"}]},"medium":{"price":{"$numberInt":"250"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"82"},{"$numberInt":"87"}],"weist":[{"$numberInt":"82"},{"$numberInt":"87"}],"hips":[{"$numberInt":"82"},{"$numberInt":"87"}]},"small":{"price":{"$numberInt":"155"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"77"},{"$numberInt":"81"}],"weist":[{"$numberInt":"77"},{"$numberInt":"81"}],"hips":[{"$numberInt":"77"},{"$numberInt":"81"}]},"__v":{"$numberInt":"0"}}
+{"_id":{"$oid":"5c97a09af5c1fa51f8146b54"},"color":[],"name":"AAA","category":"T-Shirts","large":{"price":{"$numberInt":"350"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"88"},{"$numberInt":"91"}],"weist":[{"$numberInt":"88"},{"$numberInt":"91"}],"hips":[{"$numberInt":"88"},{"$numberInt":"91"}]},"medium":{"price":{"$numberInt":"250"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"82"},{"$numberInt":"87"}],"weist":[{"$numberInt":"82"},{"$numberInt":"87"}],"hips":[{"$numberInt":"82"},{"$numberInt":"87"}]},"small":{"price":{"$numberInt":"155"},"quantity":{"$numberInt":"57"},"chest":[{"$numberInt":"77"},{"$numberInt":"81"}],"weist":[{"$numberInt":"77"},{"$numberInt":"81"}],"hips":[{"$numberInt":"77"},{"$numberInt":"81"}]},"__v":{"$numberInt":"0"}}

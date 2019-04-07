@@ -1,13 +1,12 @@
 <app-receptionist-navigation></app-receptionist-navigation>
+<h3 class="mt-3 ml-3">Edit product details</h3>
 <nav aria-label="breadcrumb" class="mt-5">
   <ol class="breadcrumb">
-   <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/suitform',items[1]]">Shirts </a> </li>
+    <li class="breadcrumb-item"> <a [routerLink]="">T-shirts</a></li>
+    <li class="breadcrumb-item"><a [routerLink]="['/Receptionistproductedit/suitform',items[1]]">Shirts </a> </li>
     <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/tightsform',items[2]]">Trousers</a></li>
     <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/tightsform',items[3]]">Shorts</a></li>
     <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/suitform',items[4]]">Sarees</a></li>
     <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/accessoriesform','Accessories']">Accessories</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="[{ outlets: { addProduts: ['/Receptionist/suitform',items[1]] }}]">Example</a></li>
-    <a [routerLink]="[{ outlets: { primary:['Receptionist'],addProducts: ['aaa'] }}]">Contact</a>
-    <a routerLink="/aaa">Contact1</a>
   </ol>
 </nav>

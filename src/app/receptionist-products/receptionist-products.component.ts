@@ -13,7 +13,9 @@ export class ReceptionistProductsComponent implements OnInit {
     "Shorts",
     "Sarees",
     "Belts",
-    "Ties"
+    "Caps",
+    "Gloves",
+    "HandBags"
   ];
   constructor() {}
 
