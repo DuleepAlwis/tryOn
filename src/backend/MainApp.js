@@ -15,7 +15,7 @@ const client = new MongoClient(uri, {
   useNewUrlParser: true
 });
 */
-con = 0;
+let con = 0;
 mongoose
   .connect(CONNECTION_URL, {
     useNewUrlParser: true
@@ -24,22 +24,25 @@ mongoose
     con = 1;
     console.log("connected to the remote database");
   })
-  .catch(() => {
+  .catch((err) => {
+    console.log(err.message);
     console.log("connection failed to the remote server");
   })
 
-if (con != 1) {
-  mongoose
-    .connect(mongoLocal, {
-      useNewUrlParser: true
-    })
-    .then(() => {
-      console.log("connected to the local database");
-    })
-    .catch(() => {
-      console.log("connection failed to the local server");
-    })
-}
+setTimeout(() => {
+  if (con != 1) {
+    mongoose
+      .connect(mongoLocal, {
+        useNewUrlParser: true
+      })
+      .then(() => {
+        console.log("connected to the local database");
+      })
+      .catch(() => {
+        console.log("connection failed to the local server");
+      })
+  }
+}, 7000);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -73,5 +76,8 @@ app.post("/api/user/login1", (req, res, next) => {
 
 app.use("/api/user", userRoute);
 app.use("/api/customer", userRoute);
+app.use("/api/clothes", productRoute);
+app.use("/api/clothes", productRoute);
+app.use("/api/Accessories", productRoute);
 console.log("aaa");
 module.exports = app;

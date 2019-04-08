@@ -77,6 +77,7 @@ router.post("/login", (req, res, next) => {
       }, "sercet string this", {
         expiresIn: "1h"
       });
+      console.log(token);
       res.status(200).json({
         token: token
       });

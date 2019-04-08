@@ -1,0 +1,61 @@
+{ 
+    "_id" : ObjectId("5c84c82c03a2526a9ee29a7d"), 
+    "type" : "clothing", 
+    "large" : {
+        "chest" : 96.0, 
+        "waist" : 76.0, 
+        "hips" : 104.0
+    }, 
+    "medium" : {
+        "chest" : 90.0, 
+        "waist" : 70.0, 
+        "hips" : 98.0
+    }, 
+    "small" : {
+        "chest" : 86.0, 
+        "waist" : 66.0, 
+        "hips" : 94.0
+    }
+}
+{ 
+    "_id" : ObjectId("5c84ca9603a2526a9ee29a7e"), 
+    "type" : "belts", 
+    "large" : {
+        "size" : 90.0
+    }, 
+    "medium" : {
+        "size" : 85.0
+    }, 
+    "small" : {
+        "size" : 80.0
+    }
+}
+{ 
+    "_id" : ObjectId("5c84cacb03a2526a9ee29a7f"), 
+    "type" : "gloves", 
+    "large" : {
+        "size" : 20.0
+    }, 
+    "medium" : {
+        "size" : 18.0
+    }
+}
+{ 
+    "_id" : ObjectId("5c84cc7a03a2526a9ee29a80"), 
+    "type" : "tights", 
+    "large" : {
+        "height" : 175.0, 
+        "weight" : 70.0, 
+        "hips" : 102.0
+    }, 
+    "medium" : {
+        "height" : 165.0, 
+        "weight" : 55.0, 
+        "hips" : 98.0
+    }, 
+    "small" : {
+        "height" : 150.0, 
+        "weight" : 40.0, 
+        "hips" : 94.0
+    }
+}

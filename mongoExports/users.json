@@ -1,0 +1,33 @@
+{ 
+    "_id" : ObjectId("5c8410f94dd3b12412b7f76e"), 
+    "email" : "aaa", 
+    "password" : "aaa", 
+    "role" : "A"
+}
+{ 
+    "_id" : ObjectId("5c84c0b103a2526a9ee29a7b"), 
+    "email" : "", 
+    "password" : "", 
+    "role" : "", 
+    "info" : {
+        "name" : "", 
+        "address" : "", 
+        "city" : "", 
+        "district" : "", 
+        "mobileno" : ""
+    }
+}
+{ 
+    "_id" : ObjectId("5c92a72674342d2d747aef33"), 
+    "email" : "alex@gmail.com", 
+    "password" : "b75bd008d5fecb1f50cf026532e8ae67", 
+    "role" : "C", 
+    "info" : {
+        "name" : "Alex", 
+        "address" : "11A", 
+        "city" : "CCC", 
+        "district" : "Any", 
+        "mobileno" : "0715896324"
+    }, 
+    "__v" : NumberInt(0)
+}

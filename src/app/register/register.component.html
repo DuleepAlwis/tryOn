@@ -3,16 +3,18 @@
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-7">
-      <h3 style="text-align: center">Register as a customer and enjoy more benifits</h3>
+      <h3 style="text-align: center">
+        Register as a customer and enjoy more benifits
+      </h3>
     </div>
     <div class="col-md-4"></div>
   </div>
 
   <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    <div class="col-md-2"></div>
+    <div class="col-md-6">
       <div class="border-light" style="border: 7px">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (submit)="signup()">
           <div class="form-row">
             <div class="form-group col-md-7">
               <label for="inputName">Name</label>
@@ -22,7 +24,8 @@
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputAddress">Address</label>
-              <input type="type" class="form-control" id="inputAddress" formControlName="address" placeholder="11A,AAA Rd">
+              <input type="type" class="form-control" id="inputAddress" formControlName="address"
+                placeholder="11A,AAA Rd">
             </div>
             <div class="form-group col-md-4">
               <label for="inputCity">City</label>
@@ -38,11 +41,21 @@
           <div class="form-row">
             <div class="form-group col-md-4">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="abc@gmail.com">
+              <input type="email" class="form-control" id="inputEmail" formControlName="email"
+                placeholder="abc@gmail.com">
             </div>
             <div class="form-group col-md-4">
               <label for="inputMobile">Mobile Number</label>
-              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno" placeholder="0715896321">
+              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno"
+                placeholder="0715896321">
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputGender">Gender</label>
+              <select class="form-control" id="inputGender" formControlName="gender">
+                <option>Male</option>
+                <option>Female</option>
+
+              </select>
             </div>
           </div>
           <div class="form-row">
@@ -52,9 +65,8 @@
             </div>
           </div>
 
-
-          <input type="submit" class="btn btn-primary mr-5" value="Sign in"><input type="reset" class="btn btn-primary"
-            value="Cancel">
+          <input type="submit" class="btn btn-primary mr-5" value="Sign Up">
+          <input type="reset" class="btn btn-primary" value="Cancel">
         </form>
       </div>
     </div>

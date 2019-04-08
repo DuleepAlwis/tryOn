@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
-
+import { AuthService } from "../services/auth.service";
 @Component({
   selector: "app-home-navigation",
   templateUrl: "./home-navigation.component.html",
@@ -12,11 +12,21 @@ export class HomeNavigationComponent implements OnInit {
     password: new FormControl("", [Validators.required])
   });
 
-  constructor() {}
+  private loggedin: boolean;
+  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
   login() {
+    this.authService.login(
+      this.form.get("email").value,
+      this.form.get("password").value
+    );
+
     console.log(this.form.get("email").value + "123");
+  }
+
+  isLoggedIn() {
+    return this.loggedin;
   }
 }
