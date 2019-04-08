@@ -1,5 +1,4 @@
-
-  <div class="social_icon">
+ <div class="social_icon">
 		<div class="container">
 			<div class="icon">
 				<a href="https://www.facebook.com"><img src="../../assets/img/icon1.png"></a>
@@ -8,7 +7,7 @@
 			</div>
 			<div class="header_right">
         <!-- login -->
-      <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
         <ul class="navbar-nav">
           <ng-template #anonymousUser>
               <li class="nav-item">
@@ -26,7 +25,7 @@
                   aria-expanded="false">
                   {{ appUser.name || 'Username' }} 
               </a>
-              <div 
+              <div>
                   class="dropdown-menu" 
                   aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
@@ -37,13 +36,14 @@
                   <a class="dropdown-item logout" (click)="logout()">Logout</a>
               </div>
           </li>
-
+        </ul>
+      </div>
+    </div>
 	</div>
 <!-- header -->
 	<div class="header">
 		<div class="logo">
-      <img src="../../assets/img/try.PNGnng serve
-      ">
+      <img src="../../assets/img/try.PNG serve">
 		</div>
     <ul class="navbar">
       <!-- Search -->
