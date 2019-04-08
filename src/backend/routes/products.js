@@ -199,4 +199,36 @@ router.post("/AddHandBags", (req, res, next) => {
       });
     });
 });
+
+router.post("/getAllClothes", (req, res, next) => {
+  //const clothes = new Clothes();
+  console.log("AAA");
+  let message = 0;
+  Clothes.find({}, (err, clothItems) => {
+    console.log(clothItems);
+    if (clothItems.length > 0) {
+      message = clothItems.length;
+    }
+    res.status(200).json({
+      message: message,
+      result: clothItems
+    })
+  })
+})
+
+router.post("/getAllBelts", (req, res, next) => {
+  //const clothes = new Clothes();
+  console.log("AAA");
+  let message = 0;
+  Belts.find({}, (err, beltItems) => {
+    //console.log(clothItems);
+    if (beltItems.length > 0) {
+      message = beltItems.length;
+    }
+    res.status(200).json({
+      message: message,
+      result: beltItems
+    })
+  })
+})
 module.exports = router;
