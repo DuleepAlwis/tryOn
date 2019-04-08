@@ -107,4 +107,18 @@ export class ProductService {
         }
       });
   }
+
+  getAllClothes() {
+    return this.http.post<{ message: Number; result: Array<Object> }>(
+      this.url + "/api/clothes/getAllClothes",
+      {}
+    );
+  }
+
+  getAllBelts() {
+    return this.http.post<{ message: Number; result: Array<Object> }>(
+      this.url + "/api/clothes/getAllBelts",
+      {}
+    );
+  }
 }

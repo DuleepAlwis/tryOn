@@ -77,7 +77,6 @@ app.post("/api/user/login1", (req, res, next) => {
 app.use("/api/user", userRoute);
 app.use("/api/customer", userRoute);
 app.use("/api/clothes", productRoute);
-app.use("/api/clothes", productRoute);
 app.use("/api/Accessories", productRoute);
 console.log("aaa");
 module.exports = app;

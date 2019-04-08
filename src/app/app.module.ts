@@ -11,27 +11,27 @@ import { AuthService } from "./services/auth.service";
 import { ProductService } from "./services/product.service";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { HttpClientModule } from "@angular/common/http";
-import { ReceptionistNavigationComponent } from "./receptionist-navigation/receptionist-navigation.component";
+//import { ReceptionistNavigationComponent } from "./receptionist-navigation/receptionist-navigation.component";
 import { ProductsComponent } from "./products/products.component";
-import { ReceptionistProductsComponent } from "./receptionist-products/receptionist-products.component";
-import { MenSuitsFormComponent } from "./men-suits-form/men-suits-form.component";
+//import { ReceptionistProductsComponent } from "./receptionist-products/receptionist-products.component";
+/*import { MenSuitsFormComponent } from "./men-suits-form/men-suits-form.component";
 import { TightsFormComponent } from "./tights-form/tights-form.component";
-import { AccessoriesFormComponent } from "./accessories-form/accessories-form.component";
-import { ReceprionistProductsEditComponent } from './receprionist-products-edit/receprionist-products-edit.component';
-import { ReceptionistProductsModule } from './receptionist-products/receptionist-products.module';
+import { AccessoriesFormComponent } from "./accessories-form/accessories-form.component";*/
+//import { ReceprionistProductsEditComponent } from "./receprionist-products-edit/receprionist-products-edit.component";
+import { ReceptionistProductsModule } from "./receptionist-products/receptionist-products.module";
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     RegisterComponent,
     HomeNavigationComponent,
-    ReceptionistNavigationComponent,
-    ProductsComponent,
-    ReceptionistProductsComponent,
-    MenSuitsFormComponent,
+    //ReceptionistNavigationComponent,
+    ProductsComponent
+    //ReceptionistProductsComponent,
+    /*MenSuitsFormComponent,
     TightsFormComponent,
-    AccessoriesFormComponent,
-    ReceprionistProductsEditComponent
+    AccessoriesFormComponent,*/
+    //ReceprionistProductsEditComponent
   ],
   imports: [
     BrowserModule,
@@ -53,12 +53,12 @@ import { ReceptionistProductsModule } from './receptionist-products/receptionist
       {
         component: ProductsComponent,
         path: "Products"
-      },
-      {
-        component:  ReceprionistProductsEditComponent,
-        path:"Receptionistproductedit"
-      },
-    /*  {
+      }
+      /*{
+        component: ReceprionistProductsEditComponent,
+        path: "Receptionistproductedit"
+      }
+      /*  {
         component: ReceptionistProductsComponent,
         path: "Receptionist",
         children: [
@@ -76,15 +76,14 @@ import { ReceptionistProductsModule } from './receptionist-products/receptionist
             component: AccessoriesFormComponent,
             path: "accessoriesform/:title"/*,
             outlet: "addProducts"*/
-        /*  }
+      /*  }
         ]
       },*/
-      {
-        path:'aaa',
-        component:TightsFormComponent,
-        outlet:"addProducts"
-      }
-
+      /*{
+        path: "aaa",
+        component: TightsFormComponent,
+        outlet: "addProducts"
+      }*/
     ])
   ],
   providers: [AuthService, ProductService],
