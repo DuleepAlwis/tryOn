@@ -1,0 +1,13 @@
+<app-receptionist-navigation></app-receptionist-navigation>
+<nav aria-label="breadcrumb" class="mt-5">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"> <a [routerLink]='[{ outlets: { receptionistProducts: ["mensform"] } }]'>T-shirts</a></li>
+    <li class="breadcrumb-item"><a href="#">Shirts</a></li>
+    <li class="breadcrumb-item"><a href="#">Trousers</a></li>
+    <li class="breadcrumb-item"><a href="#">Shorts</a></li>
+    <li class="breadcrumb-item"><a href="#">Sarees</a></li>
+    <li class="breadcrumb-item"><a href="#">Belts</a></li>
+    <li class="breadcrumb-item"><a href="#">Ties</a></li>
+  </ol>
+</nav>
+<router-outlet name="receptionistProducts"></router-outlet>

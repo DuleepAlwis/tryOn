@@ -32,11 +32,12 @@ body{
 	width: 100%;
 	height: auto;
 }
-.topleft {
+.slide_topleft {
   position: absolute;
-  top: 8px;
+  top: 100px;
   left: 16px;
-  font-size: 18px;
+  font-size: 50px;
+  color:whitesmoke;
 }
 .slide_center {
 	position: absolute;
@@ -47,19 +48,23 @@ body{
 	color:whitesmoke;
   }
   .slide_button {
-	background-color: white; 
-  	color: black; 
-  	border: 2px solid #4CAF50;
-	padding: 15px 32px;
-	text-align: center;
-	text-decoration: none;
-	display: inline-block;
-	font-size: 16px;
-	margin: 4px 2px;
-	cursor: pointer;
+	position: absolute;
 	top: 75%;
-	left: 45%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	background-color: white;
+	color: #555;
+	font-size: 16px;
+	padding: 12px 24px;
+	border: none;
+	cursor: pointer;
+	border-radius: 5px;
+	text-align: center;
+	opacity: 0.5;
+	border: 2px solid #555555;
   }
+ 
 .center{
 	position: relative;
 	left: 0;
@@ -149,15 +154,41 @@ body{
 .event_section .event_two h3{
 	color: white;
 }
-
-
 .img_section{
   
 	display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	width: 75%;
+	height: auto;
+	opacity: 1;
+	transition: .5s ease;
+	backface-visibility: hidden;
+  }
+
+.event_middle {
+	transition: .5s ease;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%)
+  }
+
+.img_section:hover  {
+	opacity: 0.3;
+  }
+.img_section:hover .event_middle {
+	opacity: 1;
 }
+.text {
+	background-color: #4CAF50;
+	color: white;
+	font-size: 16px;
+	padding: 16px 32px;
+  }
+ 
 .product{
 	width: 100%;
 	height: auto;

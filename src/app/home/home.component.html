@@ -11,24 +11,26 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="img-box">
-						<img class="d-block w-100" src="../../assets/img/casa2.jpg" alt="First slide" style="width:100%;height:600px">
-						<div class="slide_button">SHOP NOW</div>
-						<!-- <div class="slide_center">30% off on Every Bill more than $30 </div> -->
+						<img class="d-block w-100" src="../../assets/img/test2.jpg" alt="First slide" style="width:100%;height:600px">
+							<div class="slide_button" button (click)="viewProducts()">SHOP NOW</div>
+						<div class="slide_topleft" style="color:black">Enjoy all the <br><b>SEASONAL</b> offers! </div>
 					</div>
         </div>
         <div class="carousel-item img-box">
           <div class="img-box">
 						<img class="d-block w-100" src="../../assets/img/casa1.jpg" alt="Second slide" style="width:100%;height:600px">
-						<div class="topleft">Top Left</div>
+							<div class="slide_button" style="left:10%" button (click)="createModel()">DESIGN MODEL</div>
+						<div class="slide_topleft">Get a <i>PERSONALIZED</i> <br>2D model for <br> your body<br> measurments</div>
           </div>
         </div>
         <div class="carousel-item">
           <div class="img-box">
-            <img class="d-block w-100" src="../../assets/img/casa3.jpg" alt="Third slide" style="width:100%;height:600px">
+						<img class="d-block w-100" src="../../assets/img/test3.jpg" alt="Third slide" style="width:100%;height:600px">
+						<div class="slide_topleft">FORGET THE RULES <br><i>If you like it.Wear it</i> </div>
           </div>
         </div>
       </div>
-  </div>
+	</div>
   
   <div class="welcome_text">
 		<div class="container">
@@ -43,7 +45,10 @@
 				<h3>GET YOUR PERSONALIZED 2D MODEL</h3>
         <p> Generate a 2D model for the measurments of your body</p>
         <div class="img_section">
-            <img src="../../assets/img/chart1.jpg">
+						<img src="../../assets/img/chart1.jpg">
+							<div class="event_middle">
+								<div class="text">John Doe</div>
+							</div>
         </div>		
       </div>
 
@@ -51,7 +56,10 @@
 				<h3>PICK UP THE BEST APPARELS FOR YOUR DESIRE</h3>
         <p>Choose the apparels fix with your body shape and desire</p>
         <div class="img_section">
-            <img src="../../assets/img/apparel.png">
+					<img src="../../assets/img/apparel.png">
+						<div class="event_middle">
+								<div class="text">John Doe</div>
+							</div>
         </div>  
 			</div>
 
@@ -59,7 +67,10 @@
 				<h3>ENJOY THE UTMOST ONLINE SHOOPING</h3>
         <p>You can always find something really want</p>
        <div class="img_section">
-            <img src="../../assets/img/online.png">
+						<img src="../../assets/img/online.png">
+							<div class="event_middle">
+								<div class="text">John Doe</div>
+							</div>
         </div>  
 			</div>
 		</div>
@@ -372,7 +383,8 @@
 		</div>
 	</div>
 
-</div><!--main-->
+</div> 
+<!-- main -->
 
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="js/jquery.cycle.all.js"></script>

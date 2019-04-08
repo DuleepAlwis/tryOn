@@ -30,7 +30,7 @@
 	float: left;
 }
 .header_right{
-	width: 300px;
+	width: 10px;
 	height: auto;
 	float: right;
 }
@@ -74,16 +74,16 @@
 	float: left;
 }
 .navbar{
-	width: 800px;
-	float: left;
+	width: 700px;
+	/* float: right; */
 	text-align: right;
-	padding-top: 25px;
-	padding-bottom: 20px;
+	padding-top: 15px;
+	padding-bottom: 10px;
 }
 .navbar a{
 	display: inline-block;
-	color: black;
-	padding: 0 10px;
+	/* color: black; */
+	padding: 0 20px; 
 	text-decoration: none;
 	font-weight: bold;
 }
