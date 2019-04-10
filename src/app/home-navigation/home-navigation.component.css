@@ -32,7 +32,7 @@
 .header_right{
 	width: 10px;
 	height: auto;
-	float: right;
+	/* float: right; */
 }
 .login_register_btn a{
 	display: block;
@@ -74,16 +74,16 @@
 	float: left;
 }
 .navbar{
-	width: 700px;
-	/* float: right; */
-	text-align: right;
-	padding-top: 15px;
-	padding-bottom: 10px;
+	/* width: 1500px; */
+	/* float :left; */
+	text-align: left;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 .navbar a{
 	display: inline-block;
 	/* color: black; */
-	padding: 0 20px; 
+	padding: 10px 20px; 
 	text-decoration: none;
 	font-weight: bold;
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
+
 @Component({
   selector: "app-home-navigation",
   templateUrl: "./home-navigation.component.html",
@@ -30,3 +31,4 @@ export class HomeNavigationComponent implements OnInit {
     return this.loggedin;
   }
 }
+
