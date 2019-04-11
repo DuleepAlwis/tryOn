@@ -1,74 +1,110 @@
-<app-home-navigation></app-home-navigation>
-<div class="container-fluid bg-light">
-  <div class="row">
+<!-- <app-home-navigation></app-home-navigation> -->
+<!-- <div class="container-fluid bg-light"> -->
+<div class="row">
+  <div class="logo">
+    <img src="../../assets/img/try.PNG ">
+  </div>
     <div class="col-md-1"></div>
-    <div class="col-md-7">
+    <div class="col-md-8">
       <h3 style="text-align: center">
-        Register as a customer and enjoy more benifits
+        <b><i><span style="background-color:black;color: white">Register</span></i></b> and enjoy more Benefits!
       </h3>
     </div>
-    <div class="col-md-4"></div>
   </div>
-
+<!-- <div class="container"> -->
   <div class="row">
-    <div class="col-md-2"></div>
+    <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="border-light" style="border: 7px">
-        <form [formGroup]="form" (submit)="signup()">
+        <form [formGroup]="form" (submit)="signup()"> 
           <div class="form-row">
-            <div class="form-group col-md-7">
-              <label for="inputName">Name</label>
-              <input type="text" class="form-control" id="inputName" formControlName="name" placeholder="Name">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="inputAddress">Address</label>
-              <input type="type" class="form-control" id="inputAddress" formControlName="address"
-                placeholder="11A,AAA Rd">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity" formControlName="city" placeholder="City">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputCity">District</label>
-              <select class="form-control" id="inputDistrict" formControlName="district">
-                <option>Any</option>
-              </select>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
+            <div class="form-group col-md-6">
               <label for="inputEmail">Email</label>
-              <input type="email" class="form-control" id="inputEmail" formControlName="email"
-                placeholder="abc@gmail.com">
+                <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="abc@gmail.com">
+                <span style=color:red;font-size:12px *ngIf="!form.get('email').valid && form.get('email').touched"
+                class="help-block">Please enter valid e-mail address</span>
             </div>
-            <div class="form-group col-md-4">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Password</label>
+              <input type="password" class="form-control" id="inputPassword" formControlName="password">
+              <span style=color:red;font-size:12px *ngIf="!form.get('password').valid && form.get('password').touched"
+                class="help-block">Please enter a valid password</span>
+            </div>
+            <!-- <div class="form-group col-md-1"></div> -->
+            <!-- <div class="form-group col-md-6">
+              <label for="inputrPassword">Repeat Password</label>
+              <input type="password" class="form-control" id="inputrPassword" formControlName="password">
+            </div> -->
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputfirstName">First Name</label>
+              <input type="text" class="form-control" id="inputfirstName" formControlName="firstName" placeholder="First Name">
+              <span style=color:red;font-size:12px *ngIf="!form.get('firstName').valid && form.get('firstName').touched"
+                class="help-block">Please enter a valid first name</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputlasttName">Last Name</label>
+              <input type="text" class="form-control" id="inputlasttName" formControlName="lastName" placeholder="Last Name">
+              <span style=color:red;font-size:12px *ngIf="!form.get('lastName').valid && form.get('lastName').touched"
+                class="help-block">Please enter a valid last name</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputAddress">Address </label>
+              <input type="type" class="form-control" id="inputAddress" formControlName="address" placeholder="Address Line 1">
+              <span style=color:red;font-size:12px *ngIf="!form.get('address').valid && form.get('address').touched"
+                class="help-block">Please enter a valid address</span>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputAdress2">Address (Line 2)</label>
+              <input type="text" class="form-control" id="inputAddress2" formControlName="address2" placeholder="Address Line 2">
+            </div>
+          </div>
+          <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputCity">City</label>
+                <input type="text" class="form-control" id="inputCity" formControlName="city" placeholder="City">
+                <span style=color:red;font-size:12px *ngIf="!form.get('city').valid && form.get('city').touched"
+                class="help-block">Please enter a valid city</span>
+              </div>
+                <div class="form-group col-md-6">
+                    <label for="inputCity">Province</label>
+                    <input type="text" class="form-control" id="inputProvince" formControlName="province" placeholder="province">
+                    <span style=color:red;font-size:12px *ngIf="!form.get('province').valid && form.get('province').touched"
+                    class="help-block">Please enter a valid province</span>
+                  </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
               <label for="inputMobile">Mobile Number</label>
-              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno"
-                placeholder="0715896321">
+              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno" placeholder="0715896321">
+              <span style=color:red;font-size:12px *ngIf="!form.get('mobileno').valid && form.get('mobieno').touched"
+                    class="help-block">Please enter a valid mobile Number</span>
             </div>
-            <div class="form-group col-md-2">
+            <div class="form-group col-md-6">
               <label for="inputGender">Gender</label>
               <select class="form-control" id="inputGender" formControlName="gender">
                 <option>Male</option>
                 <option>Female</option>
-
               </select>
             </div>
           </div>
           <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" formControlName="password">
-            </div>
+            <label class="container">I have read and understand the <u>Privacy and Cookies Policy</u>
+              <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
           </div>
-
-          <input type="submit" class="btn btn-primary mr-5" value="Sign Up">
-          <input type="reset" class="btn btn-primary" value="Cancel">
+          
+          <div class="form-row">
+            <input type="submit" class="btn btn-primary mr-5" value="Sign Up">
+          </div>  
         </form>
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->

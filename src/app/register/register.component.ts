@@ -10,24 +10,33 @@ import { Customer } from "../modules/Customer";
 })
 export class RegisterComponent implements OnInit {
   form = new FormGroup({
-    name: new FormControl("", [
+    firstName: new FormControl("", [
       Validators.required,
       Validators.pattern("A-Za-z")
     ]),
-    address: new FormControl("", [Validators.required]),
-    city: new FormControl("", [Validators.required]),
-    district: new FormControl("", [Validators.required]),
-    mobileno: new FormControl("", [Validators.required]),
+    lastName: new FormControl("", [
+      Validators.required,
+      Validators.pattern("A-Za-z")
+    ]),
     email: new FormControl("", [Validators.required, Validators.email]),
     password: new FormControl("", [Validators.required]),
+    address: new FormControl("", [Validators.required]),
+    address2: new FormControl(),
+    city: new FormControl("", [Validators.required]),
+    province: new FormControl("", [Validators.required]),
+    mobileno: new FormControl("", [Validators.required]),
     gender: new FormControl("", [Validators.required])
   });
   constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
-  nameInValid() {
-    return this.form.get("name").invalid;
+  firstNameInValid() {
+    return this.form.get("firstName").invalid;
+  }
+
+  lastNameInValid() {
+    return this.form.get("lasstName").invalid;
   }
 
   emailInValid() {
@@ -40,13 +49,13 @@ export class RegisterComponent implements OnInit {
 
   signup() {
     if (
-      !(this.nameInValid() && this.emailInValid() && this.passwordInValid())
+      !(this.firstNameInValid() && this.lastNameInValid() && this.emailInValid() && this.passwordInValid())
     ) {
       console.log(
-        this.form.get("name").value + " " + this.form.get("city").value
+        this.form.get("firstName").value + " " + this.form.get("city").value
       );
       let customer: Customer = {
-        name: this.form.get("name").value,
+        name: this.form.get("firstName").value,
         address: this.form.get("address").value,
         city: this.form.get("city").value,
         district: this.form.get("district").value,
@@ -58,5 +67,7 @@ export class RegisterComponent implements OnInit {
       console.log(customer);
       this.authService.signup(customer);
     }
-  }
+    // console.log(this.form);
+    
+   }
 }

@@ -19,6 +19,7 @@ import { TightsFormComponent } from "./tights-form/tights-form.component";
 import { AccessoriesFormComponent } from "./accessories-form/accessories-form.component";*/
 //import { ReceprionistProductsEditComponent } from "./receprionist-products-edit/receprionist-products-edit.component";
 import { ReceptionistProductsModule } from "./receptionist-products/receptionist-products.module";
+import { LoginComponent } from './login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { ReceptionistProductsModule } from "./receptionist-products/receptionist
     RegisterComponent,
     HomeNavigationComponent,
     //ReceptionistNavigationComponent,
-    ProductsComponent
+    ProductsComponent,
+    LoginComponent
     //ReceptionistProductsComponent,
     /*MenSuitsFormComponent,
     TightsFormComponent,
