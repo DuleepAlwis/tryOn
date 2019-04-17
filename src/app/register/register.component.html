@@ -2,7 +2,7 @@
 <!-- <div class="container-fluid bg-light"> -->
 <div class="row">
   <div class="logo">
-    <img src="../../assets/img/try.PNG ">
+    <img src="../../assets/img/logo1.PNG ">
   </div>
     <div class="col-md-1"></div>
     <div class="col-md-8">
@@ -20,9 +20,15 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" formControlName="email" placeholder="abc@gmail.com">
-                <span style=color:red;font-size:12px *ngIf="!form.get('email').valid && form.get('email').touched"
-                class="help-block">Please enter valid e-mail address</span>
+                <input type="email" class="form-control" id="inputEmail" formControlName="email" >
+                <span style=color:red;font-size:12px 
+                *ngIf="firstNameInValid() && form.get('email').touched"
+                class="help-block">Please enter valid e-mail address
+              </span>
+                <span style=color:red;font-size:12px 
+                *ngIf="!form.get('email').errors['required']"
+                class="help-block">This field is required</span>
+                
             </div>
           </div>
           <div class="form-row">
@@ -40,10 +46,11 @@
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputfirstName">First Name</label>
-              <input type="text" class="form-control" id="inputfirstName" formControlName="firstName" placeholder="First Name">
+               
               <span style=color:red;font-size:12px *ngIf="!form.get('firstName').valid && form.get('firstName').touched"
                 class="help-block">Please enter a valid first name</span>
+                <span style=color:red;font-size:12px *ngIf="form.get('firstName').errors['required']"
+                class="help-block">This field is required</span>
             </div>
             <div class="form-group col-md-6">
               <label for="inputlasttName">Last Name</label>
@@ -81,7 +88,7 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputMobile">Mobile Number</label>
-              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno" placeholder="0715896321">
+              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno" >
               <span style=color:red;font-size:12px *ngIf="!form.get('mobileno').valid && form.get('mobieno').touched"
                     class="help-block">Please enter a valid mobile Number</span>
             </div>
@@ -93,6 +100,11 @@
               </select>
             </div>
           </div>
+          
+            <a href="/measurements" routerLinkActive="active">Get your personalized model </a>
+          
+
+
           <div class="form-row">
             <label class="container">I have read and understand the <u>Privacy and Cookies Policy</u>
               <input type="checkbox">

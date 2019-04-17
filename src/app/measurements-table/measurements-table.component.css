@@ -1,0 +1,33 @@
+@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+/* .form-control {
+    border: 0;
+    border-bottom: 1px solid #ccc;
+  } */
+  .app-form__input, .customizer-form__input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    background-color: transparent;
+    width: 100%;
+    padding-bottom: 15px;
+    color: #888;
+    font-family: montserrat-light,Arial,sans-serif;
+    font-size: .875rem;
+    outline: none;
+}
+.app-form__select, .customizer-form__select, .select-like-input {
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+.dark-modal .modal-content {
+  background-color: #292b2c;
+  color: white;
+}
+.dark-modal .close {
+  color: white;
+}
+.light-blue-backdrop {
+  background-color: #5cb3fd;
+}

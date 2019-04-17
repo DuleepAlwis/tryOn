@@ -1,0 +1,83 @@
+<h1>Enter your measurements!</h1>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+      <div class="border-light" style="border: 8px">
+        <form [formGroup]="form" (submit)="signup()"> 
+          <div class="form-row">
+              <label for="inputNeck" style=color:#999 class="col-md-3 col-form-label">Neck</label>
+            <div class="form-group col-md-2">
+              <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputNeck" formControlName="neck" >
+            </div>
+            <div class="form-group col-md-2">cm</div>
+            <!-- <button class="btn btn-outline-primary mb-2 mr-2" (click)="open(content)">Small modal</button>
+            <div class="modal-body">
+                <img src="../../assets/img/neck.PNG " >
+            </div> -->
+            <!-- <a [routerLink]="../../assets/img/neck.PNG" skipLocationChange>click me</a> -->
+            <a href="../../assets/img/neck.PNG ">help</a>
+          </div>
+          <div class="form-row">
+            <label for="inputShoulder" style=color:#8fccc0 class="col-md-3 col-form-label">Shoulder width</label>
+            <div class="form-group col-md-2">
+              <input type="text" class="app-form__input app-form__select js-required p-b-0 error"  id="inputShoulder" formControlName="shoulder">
+            </div>
+            <div class="form-group col-md-2">cm</div>
+              <a href="../../assets/img/shoulder.PNG ">help</a>
+          </div>
+          <div class="form-row">
+                <label for="inputBicep" style=color:#44db5e class="col-md-3 col-form-label">Bicep</label> 
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputBicep" formControlName="bicep" >
+              </div>
+              <div class="form-group col-md-2">cm</div>
+            <a href="../../assets/img/bicepPNG.PNG ">help</a>
+          </div>
+          <div class="form-row">
+              <label for="inputJacket" style=color:#5751d9 class="col-md-3 col-form-label">Jacket length</label>
+              <div class="form-group col-md-2">
+                  <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputJacket" formControlName="jacket" >
+              </div>
+              <div class="form-group col-md-2">cm</div>
+              <a href="../../assets/img/jacket.png ">help</a>
+          </div>
+          <div class="form-row">
+             <label for="inputSleeve " style=color:#5751d9 class="col-md-3 col-form-label">Sleeve length</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputSleeve " formControlName="sleeve" >
+              </div>
+              <div class="form-group col-md-2">cm</div>
+              <a href="../../assets/img/sleeve.PNG ">help</a>
+
+          </div>
+          <div class="form-row">
+              <label for="inputChest " style=color:#ff2851 class="col-md-3 col-form-label">Chest</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputChest" formControlName="chest" >
+              </div>
+              <div class="form-group col-md-2">cm</div>
+              <a href="../../assets/img/chest.PNG ">help</a>
+
+          </div>
+          <div class="form-row">
+              <label for="inputStomach" style=color:#ff9500 class="col-md-3 col-form-label">Stomach</label>
+              <div class="form-group col-md-2">
+                  <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputStomach" formControlName="stomach" >
+              </div>
+              <div class="form-group col-md-2">cm</div>
+              <a href="../../assets/img/stomach.PNG ">help</a>
+
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- image -->
+    <div class="col-md-5">
+        <img src="../../assets/img/jacket.png ">
+    </div>
+    
+</div>
+
+
+
+  

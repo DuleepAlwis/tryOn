@@ -10,7 +10,7 @@
 <!-- navbar -->
 <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
 	<div class="logo">
-    <img src="../../assets/img/try.PNG ">
+    <img src="../../assets/img/logo1.PNG ">
   </div>
   <!-- <div class="container"> -->
    <ul class="nav navbar-nav" routerLinkActive="active">
@@ -28,10 +28,10 @@
       </div>
       <!-- end Search -->
       <!--nav-items  -->
-      <li class="nav-item"><a class="nav-link" routerLink="/">HOME</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="/men">MEN</a></li> 
-      <li class="nav-item"><a class="nav-link" routerLink="/women">WOMEN</a></li> 
-      <li class="nav-item"><a class="nav-link" routerLink="/contact">CONTACT</a></li> 
+      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" routerLink="/" >HOME</a></li>
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/men">MEN</a></li> 
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/women">WOMEN</a></li> 
+      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/contact">CONTACT</a></li> 
     </ul>
     <ul class="navbar-nav ml-auto">
         <!-- login -->

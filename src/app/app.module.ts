@@ -20,6 +20,7 @@ import { AccessoriesFormComponent } from "./accessories-form/accessories-form.co
 //import { ReceprionistProductsEditComponent } from "./receprionist-products-edit/receprionist-products-edit.component";
 import { ReceptionistProductsModule } from "./receptionist-products/receptionist-products.module";
 import { LoginComponent } from './login/login.component';
+import { MeasurementsTableComponent } from './measurements-table/measurements-table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { LoginComponent } from './login/login.component';
     HomeNavigationComponent,
     //ReceptionistNavigationComponent,
     ProductsComponent,
-    LoginComponent
+    LoginComponent,
+    MeasurementsTableComponent
     //ReceptionistProductsComponent,
     /*MenSuitsFormComponent,
     TightsFormComponent,

@@ -10,22 +10,22 @@ import { Customer } from "../modules/Customer";
 })
 export class RegisterComponent implements OnInit {
   form = new FormGroup({
-    firstName: new FormControl("", [
+    firstName: new FormControl(null, [
       Validators.required,
       Validators.pattern("A-Za-z")
     ]),
-    lastName: new FormControl("", [
+    lastName: new FormControl(null, [
       Validators.required,
       Validators.pattern("A-Za-z")
     ]),
-    email: new FormControl("", [Validators.required, Validators.email]),
-    password: new FormControl("", [Validators.required]),
-    address: new FormControl("", [Validators.required]),
-    address2: new FormControl(),
-    city: new FormControl("", [Validators.required]),
-    province: new FormControl("", [Validators.required]),
-    mobileno: new FormControl("", [Validators.required]),
-    gender: new FormControl("", [Validators.required])
+    email: new FormControl(null, [Validators.required, Validators.email]),
+    password: new FormControl(null, [Validators.required]),
+    address: new FormControl(null, [Validators.required]),
+    address2: new FormControl(null),
+    city: new FormControl(null, [Validators.required]),
+    province: new FormControl(null, [Validators.required]),
+    mobileno: new FormControl(null, [Validators.required]),
+    gender: new FormControl(null, [Validators.required])
   });
   constructor(private authService: AuthService) {}
 
