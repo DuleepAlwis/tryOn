@@ -11,7 +11,20 @@ const beltsSchema = new mongoose.Schema({
   },
   length: {
     type: Number
+  },
+  imgFront: {
+    type: String
+  },
+  imgLeft: {
+    type: String
+  },
+  imgRight: {
+    type: String
+  },
+  imgBack: {
+    type: String
   }
+
 
 
 })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
+import { ShoppingCartService } from "../services/shopping-cart.service";
 @Component({
   selector: "app-home-navigation",
   templateUrl: "./home-navigation.component.html",
@@ -13,7 +14,10 @@ export class HomeNavigationComponent implements OnInit {
   });
 
   private loggedin: boolean;
-  constructor(private authService: AuthService) {}
+  constructor(
+    private authService: AuthService,
+    private shoppingCartService: ShoppingCartService
+  ) {}
 
   ngOnInit() {}
 
@@ -27,6 +31,14 @@ export class HomeNavigationComponent implements OnInit {
   }
 
   isLoggedIn() {
-    return this.loggedin;
+    return this.authService.getIsAuth();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+
+  itemsCountShoppingCart() {
+    return this.shoppingCartService.getItemsCount();
   }
 }

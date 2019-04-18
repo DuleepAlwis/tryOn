@@ -9,6 +9,7 @@ import { ReceptionistProductsRoutesModule } from "./receptionist-products-routes
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { ReceptionistNavigationComponent } from "../receptionist-navigation/receptionist-navigation.component";
 import { ReceprionistProductsEditComponent } from "../receprionist-products-edit/receprionist-products-edit.component";
+import { ClothEditComponent } from "../cloth-edit/cloth-edit.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReceprionistProductsEditComponent } from "../receprionist-products-edit
     MenSuitsFormComponent,
     AccessoriesFormComponent,
     ReceptionistNavigationComponent,
-    ReceprionistProductsEditComponent
+    ReceprionistProductsEditComponent,
+    ClothEditComponent
   ],
   imports: [CommonModule, ReceptionistProductsRoutesModule, ReactiveFormsModule]
 })

@@ -1,0 +1,47 @@
+<app-customer-navigation></app-customer-navigation>
+<div class="container-fluid">
+  <div class="row" *ngIf="this.product">
+    <div class="col-md-1"></div>
+    <div class="col-md-4">
+      <div *ngIf="this.product">
+
+        <h3>{{this.product.name}}</h3>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="inputState">Sizes</label>
+            <select id="inputState" class="form-control" (change)="setMaxQuantity($event)">
+              <option selected value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+          </div>
+          <div class="form-group col-md-2">
+            <label for="inputState">Quantity</label>
+            <select id="inputState" class="form-control" (change)="calculateProductPrice($event)">
+              <option *ngFor="let num of this.quantityArr" value="{{num}}">{{num}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputState">Price(Rs.)</label>
+            <h5 class="form-control">{{this.productPrice}}</h5>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputState"></label>
+            <button class="btn btn-primary mt-3" (click)="addToCart()" *ngIf="this.displayBtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-4 mt-3">
+      <div style="width:750px;height:350px;border-style:groove">
+        <ul>
+          <li *ngFor="let item of this.cartItems;index as i" class="mt-1 mr-3" style="list-style:none">
+            {{ item.name }} Size : {{ item.size}} | Quantity : {{item.quantity}} || Price: {{item.price}}
+            <button class="btn btn-danger ml-3" (click)="removeItem(i)">Remove</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

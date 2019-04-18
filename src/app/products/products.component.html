@@ -1,10 +1,16 @@
 <app-home-navigation></app-home-navigation>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-3">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          <div class="dropdown">
+    <div class="row">
+        <div class="col-md-3">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <button
+                        class="btn btn-outline-info"
+                        (click)="getAllShirts()"
+                    >
+                        Shirts
+                    </button>
+                    <!-- <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Mens' products
             </button>
@@ -13,9 +19,25 @@
               <a class="dropdown-item" href="#">Jeans</a>
               <a class="dropdown-item" href="#">Shorts</a>
             </div>
-          </div>
-        </li>
-        <li class="list-group-item">
+          </div> -->
+                </li>
+                <li class="list-group-item">
+                    <button
+                        class="btn btn-outline-info"
+                        (click)="getAllShorts()"
+                    >
+                        Shorts
+                    </button>
+                </li>
+                <li class="list-group-item">
+                    <button
+                        class="btn btn-outline-info"
+                        (click)="getAllTrousers()"
+                    >
+                        Trousers
+                    </button>
+                </li>
+                <!-- <li class="list-group-item">
           <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Ladies products
@@ -26,22 +48,162 @@
               <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </div>
-        </li>
-        <li class="list-group-item">
-          <div class="dropdown">
-            <button class="btn btn-outline-info down-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Accessories products
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
-              <a class="dropdown-item" href="#">Belts</a>
-              <a class="dropdown-item" href="#">Hand bags</a>
-              <a class="dropdown-item" href="#">Ties</a>
-            </div>
-          </div>
-        </li>
+        </li> -->
+                <li class="list-group-item">
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-outline-info down-toggle"
+                            type="button"
+                            id="dropdownMenuButton3"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Accessories products
+                        </button>
+                        <div
+                            class="dropdown-menu"
+                            aria-labelledby="dropdownMenuButton3"
+                        >
+                            <a
+                                class="dropdown-item"
+                                (click)="getAllBelts()"
+                            >
+                                Belts
+                            </a>
+                            <a
+                                class="dropdown-item"
+                                (click)="getAllHandBags()"
+                            >
+                                Hand bags
+                            </a>
+                            <a
+                                class="dropdown-item"
+                                (click)="getAllCaps()"
+                            >
+                                Caps
+                            </a>
+                            <a
+                                class="dropdown-item"
+                                (click)="getAllGloves()"
+                            >
+                                Gloves
+                            </a>
 
-      </ul>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+        <div class="col-md-7">
+            <h1 style="text-align: center">{{this.headerTitle}}</h1>
+            <table>
+                <tbody>
+                    <tr
+                        *ngFor="let item of this.items"
+                        class="mt-1"
+                    >
+                        <td *ngFor="let product of item">
+                            <div
+                                class="mr-3 imgBox"
+                                style="display: inline-block;border:inset;border-width: 7px"
+                            >
+
+                                <div
+                                    class="card"
+                                    style="width: 18rem;height:19rem"
+                                >
+
+                                    <img
+                                        class="card-img-top imgCloth"
+                                        src="{{product.imgFront}}"
+                                        alt="Card image cap"
+                                        width="50%"
+                                        height="50%"
+                                    >
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{product.name}}</h5>
+
+                                        <a
+                                            [routerLink]="['/productview',this.headerTitle,product._id]"
+                                            class="btn btn-primary"
+                                        >
+                                            View
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 
+    <!-- <div class="col-md-3">
+      <ul *ngIf="this.display">
+        <li *ngFor="let item1 of this.items1" style="display:inline-block">
+          <div class="mr-3" style="display: inline-block;width:155px">
+
+        <div class="card" style="width: 18rem;height:19rem">
+          <img class="card-img-top" src="{{item1.imgFront}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item1.category}} | {{item1.name}}</h5>
+
+            <a [routerLink]="['/productview',item1._id]" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul> -->
+    <!-- <div class="col-md-7">
+      <h1 style="text-align: center">{{this.headerTitle}}</h1>
+      <div class="mr-3" *ngFor="let item of this.items" style="display: inline-block;width:155px">
+
+        <div class="card" style="width: 18rem;height:19rem">
+          <img class="card-img-top" src="{{item.imgFront}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item.category}} | {{item.name}}</h5>
+
+            <a [routerLink]="['/view',item._id]" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+    <!-- <div class="col-md-3">
+      <ul *ngIf="this.display">
+        <li *ngFor="let item2 of this.items2">
+          <div class="mr-3" style="display: inline-block;width:155px">
+
+        <div class="card" style="width: 18rem;height:19rem">
+          <img class="card-img-top" src="{{item2.imgFront}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item2.category}} | {{item2.name}}</h5>
+
+            <a [routerLink]="['/productview',item2._id]" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+<div class="col-md-3">
+      <ul *ngIf="this.display">
+        <li *ngFor="let item3 of this.items3">
+          <div class="mr-3" style="display: inline-block;width:155px">
+
+        <div class="card" style="width: 18rem;height:19rem">
+          <img class="card-img-top" src="{{item3.imgFront}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{item3.category}} | {{item3.name}}</h5>
+
+            <a [routerLink]="['/productview',item3._id]" class="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul> -->
 </div>

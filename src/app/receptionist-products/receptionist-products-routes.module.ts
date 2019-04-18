@@ -6,6 +6,7 @@ import { ReceptionistProductsComponent } from "../receptionist-products/receptio
 import { MenSuitsFormComponent } from "../men-suits-form/men-suits-form.component";
 import { AccessoriesFormComponent } from "../accessories-form/accessories-form.component";
 import { ReceprionistProductsEditComponent } from "../receprionist-products-edit/receprionist-products-edit.component";
+import { ClothEditComponent } from "../cloth-edit/cloth-edit.component";
 
 const productsAddRoutes: Routes = [
   {
@@ -32,6 +33,10 @@ const productsAddRoutes: Routes = [
   {
     component: ReceprionistProductsEditComponent,
     path: "Receptionistproductedit"
+  },
+  {
+    component: ClothEditComponent,
+    path: "ClothEdit/:productId/:type/:category"
   }
 ];
 

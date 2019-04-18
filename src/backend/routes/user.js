@@ -5,6 +5,7 @@ const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const userCustomer = require("../models/customerUser");
+var nodemailer = require('nodemailer');
 
 //const userEmployee = require("");
 
@@ -50,7 +51,7 @@ router.post("/login", (req, res, next) => {
   let send = 0;
   //console.log(req);
   //req = JSON.parse(req);
-  console.log(req.body);
+  //console.log(req.body);
   userCustomer.findOne({
       email: req.body.email
     }).then(user => {
@@ -61,6 +62,7 @@ router.post("/login", (req, res, next) => {
         });
       }
       loggedUser = user;
+      // console.log(crypto.createHash('md5').update(req.body.password).digest('hex') == loggedUser.password);
       return crypto.createHash('md5').update(req.body.password).digest('hex') == loggedUser.password;
 
       //return bcrypt.compare(req.body.password, user.password)
@@ -68,7 +70,9 @@ router.post("/login", (req, res, next) => {
     .then(result => {
       if (send == 0 && !result) {
         return res.status(200).json({
-          message: 0
+          userId: "",
+          role: "",
+          token: ""
         });
       }
       const token = jwt.sign({
@@ -77,19 +81,81 @@ router.post("/login", (req, res, next) => {
       }, "sercet string this", {
         expiresIn: "1h"
       });
-      console.log(token);
+      // console.log(token);
       res.status(200).json({
+        userId: loggedUser._id,
+        role: "C",
         token: token
       });
     })
     .catch(err => {
       if (send == 0) {
         return res.status(200).json({
-          message: 0
+          userId: "",
+          role: "",
+          token: ""
         });
       }
     });
 
 });
+
+router.post("/forgotPassword", (req, res, next) => {
+  const email = req.body.email;
+  let tempPassword = crypto.createHash('md5').update(email).digest('hex') + Date.now();;
+  hash = crypto.createHash('md5').update(tempPassword).digest('hex');
+  const customer = {
+    email: email,
+    password: hash
+  };
+  userCustomer.updateOne({
+      email: email
+    }, customer)
+    .then((result) => {
+      var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'duleepalwis0@gmail.com',
+          pass: 'duleep3alwis'
+        }
+      });
+
+      let mailOptions = {
+        from: '<anonymous></anonymous>',
+        to: email,
+        subject: 'Tempory password',
+        text: tempPassword
+      };
+
+      try {
+        transporter.sendMail(mailOptions, function (error, info) {
+          if (error) {
+            console.log(error);
+            res.status(200).json({
+              message: 0
+            });
+          } else {
+            console.log('Email sent: ' + info.response);
+            res.status(200).json({
+              message: 1
+            });
+          }
+        });
+      } catch (error) {
+        console.log(error);
+        res.status(200).json({
+          message: 0
+        });
+      }
+
+    })
+    .catch((result) => {
+      res.status(200).json({
+        message: 0
+      })
+    })
+
+
+})
 
 module.exports = router;

@@ -1,9 +1,9 @@
 <div class="bg-success">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
-    <a class="navbar-brand justify-content-center ml-5" href="#" style="font-size: 35px"><img src="../../assets/img/images1.jpg"
-        class="rounded-circle" style="width:25%;height:25%">tryOn</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
-      aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand justify-content-center ml-5" href="#" style="font-size: 35px"><img
+        src="../../assets/img/images1.jpg" class="rounded-circle" style="width:25%;height:25%">tryOn</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -13,39 +13,36 @@
           <a class="nav-link" routerLink='' style="color:white">Home</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" routerLink="/Products" style="color:white">Costumes & Accessories</a>
+        </li>
+        <li class="nav-item" *ngIf="this.isLoggedIn()">
           <!-- Example split danger button -->
-          <div class="btn-group">
-            <!--<button type="button" class="btn btn-info">Costumes & Accessories</button>-->
-            <a class="nav-link" routerLink="/Products" style="color:white">Costumes & Accessories</a>
-            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#" style="color:black">Men</a>
-              <a class="dropdown-item" href="#" style="color:black">Ladies</a>
-              <a class="dropdown-item" href="#" style="color:black">Belts</a>
-              <a class="dropdown-item" href="#" style="color:black">Accessories</a>
-              <div class="dropdown-divider"></div>
-              <!--<a class="dropdown-item" href="#">Separated link</a>-->
-            </div>
-          </div>
+          <a class="nav-link" routerLink="/shoppingcart/`" style="color:white">My
+            cart({{this.itemsCountShoppingCart()}})</a>
+
         </li>
         <li class="nav-item">
           <a class="nav-link" href='' style="color:white">About us</a>
 
         </li>
         <li class="nav-item">
+          <a class="nav-link" *ngIf="!this.isLoggedIn()" routerLink="/login" style="color:white">Login</a>
+          <a class="nav-link" *ngIf="this.isLoggedIn()" style="color:white" (click)="logout()">Logout</a>
+
+        </li>
+        <!--<li class="nav-item">
           <button type="button" class="btn btn-outline-info mr-3" data-toggle="modal" data-target="#exampleModal"><a
               class="nav-link" style="color:white">Login</a></button>
 
         </li>
+      -->
       </ul>
     </div>
   </nav>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -58,8 +55,8 @@
         <form [formGroup]="form" (submit)="login()">
           <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp"
-              placeholder="Enter email">
+            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+              aria-describedby="emailHelp" placeholder="Enter email">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
@@ -70,7 +67,8 @@
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Check me out</label>
           </div>
-          <small id="emailHelp" class="form-text text-muted mb-3">Don't have an account. Then <a routerLink="/Register">SignUp</a></small>
+          <small id="emailHelp" class="form-text text-muted mb-3">Don't have an account. Then <a
+              routerLink="/Register">SignUp</a></small>
           <div class="form-group row">
             <div class="col-md-4">
               <input type="submit" class="btn btn-primary" value="Submit">

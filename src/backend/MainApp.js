@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const cors = require('cors');
 const userRoute = require("./routes/user");
+const customerRoute = require("./routes/customer");
 const productRoute = require("./routes/products");
 const app = express();
 const CONNECTION_URL = "mongodb+srv://dulip:dulip123@cluster0-gwlhh.mongodb.net/tryondb?retryWrites=true";
@@ -48,6 +49,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+app.use("/images", express.static(path.join("backend/images")));
 //var jsonParser = bodyParser.json();
 //var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
@@ -75,7 +77,7 @@ app.post("/api/user/login1", (req, res, next) => {
 
 
 app.use("/api/user", userRoute);
-app.use("/api/customer", userRoute);
+app.use("/api/customer", customerRoute);
 app.use("/api/clothes", productRoute);
 app.use("/api/Accessories", productRoute);
 console.log("aaa");

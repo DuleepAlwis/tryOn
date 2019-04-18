@@ -1,3 +1,4 @@
+import { RouterModule, Route, Routes, Router } from "@angular/router";
 import { ProductService } from "./../services/product.service";
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -13,16 +14,17 @@ export class ReceprionistProductsEditComponent implements OnInit {
     "Trousers",
     "Shorts",
     "Sarees",
-    "HabdBags",
+    "HandBags",
     "Caps",
     "Ties",
-    "Belts"
+    "Belts",
+    "Gloves"
   ];
   itemObjects = [];
   message = "";
   item = this.items[0];
   type = "";
-  constructor(private ProductService: ProductService) {}
+  constructor(private ProductService: ProductService, private route: Router) {}
 
   ngOnInit() {}
 
@@ -46,7 +48,7 @@ export class ReceprionistProductsEditComponent implements OnInit {
           if (Number(responseData.message) == 0) {
             this.message = this.item + " stock is empty";
           } else {
-            this.type = "cloth";
+            this.type = "clothes";
 
             this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
@@ -73,11 +75,104 @@ export class ReceprionistProductsEditComponent implements OnInit {
           console.log("BAQ");
         });
         break;
+      case "Caps":
+        this.ProductService.getAllCaps().subscribe(responseData => {
+          if (Number(responseData.message) == 0) {
+            this.message = this.item + " stock is empty";
+          } else {
+            this.type = "accessories";
+
+            this.itemObjects.length = 0;
+            this.itemObjects = responseData.result;
+            console.log(this.itemObjects);
+            //this.message = this.;
+          }
+          console.log(responseData);
+          console.log("BAQ");
+        });
+        break;
+      case "HandBags":
+        this.ProductService.getAllHandBags().subscribe(responseData => {
+          if (Number(responseData.message) == 0) {
+            this.message = this.item + " stock is empty";
+          } else {
+            this.type = "accessories";
+
+            this.itemObjects.length = 0;
+            this.itemObjects = responseData.result;
+            console.log(this.itemObjects);
+            //this.message = this.;
+          }
+          console.log(responseData);
+          console.log("BAQ");
+        });
+        break;
+      case "Gloves":
+        this.ProductService.getAllGloves().subscribe(responseData => {
+          if (Number(responseData.message) == 0) {
+            this.message = this.item + " stock is empty";
+          } else {
+            this.type = "accessories";
+
+            this.itemObjects.length = 0;
+            this.itemObjects = responseData.result;
+            console.log(this.itemObjects);
+            //this.message = this.;
+          }
+          console.log(responseData);
+          console.log("BAQ");
+        });
+        break;
+      case "Trousers":
+        this.ProductService.getAllTights("Trousers").subscribe(responseData => {
+          if (Number(responseData.message) == 0) {
+            this.message = this.item + " stock is empty";
+          } else {
+            this.type = "tights";
+
+            this.itemObjects.length = 0;
+            this.itemObjects = responseData.result;
+            console.log(this.itemObjects);
+            //this.message = "Shirts";
+          }
+          console.log(responseData);
+          console.log("AZC");
+        });
+        break;
+      case "Shorts":
+        this.ProductService.getAllTights("Shorts").subscribe(responseData => {
+          if (Number(responseData.message) == 0) {
+            this.message = this.item + " stock is empty";
+          } else {
+            this.type = "tights";
+
+            this.itemObjects.length = 0;
+            this.itemObjects = responseData.result;
+            console.log(this.itemObjects);
+            //this.message = "Shirts";
+          }
+          console.log(responseData);
+          console.log("AZC");
+        });
+        break;
     }
   }
 
-  viewProducts(id: string) {
-    console.log(id);
+  viewProducts(index: string) {
+    console.log(index);
+    console.log(this.itemObjects[index]._id);
+    /*this.route.navigate([
+      "ClothEdit",
+      { productId: this.itemObjects[index]._id, type: this.item }
+    ]);*/
+    this.route.navigateByUrl(
+      "ClothEdit/" +
+        this.itemObjects[index]._id +
+        "/" +
+        this.type +
+        "/" +
+        this.item
+    );
   }
 
   removeProduct(id: string) {

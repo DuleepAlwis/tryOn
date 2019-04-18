@@ -14,6 +14,18 @@ const gloveSchema = new mongoose.Schema({
   },
   width: {
     type: Number
+  },
+  imgFront: {
+    type: String
+  },
+  imgLeft: {
+    type: String
+  },
+  imgRight: {
+    type: String
+  },
+  imgBack: {
+    type: String
   }
 
 

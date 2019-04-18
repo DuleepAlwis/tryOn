@@ -19,14 +19,26 @@ import { TightsFormComponent } from "./tights-form/tights-form.component";
 import { AccessoriesFormComponent } from "./accessories-form/accessories-form.component";*/
 //import { ReceprionistProductsEditComponent } from "./receprionist-products-edit/receprionist-products-edit.component";
 import { ReceptionistProductsModule } from "./receptionist-products/receptionist-products.module";
+import { CustomerModule } from "./customer-navigation/customer.module";
+import { LoginComponent } from "./login/login.component";
+//import { CustomerNavigationComponent } from './customer-navigation/customer-navigation.component';
+//import { CustomerProfileComponent } from "./customer-profile/customer-profile.component";
+import { AuthGuard } from "./services/auth-guard";
+import { ProductViewComponent } from "./product-view/product-view.component";
+import { ShoppingCartService } from "./services/shopping-cart.service";
+//import { ShoppingCartComponent } from "./shopping-cart/shopping-cart.component";
+//import { ProductViewComponent } from "./product-view/product-view.component";
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RegisterComponent,
     HomeNavigationComponent,
+    RegisterComponent,
     //ReceptionistNavigationComponent,
-    ProductsComponent
+    ProductsComponent,
+    LoginComponent,
+    ProductViewComponent
+    //ShoppingCartComponent
     //ReceptionistProductsComponent,
     /*MenSuitsFormComponent,
     TightsFormComponent,
@@ -40,6 +52,7 @@ import { ReceptionistProductsModule } from "./receptionist-products/receptionist
     ReactiveFormsModule,
     FormsModule,
     ReceptionistProductsModule,
+    CustomerModule,
     RouterModule.forRoot([
       {
         component: HomeComponent,
@@ -53,7 +66,12 @@ import { ReceptionistProductsModule } from "./receptionist-products/receptionist
       {
         component: ProductsComponent,
         path: "Products"
+      },
+      {
+        component: LoginComponent,
+        path: "login"
       }
+
       /*{
         component: ReceprionistProductsEditComponent,
         path: "Receptionistproductedit"
@@ -86,7 +104,7 @@ import { ReceptionistProductsModule } from "./receptionist-products/receptionist
       }*/
     ])
   ],
-  providers: [AuthService, ProductService],
+  providers: [AuthService, ProductService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

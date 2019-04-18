@@ -23,6 +23,18 @@ const tightsProductSchema = mongoose.Schema({
   color: {
     type: Array
 
+  },
+  imgFront: {
+    type: String
+  },
+  imgLeft: {
+    type: String
+  },
+  imgRight: {
+    type: String
+  },
+  imgBack: {
+    type: String
   }
 
 });
