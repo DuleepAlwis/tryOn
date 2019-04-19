@@ -4,16 +4,21 @@ import { Injectable } from "@angular/core";
   providedIn: "root"
 })
 export class ShoppingCartService {
+  private url = "http://localhost:3000";
   items = [];
   tmpItem = {};
   totalPrice: string;
-  constructor() {
+  deliveryDetails: Object;
+  constructor(private http: HttpClient) {
     this.items = this.extractObjects(localStorage.getItem("items"));
     this.tmpItem =
       localStorage.getItem("tmpItem") == null
         ? {}
         : JSON.parse(localStorage.getItem("tmpItem"));
-    this.totalPrice = localStorage.getItem("totalPrice");
+    this.totalPrice =
+      localStorage.getItem("totalPrice") == null
+        ? "0"
+        : JSON.parse(localStorage.getItem("totalPrice"));
   }
 
   extractObjects(items: string) {
@@ -35,6 +40,7 @@ export class ShoppingCartService {
   setTmpItem(tmp: Object) {
     this.tmpItem = tmp;
     localStorage.setItem("tmpItem", JSON.stringify(tmp));
+    localStorage.setItem("totalPrice", this.totalPrice);
   }
 
   addToShoppingCart(item: Object) {
@@ -42,6 +48,10 @@ export class ShoppingCartService {
     this.addToLocalStorage();
     this.tmpItem = {};
     localStorage.removeItem("tmpItem");
+    localStorage.removeItem("totalPrice");
+
+    localStorage.setItem("totalPrice", this.totalPrice);
+
     return this.items.length - 1;
   }
 
@@ -55,6 +65,36 @@ export class ShoppingCartService {
       itemString.push(JSON.stringify(this.items[i]));
     }
     localStorage.setItem("items", JSON.stringify(itemString));
+    console.log(localStorage.length + " " + localStorage);
+  }
+
+  setDeliveryDetails(details: Object) {
+    this.deliveryDetails = details;
+  }
+
+  saveOrder(delivery: Object<any>) {
+    let date = new Date();
+    let orderDate =
+      date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+    let time = ;
+    this.http.post<{ message: Number }>(this.url + "/api/Order/addOrder", {
+      items: this.items,
+      delivery: delivery
+    });
+  }
+
+  clearLocalStorage() {
+    let i = 0;
+    //console.log("Shopping cart" + " " + localStorage.length);
+    console.log(localStorage);
+    localStorage.removeItem("items");
+    localStorage.removeItem("tmpItem");
+    localStorage.removeItem("totalPrice");
+    for (i = 0; i < localStorage.length + 1; i++) {
+      console.log(localStorage.key(i));
+      localStorage.removeItem(localStorage.key(i));
+    }
+    console.log(localStorage);
   }
 
   clearCart() {

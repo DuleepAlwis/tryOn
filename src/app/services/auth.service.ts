@@ -15,6 +15,7 @@ import { Customer } from "../modules/Customer";
 import { NavigationStart, Router } from "@angular/router";
 import { browser } from "protractor";
 import { Subscription } from "rxjs";
+import { ShoppingCartService } from "./shopping-cart.service";
 
 @Injectable({
   providedIn: "root"
@@ -27,7 +28,11 @@ export class AuthService {
   private isAuthenticated: boolean = false;
   private subscription: Subscription;
   private browserRefresh: boolean;
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private shoppingCartService: ShoppingCartService
+  ) {
     this.subscription = router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         this.browserRefresh = !router.navigated;
@@ -55,6 +60,7 @@ export class AuthService {
     this.token = "";
     this.isAuthenticated = false;
     this.clearLocalStorage();
+    this.shoppingCartService.clearLocalStorage();
   }
 
   getUserId() {
@@ -102,7 +108,8 @@ export class AuthService {
 
   clearLocalStorage() {
     let i = 0;
-    for (i = 0; i < localStorage.length; i++) {
+    console.log(localStorage.length);
+    for (i = 0; i < localStorage.length + 1; i++) {
       console.log(localStorage.key(i));
       localStorage.removeItem(localStorage.key(i));
     }

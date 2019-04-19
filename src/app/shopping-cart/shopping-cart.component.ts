@@ -1,6 +1,10 @@
+import { ShoppingCartService } from "./../services/shopping-cart.service";
 import { Component, OnInit } from "@angular/core";
 import { ShoppingCartService } from "../services/shopping-cart.service";
 import { ActivatedRoute, Route, Router } from "@angular/router";
+import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AuthService } from "../services/auth.service";
+import { CustomerService } from "../services/customer.service";
 
 @Component({
   selector: "app-shopping-cart",
@@ -12,17 +16,32 @@ export class ShoppingCartComponent implements OnInit {
   cloth: boolean = false;
   accessories: boolean = false;
   category: string;
-  productPrice: string;
+  productPrice: string = "0";
   size: string;
-  tmpPrice: string;
+  tmpPrice: string = "0";
   totalPrice: string;
   quantityArr = [];
   cartItems = [];
   quantity: string;
   displayBtn: boolean = false;
+  formDelivery = new FormGroup({
+    name: new FormControl("", [
+      Validators.required,
+      Validators.pattern("A-Za-z")
+    ]),
+    address: new FormControl("", [Validators.required]),
+    city: new FormControl("", [Validators.required]),
+    district: new FormControl("", [Validators.required]),
+    mobileno: new FormControl("", [Validators.required]),
+
+    gender: new FormControl("", [Validators.required])
+  });
+
   constructor(
     private activatedRoute: ActivatedRoute,
-    public shoppingCartService: ShoppingCartService
+    public shoppingCartService: ShoppingCartService,
+    private authService: AuthService,
+    private customerService: CustomerService
   ) {}
 
   ngOnInit() {
@@ -35,6 +54,25 @@ export class ShoppingCartComponent implements OnInit {
       this.displayBtn = false;
       this.productView();
     });
+
+    this.customerService
+      .getCustomerProfile(this.authService.getUserId())
+      .subscribe(responseData => {
+        console.log(responseData);
+        if (responseData.message == 0) {
+          this.router.navigate(["/"]);
+        } else {
+          this.formDelivery.patchValue({
+            name: responseData.result.name,
+            address: responseData.result.address,
+            city: responseData.result.city,
+            district: responseData.result.district,
+            mobileno: responseData.result.mobileno,
+
+            gender: responseData.result.gender
+          });
+        }
+      });
   }
 
   productView() {
@@ -121,6 +159,8 @@ export class ShoppingCartComponent implements OnInit {
     this.totalPrice = String(
       parseFloat(this.totalPrice) + parseFloat(this.productPrice)
     );
+    console.log(this.totalPrice);
+
     let cartProduct = {
       productId: this.product._id,
       name: this.product.name,
@@ -129,7 +169,10 @@ export class ShoppingCartComponent implements OnInit {
       size: this.size
     };
     console.log(this.cartItems.length);
+    this.shoppingCartService.totalPrice = this.totalPrice;
+
     this.shoppingCartService.addToShoppingCart(cartProduct);
+    this.shoppingCartService.totalPrice = this.totalPrice;
     this.cartItems.push(cartProduct);
     this.cartItems.pop();
     this.displayBtn = false;
@@ -145,6 +188,58 @@ export class ShoppingCartComponent implements OnInit {
   setAccessoriesPriceQuantity(quantity: Number) {
     this.setQuantity(quantity);
     this.tmpPrice = this.product.price;
+  }
+
+  nameInValid() {
+    return this.form.get("name").invalid;
+  }
+
+  addressInValid() {
+    return this.form.get("address").invalid;
+  }
+
+  cityInValid() {
+    return this.form.get("city").invalid;
+  }
+
+  districtInValid() {
+    return this.form.get("district").invalid;
+  }
+
+  mobileNoInValid() {
+    return this.form.get("mobileno").invalid;
+  }
+  saveOrder() {
+    if (
+      !(
+        this.nameInvalid() &&
+        this.addressInvalid() &&
+        this.cityInvalid() &&
+        this.districtInvalid() &&
+        this.mobileNoInvalid()
+      )
+    ) {
+      alert("Delivery details should be filled");
+      return -1;
+    }
+    let deliveryDetails = {
+      id: this.authService.getUserId(),
+      name: this.formDelivery.get("name"),
+      address: this.formDelivery.get("address"),
+      city: this.formDelivery.get("city"),
+      district: this.formDelivery.get("district"),
+      mobileno: this.formDelivery.get("mobileno")
+    };
+
+    this.shoppingCartService
+      .saveOrder(deliveryDetails)
+      .subscribe(responseData => {
+        if (responseData.message == 0) {
+          alert("Something wrong Order didn't save");
+        } else {
+          alert("Order Saved, email has been sent");
+        }
+      });
   }
   removeItem(index) {
     this.cartItems.splice(Number(index), 0);
