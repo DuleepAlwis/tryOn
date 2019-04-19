@@ -102,6 +102,11 @@ router.post("/login", (req, res, next) => {
 
 router.post("/forgotPassword", (req, res, next) => {
   const email = req.body.email;
+  if (email == "") {
+    return res.status(200).json({
+      message: 0
+    });
+  }
   let tempPassword = crypto.createHash('md5').update(email).digest('hex') + Date.now();;
   hash = crypto.createHash('md5').update(tempPassword).digest('hex');
   const customer = {

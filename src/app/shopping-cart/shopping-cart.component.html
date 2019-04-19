@@ -1,9 +1,9 @@
 <app-customer-navigation></app-customer-navigation>
 <div class="container-fluid">
-  <div class="row" *ngIf="this.product">
+  <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-4">
-      <div *ngIf="this.product">
+      <div *ngIf="this.cloth">
 
         <h3>{{this.product.name}}</h3>
         <div class="form-row">
@@ -27,11 +27,38 @@
           </div>
           <div class="form-group col-md-3">
             <label for="inputState"></label>
-            <button class="btn btn-primary mt-3" (click)="addToCart()" *ngIf="this.displayBtn">Add to Cart</button>
+            <button class="btn btn-primary mt-3" (click)="addClothToCart()" *ngIf="this.displayBtn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <!-------------Accessories--------------------------->
+      <div *ngIf="this.accessories">
+
+        <h3>{{this.product.name}}</h3>
+        <div class="form-row">
+
+          <div class="form-group col-md-2">
+            <label for="inputState">Quantity</label>
+            <select id="inputState" class="form-control" (change)="calculateProductPrice($event)">
+              <option *ngFor="let num of this.quantityArr" value="{{num}}">{{num}}</option>
+            </select>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputState">Price(Rs.)</label>
+            <h5 class="form-control">{{this.productPrice}}</h5>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="inputState"></label>
+            <button class="btn btn-primary mt-3" (click)="addClothToCart()" *ngIf="this.displayBtn">Add to
+              Cart</button>
           </div>
         </div>
       </div>
     </div>
+
+
+
+
     <div class="col-md-1"></div>
     <div class="col-md-4 mt-3">
       <div style="width:750px;height:350px;border-style:groove">
@@ -45,3 +72,7 @@
     </div>
   </div>
 </div>
+
+
+
+<!--========================================================================================================================================-->

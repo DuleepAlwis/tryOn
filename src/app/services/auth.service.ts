@@ -12,7 +12,9 @@ import {
 import { SweetAlert2Module } from "@toverux/ngx-sweetalert2";
 import Swal from "sweetalert2/dist/sweetalert2.min.js";*/
 import { Customer } from "../modules/Customer";
-import { Router } from "@angular/router";
+import { NavigationStart, Router } from "@angular/router";
+import { browser } from "protractor";
+import { Subscription } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -23,13 +25,28 @@ export class AuthService {
   private userId: string;
   private token: string;
   private isAuthenticated: boolean = false;
-  constructor(private http: HttpClient, private router: Router) {}
+  private subscription: Subscription;
+  private browserRefresh: boolean;
+  constructor(private http: HttpClient, private router: Router) {
+    this.subscription = router.events.subscribe(event => {
+      if (event instanceof NavigationStart) {
+        this.browserRefresh = !router.navigated;
+        console.log("Navigated" + this.browserRefresh);
+      }
+    });
+    this.userId = localStorage.getItem("id") ? localStorage.getItem("id") : "";
+    this.token = localStorage.getItem("token")
+      ? localStorage.getItem("token")
+      : "";
+  }
 
   setCredentials(userId: string, token: string, role: string) {
     this.role = role;
     this.userId = userId;
     this.token = token;
     this.isAuthenticated = true;
+    localStorage.setItem("id", this.userId);
+    localStorage.setItem("token", this.token);
   }
 
   logout() {
@@ -37,7 +54,7 @@ export class AuthService {
     this.userId = "";
     this.token = "";
     this.isAuthenticated = false;
-    this.router.navigate(["/"]);
+    this.clearLocalStorage();
   }
 
   getUserId() {
@@ -48,7 +65,7 @@ export class AuthService {
   }
 
   getIsAuth() {
-    return this.isAuthenticated;
+    return this.isAuthenticated || localStorage.getItem("token") != null;
   }
   login(email: string, password: string) {
     const authData = { email: email, password: password };
@@ -81,5 +98,14 @@ export class AuthService {
       this.url + "/api/user/forgotPassword",
       { email: email }
     );
+  }
+
+  clearLocalStorage() {
+    let i = 0;
+    for (i = 0; i < localStorage.length; i++) {
+      console.log(localStorage.key(i));
+      localStorage.removeItem(localStorage.key(i));
+    }
+    this.router.navigate(["/"]);
   }
 }

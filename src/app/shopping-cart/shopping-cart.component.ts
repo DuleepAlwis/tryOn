@@ -28,6 +28,8 @@ export class ShoppingCartComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       this.category = params.get("category");
+      console.log(this.category);
+      this.totalPrice = this.shoppingCartService.totalPrice;
       this.product = this.shoppingCartService.tmpItem;
       this.cartItems = this.shoppingCartService.items;
       this.displayBtn = false;
@@ -54,21 +56,26 @@ export class ShoppingCartComponent implements OnInit {
       case "Caps":
         this.cloth = false;
         this.accessories = true;
-
+        this.setAccessoriesPriceQuantity(Number(this.product.quantity));
+        console.log(this.accessories);
         break;
       case "HandBags":
         this.cloth = false;
         this.accessories = true;
+        this.setAccessoriesPriceQuantity(Number(this.product.quantity));
 
         break;
       case "Belts":
         this.cloth = false;
         this.accessories = true;
+        this.setAccessoriesPriceQuantity(Number(this.product.quantity));
 
         break;
       case "Gloves":
         this.cloth = false;
         this.accessories = true;
+        this.setAccessoriesPriceQuantity(Number(this.product.quantity));
+
         break;
     }
   }
@@ -110,7 +117,7 @@ export class ShoppingCartComponent implements OnInit {
     this.displayBtn = true;
   }
 
-  addToCart() {
+  addClothToCart() {
     this.totalPrice = String(
       parseFloat(this.totalPrice) + parseFloat(this.productPrice)
     );
@@ -135,8 +142,10 @@ export class ShoppingCartComponent implements OnInit {
     this.quantityArr = [];
   }
 
-  getShoppingCartItems() {}
-
+  setAccessoriesPriceQuantity(quantity: Number) {
+    this.setQuantity(quantity);
+    this.tmpPrice = this.product.price;
+  }
   removeItem(index) {
     this.cartItems.splice(Number(index), 0);
     this.shoppingCartService.items.splice(Number(index), 1);
