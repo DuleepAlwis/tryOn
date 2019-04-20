@@ -5,11 +5,12 @@ const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const order = require("../models/order");
-const router = express.router();
+const router = express.Router();
 
 router.post("/addOrder", (req, res, next) => {
   let delivery = req.body.delivery;
   let items = req.body.items;
+  console.log(req.body);
   const orderNew = new order({
     data: req.body.date,
     time: req.body.time,
@@ -33,3 +34,5 @@ router.post("/addOrder", (req, res, next) => {
       });
     })
 });
+
+module.exports = router;

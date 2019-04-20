@@ -5,4 +5,8 @@ export interface Accessories {
   quantity: string;
   length: string;
   width: string;
+  imgFront:string;
+  imgBack:string;
+  imgLeft:string;
+  imgRight:string;
 }

@@ -241,7 +241,7 @@ export class ProductService {
   }
 
   getTightImages(id: string) {
-    return this.http.post<{ message: Number; result: object }>(
+    return this.http.post<{ message: Number; result: Cloth }>(
       this.url + "/api/clothes/getTightsImages",
       { id: id }
     );
@@ -322,7 +322,7 @@ export class ProductService {
   }
 
   getAccessoriesImages(id: string, category: string) {
-    return this.http.post<{ message: Number; result: object }>(
+    return this.http.post<{ message: Number; result: Accessories }>(
       this.url + "/api/clothes/getAccessoriesImages",
       { id: id, category: category }
     );

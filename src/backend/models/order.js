@@ -11,11 +11,11 @@ const orderSchema = mongoose.Schema({
   },
 
   items: {
-    type: Array
+    type: String
   },
 
   deliverAddress: {
-    type: Object
+    type: String
   },
 
   totalPrice: {

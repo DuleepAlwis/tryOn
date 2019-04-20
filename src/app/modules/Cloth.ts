@@ -25,4 +25,8 @@ export interface Cloth {
   MeasurementLW2: string;
   MeasurementLQ: string;
   MeasurementLP: string;
+  imgFront:string;
+  imgBack:string;
+  imgLeft:string;
+  imgRight:string;
 }

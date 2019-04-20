@@ -182,8 +182,8 @@ export class ProductViewComponent implements OnInit {
     // console.log(this.item[0][0].imgFront);
     this.imgFrontPath = this.item[0].imgFront;
     this.imgBackPath = this.item[0].imgBack;
-    this.imgLeftPath = this.item[0].result.imgLeft;
-    this.imgRightPath = this.item[0].result.imgRight;
+    this.imgLeftPath = this.item[0].imgLeft;
+    this.imgRightPath = this.item[0].imgRight;
   }
 
   shoppingCart() {

@@ -1,4 +1,3 @@
-import { ShoppingCartService } from "./../services/shopping-cart.service";
 import { Component, OnInit } from "@angular/core";
 import { ShoppingCartService } from "../services/shopping-cart.service";
 import { ActivatedRoute, Route, Router } from "@angular/router";
@@ -19,16 +18,14 @@ export class ShoppingCartComponent implements OnInit {
   productPrice: string = "0";
   size: string;
   tmpPrice: string = "0";
-  totalPrice: string;
+  totalPrice: string= "0";
   quantityArr = [];
   cartItems = [];
   quantity: string;
   displayBtn: boolean = false;
+  email:string;
   formDelivery = new FormGroup({
-    name: new FormControl("", [
-      Validators.required,
-      Validators.pattern("A-Za-z")
-    ]),
+    name: new FormControl("", [Validators.required]),
     address: new FormControl("", [Validators.required]),
     city: new FormControl("", [Validators.required]),
     district: new FormControl("", [Validators.required]),
@@ -41,7 +38,8 @@ export class ShoppingCartComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public shoppingCartService: ShoppingCartService,
     private authService: AuthService,
-    private customerService: CustomerService
+    private customerService: CustomerService,
+    private router:Router
   ) {}
 
   ngOnInit() {
@@ -151,15 +149,19 @@ export class ShoppingCartComponent implements OnInit {
     this.productPrice = String(
       parseInt(this.tmpPrice) * parseInt(event.target.value)
     );
+    console.log("productPriceQuantity "+this.productPrice+" "+event.target.value);
     this.quantity = event.target.value;
     this.displayBtn = true;
   }
 
   addClothToCart() {
+    console.log("Total "+this.totalPrice);
+
     this.totalPrice = String(
       parseFloat(this.totalPrice) + parseFloat(this.productPrice)
     );
-    console.log(this.totalPrice);
+    console.log("Total "+this.totalPrice);
+    console.log("product "+this.productPrice);
 
     let cartProduct = {
       productId: this.product._id,
@@ -168,20 +170,19 @@ export class ShoppingCartComponent implements OnInit {
       price: this.tmpPrice,
       size: this.size
     };
-    console.log(this.cartItems.length);
+    //console.log(this.cartItems.length);
     this.shoppingCartService.totalPrice = this.totalPrice;
 
     this.shoppingCartService.addToShoppingCart(cartProduct);
-    this.shoppingCartService.totalPrice = this.totalPrice;
     this.cartItems.push(cartProduct);
     this.cartItems.pop();
     this.displayBtn = false;
-    console.log(this.cartItems);
-    this.quantity = "";
-    this.tmpPrice = "";
+    //console.log(this.cartItems);
+    this.quantity = "0";
+    this.tmpPrice = "0";
     this.product = {};
     this.size = "";
-    this.productPrice = "";
+    this.productPrice = "0";
     this.quantityArr = [];
   }
 
@@ -190,49 +191,59 @@ export class ShoppingCartComponent implements OnInit {
     this.tmpPrice = this.product.price;
   }
 
-  nameInValid() {
-    return this.form.get("name").invalid;
+  nameInvalid() {
+    //console.log("Name"+" "+this.formDelivery.get("name").invalid);
+    return this.formDelivery.get("name").invalid;
   }
 
-  addressInValid() {
-    return this.form.get("address").invalid;
+  addressInvalid() {
+    //console.log("address"+" " +this.formDelivery.get("address").value+" "+this.formDelivery.get("address").invalid);
+
+    return this.formDelivery.get("address").invalid;
   }
 
-  cityInValid() {
-    return this.form.get("city").invalid;
+  cityInvalid() {
+   // console.log("city"+" "+this.formDelivery.get("city").invalid);
+
+    return this.formDelivery.get("city").invalid;
   }
 
-  districtInValid() {
-    return this.form.get("district").invalid;
+  districtInvalid() {
+    //console.log("district"+" "+this.formDelivery.get("district").invalid);
+
+    return this.formDelivery.get("district").invalid;
   }
 
-  mobileNoInValid() {
-    return this.form.get("mobileno").invalid;
+  mobileNoInvalid() {
+   // console.log("mobileno"+" "+this.formDelivery.get("mobileno").invalid);
+
+    return this.formDelivery.get("mobileno").invalid;
   }
+
   saveOrder() {
     if (
-      !(
-        this.nameInvalid() &&
-        this.addressInvalid() &&
-        this.cityInvalid() &&
-        this.districtInvalid() &&
+      
+        this.nameInvalid() ||
+        this.addressInvalid() ||
+        this.cityInvalid() ||
+        this.districtInvalid() ||
         this.mobileNoInvalid()
-      )
+      
     ) {
       alert("Delivery details should be filled");
       return -1;
     }
     let deliveryDetails = {
       id: this.authService.getUserId(),
-      name: this.formDelivery.get("name"),
-      address: this.formDelivery.get("address"),
-      city: this.formDelivery.get("city"),
-      district: this.formDelivery.get("district"),
-      mobileno: this.formDelivery.get("mobileno")
+      name: this.formDelivery.get("name").value,
+      address: this.formDelivery.get("address").value,
+      city: this.formDelivery.get("city").value,
+      district: this.formDelivery.get("district").value,
+      mobileno: this.formDelivery.get("mobileno").value
     };
 
     this.shoppingCartService
-      .saveOrder(deliveryDetails)
+      .saveOrder(this.email,deliveryDetails)
       .subscribe(responseData => {
         if (responseData.message == 0) {
           alert("Something wrong Order didn't save");
@@ -242,6 +253,8 @@ export class ShoppingCartComponent implements OnInit {
       });
   }
   removeItem(index) {
+    this.totalPrice = String(Number(this.totalPrice) - Number(this.shoppingCartService.items[index].price));
+    this.shoppingCartService.setTotalPrice(this.totalPrice);
     this.cartItems.splice(Number(index), 0);
     this.shoppingCartService.items.splice(Number(index), 1);
   }

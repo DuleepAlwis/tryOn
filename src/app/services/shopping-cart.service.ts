@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: "root"
@@ -7,18 +8,21 @@ export class ShoppingCartService {
   private url = "http://localhost:3000";
   items = [];
   tmpItem = {};
-  totalPrice: string;
+  totalPrice: string = "0";
   deliveryDetails: Object;
   constructor(private http: HttpClient) {
-    this.items = this.extractObjects(localStorage.getItem("items"));
+    this.items = localStorage.length>2 ? this.extractObjects(localStorage.getItem("items")): [];
     this.tmpItem =
-      localStorage.getItem("tmpItem") == null
+      localStorage.length>2 && localStorage.getItem("tmpItem") == null
         ? {}
         : JSON.parse(localStorage.getItem("tmpItem"));
     this.totalPrice =
-      localStorage.getItem("totalPrice") == null
+    (localStorage.getItem("totalPrice") == null || localStorage.getItem("totalPrice")=="NaN")
         ? "0"
-        : JSON.parse(localStorage.getItem("totalPrice"));
+        : localStorage.getItem("totalPrice");
+        console.log("---------------");
+        console.log(this.totalPrice);
+        console.log(localStorage);
   }
 
   extractObjects(items: string) {
@@ -72,15 +76,41 @@ export class ShoppingCartService {
     this.deliveryDetails = details;
   }
 
-  saveOrder(delivery: Object<any>) {
+  setTotalPrice(totalPrice:string)
+  {
+    localStorage.removeItem("totalPrice");
+
+    localStorage.setItem("totalPrice", totalPrice);
+    this.totalPrice = totalPrice;
+    console.log(this.totalPrice);
+  }
+
+  saveOrder(email:string,delivery: Object) {
     let date = new Date();
     let orderDate =
       date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
-    let time = ;
-    this.http.post<{ message: Number }>(this.url + "/api/Order/addOrder", {
-      items: this.items,
-      delivery: delivery
+    let time = date.getHours()+":"+date.getMinutes() ;
+    console.log(delivery);
+    return this.http.post<{ message: Number }>(this.url + "/api/order/addOrder", {
+      items: JSON.stringify(this.itemsSerializeValues()),
+      delivery: JSON.stringify(delivery),
+      date:orderDate,
+      time:time,
+      totalPrice:this.totalPrice,
+      email:email
     });
+    
+  }
+
+  itemsSerializeValues()
+  {
+    let i = 0;
+    let result = [];
+    for(i=0;i<this.items.length;i++)
+    {
+      result.push(JSON.stringify(this.items[i]));
+    }
+    return result;
   }
 
   clearLocalStorage() {
@@ -94,7 +124,7 @@ export class ShoppingCartService {
       console.log(localStorage.key(i));
       localStorage.removeItem(localStorage.key(i));
     }
-    console.log(localStorage);
+    console.log("LocalStoarage"+" "+localStorage.getItem("totalPrice"));
   }
 
   clearCart() {

@@ -468,7 +468,7 @@ router.post("/AddClothes", (req, res, next) => {
     },
     color: postData.colors
   });
-  console.log(clothes);
+  //console.log(clothes);
   clothes.save()
     .then(result => {
       console.log("OK");
@@ -516,7 +516,7 @@ router.post("/AddTights", (req, res, next) => {
     },
     color: postData.colors
   });
-  console.log(tights);
+  //console.log(tights);
   tights.save()
     .then(result => {
       console.log("OK");
@@ -544,7 +544,7 @@ router.post("/AddGloves", (req, res, next) => {
     width: postData.width,
     length: postData.length
   });
-  console.log(gloves);
+  //console.log(gloves);
 
   gloves.save()
     .then((result) => {
@@ -569,7 +569,7 @@ router.post("/AddBelts", (req, res, next) => {
     quantity: postData.quantity,
     length: postData.length
   });
-  console.log(belts);
+  //console.log(belts);
   belts.save()
     .then((result) => {
       res.status(200).json({
@@ -593,7 +593,7 @@ router.post("/AddCaps", (req, res, next) => {
     quantity: postData.quantity,
     width: postData.width
   });
-  console.log(caps);
+  //console.log(caps);
   caps.save()
     .then((result) => {
       res.status(200).json({
@@ -636,7 +636,7 @@ router.post("/getAllClothes", (req, res, next) => {
   //  console.log("AAA");
   let message = 0;
   Clothes.find({}, (err, clothItems) => {
-    console.log(clothItems);
+   // console.log(clothItems);
     if (clothItems.length > 0) {
       message = clothItems.length;
     }
@@ -649,7 +649,7 @@ router.post("/getAllClothes", (req, res, next) => {
 
 router.post("/getAllBelts", (req, res, next) => {
   //const clothes = new Clothes();
-  console.log("AAA");
+ // console.log("AAA");
   let message = 0;
   Belts.find({}, (err, beltItems) => {
     //console.log(clothItems);
@@ -740,7 +740,7 @@ router.post("/getTights", (req, res, next) => {
   Tights.find({
     _id: req.body.id
   }, (err, tightItem) => {
-    console.log(tightItem);
+   // console.log(tightItem);
     if (tightItem) {
       message = 1;
     }
@@ -761,7 +761,7 @@ router.post("/getCloth", (req, res, next) => {
   Clothes.find({
     _id: req.body.id
   }, (err, clothItem) => {
-    console.log(clothItem);
+   // console.log(clothItem);
     if (clothItem) {
       message = 1;
     }
@@ -780,7 +780,7 @@ router.post("/getGloves", (req, res, next) => {
   Gloves.find({
     _id: req.body.id
   }, (err, clothItem) => {
-    console.log(clothItem);
+    //console.log(clothItem);
     if (clothItem) {
       message = 1;
     }
@@ -803,7 +803,7 @@ router.post("/getBelts", (req, res, next) => {
     if (clothItem) {
       message = 1;
     }
-    console.log(clothItem);
+   // console.log(clothItem);
     res.status(200).json({
       message: message,
       result: clothItem
@@ -818,7 +818,7 @@ router.post("/getCaps", (req, res, next) => {
   Caps.find({
     _id: req.body.id
   }, (err, clothItem) => {
-    console.log(clothItem);
+    //console.log(clothItem);
     if (clothItem) {
       message = 1;
     }
@@ -837,7 +837,7 @@ router.post("/getHandBags", (req, res, next) => {
   HandBags.find({
     _id: req.body.id
   }, (err, clothItem) => {
-    console.log(clothItem);
+    //console.log(clothItem);
     if (clothItem) {
       message = 1;
     }
@@ -882,7 +882,7 @@ router.post("/updateClothes", (req, res, next) => {
     color: postData.colors
   };
   console.log("123");
-  console.log(clothes);
+  //console.log(clothes);
   Clothes.updateOne({
       _id: id
     }, clothes).then(
@@ -988,7 +988,7 @@ router.post("/updateAccessories", (req, res, next) => {
         )
         .catch(
           result => {
-            console.log(result);
+           // console.log(result);
 
             res.status(200).json({
               message: 0

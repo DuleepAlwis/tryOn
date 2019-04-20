@@ -39,8 +39,8 @@ export class AuthService {
         console.log("Navigated" + this.browserRefresh);
       }
     });
-    this.userId = localStorage.getItem("id") ? localStorage.getItem("id") : "";
-    this.token = localStorage.getItem("token")
+    this.userId = localStorage.length>0 ? localStorage.getItem("id") : "";
+    this.token = localStorage.length>0 
       ? localStorage.getItem("token")
       : "";
   }
