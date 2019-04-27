@@ -20,7 +20,7 @@ import { AccessoriesFormComponent } from "./accessories-form/accessories-form.co
 //import { ReceprionistProductsEditComponent } from "./receprionist-products-edit/receprionist-products-edit.component";
 import { ReceptionistProductsModule } from "./receptionist-products/receptionist-products.module";
 import { LoginComponent } from './app/login/login.component';
-import { MeasurementsTableComponent } from './measurements-table/measurements-table.component';
+import { MeasurementsTableComponent } from './customer-top-measurements/customer-top-measurements.component';
 import { AdminComponent } from './admin/admin.component';
 import { HelperComponent } from './helper/helper.component';
 @NgModule({

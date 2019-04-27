@@ -1,0 +1,230 @@
+<h1>Enter your measurements!</h1>
+<div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-6">
+     <span>Step 1</span><h3>Top measurements</h3> 
+      <div class="border-light" style="border: 8px">
+        <form [formGroup]="form" (submit)="signup()"> 
+          <div class="form-row">
+              <label for="inputNeck" style=color:#999 class="col-md-3 col-form-label">Neck</label>
+            <div class="form-group col-md-2">
+              <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputNeck" formControlName="neck" >
+            </div>
+            <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+          </div>
+          <div class="form-row">
+            <label for="inputShoulder" style=color:#8fccc0 class="col-md-3 col-form-label">Shoulder width</label>
+            <div class="form-group col-md-2">
+              <input type="text" class="app-form__input app-form__select js-required p-b-0 error"  id="inputShoulder" formControlName="shoulder">
+            </div>
+            <div class="form-group col-md-1">cm</div>
+            <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal2"><u>Help?</u></button>
+          </div>
+          <div class="form-row">
+              <label for="inputBicep" style=color:#44db5e class="col-md-3 col-form-label">Bicep</label> 
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputBicep" formControlName="bicep" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal3"><u>Help?</u></button>
+          </div>
+          <div class="form-row">
+              <label for="inputJacket" style=color:#5751d9 class="col-md-3 col-form-label">Jacket length</label>
+              <div class="form-group col-md-2">
+                  <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputJacket" formControlName="jacket" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal4"><u>Help?</u></button>
+          </div>
+          <div class="form-row">
+             <label for="inputSleeve " style=color:#5751d9 class="col-md-3 col-form-label">Sleeve length</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputSleeve " formControlName="sleeve" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal5"><u>Help?</u></button>
+          </div>
+          <div class="form-row">
+              <label for="inputChest " style=color:#ff2851 class="col-md-3 col-form-label">Chest</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputChest" formControlName="chest" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal6"><u>Help?</u></button>
+          </div>
+          <div class="form-row">
+              <label for="inputStomach" style=color:#ff9500 class="col-md-3 col-form-label">Stomach</label>
+              <div class="form-group col-md-2">
+                  <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputStomach" formControlName="stomach" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal7"><u>Help?</u></button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- image -->
+    <div class="col-md-5">
+        <img src="../../assets/img/jacket.png ">
+    </div>
+    <div class="col-md-6">
+      <div class="col-md-1"></div>
+      <h3>Bottom measurements</h3>
+      <div class="border-light" style="border: 8px">
+            <div class="form-row">
+              <label for="inputpWaist" style=color:#8fccc0 class="col-md-3 col-form-label">Pants Waist</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputpWaist" formControlName="pWaist" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+            </div>
+            <div class="form-row">
+              <label for="inputHips" style=color:#fe3a35 class="col-md-3 col-form-label">Hips</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputHips" formControlName="hips" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+            </div>
+            <div class="form-row">
+              <label for="inputpLength" style=color:#666 class="col-md-3 col-form-label">Pants Length</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputpLength" formControlName="pLength" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+            </div>
+            <div class="form-row">
+              <label for="inputcrotch" style=color:#2aa9de class="col-md-3 col-form-label">Crotch</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputcrotch" formControlName="crotch" >
+              </div>
+              <div class="form-group col-md-1">cm</div>
+              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+            </div>
+            <div class="form-row">
+              <label for="inputthigh" style=color:#ff2851 class="col-md-3 col-form-label">Thigh</label>
+              <div class="form-group col-md-2">
+                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputthigh" formControlName="thigh" >                </div>
+                <div class="form-group col-md-1">cm</div>
+                <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+            </div>
+            <div class="form-row">
+                <label for="inputknee" style=color:#5751d9 class="col-md-3 col-form-label">Knee</label>
+                <div class="form-group col-md-2">
+                  <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputknee" formControlName="knee" >                </div>
+                  <div class="form-group col-md-1">cm</div>
+                  <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
+              </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+        <img src="../../assets/img/pants.png ">
+    </div>
+</div>
+
+
+
+  <!-- Neck modal  -->
+  <div id="myModal1" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content"> 
+        <div class="modal-body">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+          <img src="../../assets/img/neck.PNG " >
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Shoulder modal  -->
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="../../assets/img/shoulder.PNG " >
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Bicep modal  -->
+  <div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="../../assets/img/bicepPNG.PNG " >
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Jacket modal  -->
+  <div id="myModal4" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="../../assets/img/jacket.png " >
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- Sleeve modal  -->
+  <div id="myModal5" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="../../assets/img/sleeve.PNG " >
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Chest modal  -->
+  <div id="myModal6" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <img src="../../assets/img/chest.PNG " >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stomach modal  -->
+  <div id="myModal7" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+          </div>
+          <div class="modal-body">
+            <img src="../../assets/img/stomach.PNG " >
+          </div>
+        </div>
+      </div>
+    </div>
+
+   

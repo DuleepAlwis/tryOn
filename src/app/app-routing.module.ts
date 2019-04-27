@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './app/register/register.component';
 import { MenSuitsFormComponent } from './men-suits-form/men-suits-form.component';
 import { LoginComponent } from './app/login/login.component';
-import { MeasurementsTableComponent } from './measurements-table/measurements-table.component';
+import { MeasurementsTableComponent } from './customer-top-measurements/customer-top-measurements.component';
 import { AdminComponent } from './admin/admin.component';
 import { HelperComponent } from './helper/helper.component';
 

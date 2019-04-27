@@ -31,3 +31,7 @@
 .light-blue-backdrop {
   background-color: #5cb3fd;
 }
+.btn-inf {
+  padding: 10px;
+  color: red;
+}

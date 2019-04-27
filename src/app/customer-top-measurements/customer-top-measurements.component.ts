@@ -11,8 +11,8 @@ import { AuthService } from "../services/auth.service";
 
 @Component({
   selector: 'app-measurements-table',
-  templateUrl: './measurements-table.component.html',
-  styleUrls: ['./measurements-table.component.css']
+  templateUrl: './customer-top-measurements.component.html',
+  styleUrls: ['./customer-top-measurements.component.css']
 })
 export class MeasurementsTableComponent implements OnInit {
   form = new FormGroup({

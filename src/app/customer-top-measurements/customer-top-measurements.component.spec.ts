@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MeasurementsTableComponent } from './measurements-table.component';
+import { MeasurementsTableComponent } from './customer-top-measurements.component';
 
 describe('MeasurementsTableComponent', () => {
   let component: MeasurementsTableComponent;
