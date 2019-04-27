@@ -11,7 +11,7 @@
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="img-box">
-						<img class="d-block w-100" src="../../assets/img/test2.jpg" alt="First slide" style="width:100%;height:600px">
+						<img class="d-block w-100" src="../../assets/img/test2.jpg" alt="First slide" style="width:100%;height:600px;opacity: 0.9;">
 							<div class="slide_button" button (click)="viewProducts()">SHOP NOW</div>
 						<div class="slide_topleft" style="color:black">Enjoy all the <br><b>SEASONAL</b> offers! </div>
 					</div>
@@ -26,7 +26,8 @@
         <div class="carousel-item">
           <div class="img-box">
 						<img class="d-block w-100" src="../../assets/img/test3.jpg" alt="Third slide" style="width:100%;height:600px">
-						<div class="slide_topleft">FORGET THE RULES <br><i>If you like it.Wear it</i> </div>
+						<div class="slide_topleft">FORGET THE RULES </div>
+							<div class="slide_topright"><br><i>If you like it.Wear it</i> </div>
           </div>
         </div>
       </div>
@@ -39,18 +40,21 @@
 	</div>
 
 	<div class="event_section">
+		<h2>How it works</h2><br>
 		<div class="container">
 
-			<div class="event_one">
-				<h3>GET YOUR PERSONALIZED 2D MODEL</h3>
-        <p> Generate a 2D model for the measurments of your body</p>
-        <div class="img_section">
+			<a routerLink="/measurements" routerLinkActive="active">
+				<div class="event_one">
+					<h3>GET YOUR PERSONALIZED 2D MODEL</h3>
+        	<p> Generate a 2D model for the measurments of your body</p>
+        	<div class="img_section">
 						<img src="../../assets/img/chart1.jpg">
 							<div class="event_middle">
-								<div class="text">John Doe</div>
+								<!-- <div class="text">John Doe</div> -->
 							</div>
-        </div>		
-      </div>
+        	</div>		
+				</div>
+			</a>
 
 			<div class="event_two">
 				<h3>PICK UP THE BEST APPARELS FOR YOUR DESIRE</h3>
@@ -58,7 +62,7 @@
         <div class="img_section">
 					<img src="../../assets/img/apparel.png">
 						<div class="event_middle">
-								<div class="text">John Doe</div>
+								<!-- <div class="text">John Doe</div> -->
 							</div>
         </div>  
 			</div>
@@ -69,16 +73,27 @@
        <div class="img_section">
 						<img src="../../assets/img/online.png">
 							<div class="event_middle">
-								<div class="text">John Doe</div>
+								<!-- <div class="text">John Doe</div> -->
 							</div>
         </div>  
 			</div>
 		</div>
 	</div>
 
+
+	<div class="center-box">
+		<img src="../../assets/img/icon6.png" alt="Second slide" style="width:100%;height:600px;">
+			<div class="centered">Centered</div>
+				<div class="slide_button" style="left:10%" button (click)="createModel()">
+					DESIGN MODEL
+				</div>
+	</div>
+
+
+
 	<div class="product">
 		<div class="container">
-			<div class="product_section_title">LATEST ARRIVALS IN MUSICA</div>
+			<div class="product_section_title">Our Styles</div>
 
 			<div class="product_one">
 				<div class="product_img">

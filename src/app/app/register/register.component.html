@@ -1,0 +1,106 @@
+<!-- <app-home-navigation></app-home-navigation> -->
+<!-- <div class="container-fluid bg-light"> -->
+
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4"> 
+    <h3 style="text-align: center">
+      <b><i><span style="background-color:black;color: white">Register</span></i></b> and enjoy more Benefits!
+    </h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-3"> 
+    <div class=logo>
+      <a  routerLink="/"><img src="../../assets/img/logo.png "></a>
+    </div>
+  </div>
+</div>
+
+  <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="border-light" style="border: 7px">
+        <form [formGroup]="form" (submit)="signup()"> 
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" formControlName="email" >
+                  <div *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)"
+                    class="help-block">Please enter a valid e-mail address
+                    <div *ngIf="form.get('email').errors['required']"
+                      class="help-block">This field is required
+                    </div>
+                  </div>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Password</label>
+              <input type="password" class="form-control" id="inputPassword" formControlName="password">
+              <div *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)"
+                class="help-block">Please enter a valid password
+                <div *ngIf="form.get('email').errors['required']"
+                  class="help-block">This field is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="confirmPassword">Repeat Password</label> 
+              <input type="password" class="form-control" id="confrimPassword" formControlName="confirmpassword">
+                <div *ngIf="form.hasError('notSame')" class="help-block">Password doesn't matctch</div>
+            </div>
+          </div>  
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputfirsttName">First Name</label>
+              <input type="text" class="form-control" id="inputfirsttName" formControlName="firstName" placeholder="First Name">
+              <div *ngIf="(form.get('firstName').invalid && (form.get('firstName').dirty || form.get('firstName').touched))"
+                class="help-block">Please enter a valid Name
+                <div *ngIf="form.get('firstName').errors['required']"
+                  class="help-block">This field is required
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="inputlasttName">Last Name</label>
+              <input type="text" class="form-control" id="inputlastName" formControlName="lastName" placeholder="Last Name">
+              <div *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)"
+                class="help-block">Please enter a valid Last Name
+                <div *ngIf="form.get('lastName').errors['required']"
+                  class="help-block">This field is required
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputGender">Gender</label>
+              <select class="form-control" id="inputGender" formControlName="gender">
+                <option>Male</option>
+                <option>Female</option>
+              </select>
+            </div>
+          </div>
+          
+            <a routerLink="/measurements" routerLinkActive="active">Get your personalized model </a>
+            
+          <div class="form-row">
+            <label class="container">I have read and understand the <u>Privacy and Cookies Policy</u>
+              <input type="checkbox">
+                <span class="checkmark"></span>
+            </label>
+          </div>
+          
+          <div class="form-row">
+            <input type="submit" class="btn btn-primary mr-5" value="Sign Up">
+          </div>  
+        </form>
+      </div>
+    </div>
+  </div>
+<!-- </div> -->
+
+<!-- </div> -->

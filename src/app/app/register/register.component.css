@@ -1,4 +1,10 @@
-@import "../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import "../../../../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+.logo{
+	width: 200px;
+	height: auto;
+	float: left;
+}
 /* Customize the label (the container) */
 .container {
     display: block;
@@ -66,4 +72,10 @@
   }
   input.ng-invalid.ng-touched{
     border:1px solid red;
+}
+
+
+.help-block{
+  color:red;
+  font-size:12px;
 }

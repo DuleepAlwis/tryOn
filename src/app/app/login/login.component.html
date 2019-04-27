@@ -1,0 +1,58 @@
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4"> 
+      <h3 style="text-align: center">
+        <b><i><span style="background-color:black;color: white">Register</span></i></b> and enjoy more Benefits!
+      </h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-3"> 
+      <div class=logo>
+        <a  routerLink="/"><img src="../../assets/img/logo.png "></a>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+  <div class="col-md-5"></div>
+  <div class="col-md-5">
+    <div class="border-light" style="border: 7px">
+      <form [formGroup]="form" (submit)="login()"> 
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputEmail">Email</label>
+              <input type="email" class="form-control" id="inputEmail" formControlName="email" >
+              <!-- <div class="help-block"
+              *ngIf="femailInValid() && form.get('email').touched"
+              class="help-block">Please enter valid e-mail address
+          </div>
+              <span style=color:red;font-size:12px 
+              *ngIf="!form.get('email').errors['required']"
+              class="help-block">This field is required</span>  -->
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputPassword">Password</label>
+            <input type="password" class="form-control" id="inputPassword" formControlName="password">
+            <!-- <span style=color:red;font-size:12px 
+            *ngIf="!form.get('password').valid && form.get('password').touched"
+              class="help-block">Please enter a valid password
+            </span>
+            <span style=color:red;font-size:12px 
+              *ngIf="!form.get('password').errors['required']"
+              class="help-block">This field is required</span> -->
+          </div>
+        </div>
+            
+        <div class="form-row">
+            <input type="submit" class="btn btn-primary mr-5" value="Login" [disabled]="!form.valid">
+        </div> 
+      </form> 
+    </div>
+    <div class="form-row">
+      <a href="/register" routerLinkActive="active">Aren't you a member ? </a>
+    </div>
+  </div>

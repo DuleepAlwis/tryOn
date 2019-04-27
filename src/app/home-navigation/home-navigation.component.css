@@ -1,12 +1,55 @@
 @import "../../../node_modules/bootstrap/dist/css/bootstrap.css";
 
 /* upper nav bar */
-.social_icon{
+
+.example1 {
+	width:1500px;
+	height: 40px;	
+	overflow: hidden;
+	position: relative;
+	float: right;
+
+   }
+   .example1 h3 {
+	font-size: 2em;
+	color: black;
+	position: absolute;
 	width: 100%;
-	height: 33px;
-	background-color: #2a2b2c;
-	float: left;
-}
+	height: 100%;
+	margin: 0;
+	line-height: 40px;
+	text-align: center;
+	/* Starting position */
+	-moz-transform:translateX(100%);
+	-webkit-transform:translateX(100%);	
+	transform:translateX(100%);
+	/* Apply animation to this element */	
+	-moz-animation: example1 15s linear infinite;
+	-webkit-animation: example1 15s linear infinite;
+	animation: example1 15s linear infinite;
+   }
+   /* Move it (define the animation) */
+   @-moz-keyframes example1 {
+	0%   { -moz-transform: translateX(100%); }
+	100% { -moz-transform: translateX(-100%); }
+   }
+   @-webkit-keyframes example1 {
+	0%   { -webkit-transform: translateX(100%); }
+	100% { -webkit-transform: translateX(-100%); }
+   }
+   @keyframes example1 {
+	0%   { 
+	-moz-transform: translateX(100%); /* Firefox bug fix */
+	-webkit-transform: translateX(100%); /* Firefox bug fix */
+	transform: translateX(100%); 		
+	}
+	100% { 
+	-moz-transform: translateX(-100%); /* Firefox bug fix */
+	-webkit-transform: translateX(-100%); /* Firefox bug fix */
+	transform: translateX(-100%); 
+	}
+   }
+
 .container{
 	width: 2500px;
 	height: auto;
@@ -69,16 +112,17 @@
 	padding-bottom: 10px; 
 }
 .logo{
-	width: 200px;
-	height: auto;
+	width: 75px;
+	height: 75px;
 	float: left;
 }
 .navbar{
-	/* width: 1500px; */
-	/* float :left; */
-	text-align: left;
-	padding-top: 5px;
-	padding-bottom: 5px;
+	width: 1500px;
+	/* float :right; */
+	text-align: right;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	
 }
 .navbar a{
 	display: inline-block;
@@ -100,3 +144,5 @@
 	}
   
 }
+
+

@@ -10,10 +10,10 @@ body{
 .main{
 	width: 100%;
 	height: auto;
-	background-image: url(/img/bg.png);
+	/* background-image: url(/img/bg.png); */
 	background-repeat: repeat;
 	height: auto;
-  margin: 0 auto;
+  	margin:  auto;
   background-color: lightgray;
 }
 
@@ -31,6 +31,7 @@ body{
 .slideshow img{
 	width: 100%;
 	height: auto;
+	
 }
 .slide_topleft {
   position: absolute;
@@ -39,6 +40,13 @@ body{
   font-size: 50px;
   color:whitesmoke;
 }
+.slide_topright {
+	position: absolute;
+	top: 75px;
+	right: 16px;
+	font-size: 50px;
+	color:whitesmoke;
+  }
 .slide_center {
 	position: absolute;
 	top: 75%;
@@ -54,7 +62,7 @@ body{
 	transform: translate(-50%, -50%);
 	-ms-transform: translate(-50%, -50%);
 	background-color: white;
-	color: #555;
+	color:red;
 	font-size: 16px;
 	padding: 12px 24px;
 	border: none;
@@ -72,6 +80,7 @@ body{
 	margin-top: -300px;
 	z-index: 1000;
 }
+
 .center img{
 	width: 80%;
 	margin-top: 10px;
@@ -101,14 +110,13 @@ body{
 	opacity: 1;
 }
 
-
 .welcome_text{
 	width: 100%;
 	height: auto;
 	float: left;
 	margin-top: 100px;
 	text-align: center;
-}
+ }
 .welcome_text h1{
 	font-weight: normal;
 }
@@ -122,6 +130,9 @@ body{
 	height: auto;
 	float: left;
 	margin-top: 50px;
+	text-align: center;
+	margin-bottom: 50px;
+
 }
 
 
@@ -149,7 +160,7 @@ body{
 .event_section .event_two{
 	margin: 0 50px;
 	background-color:grey;
-	color: #cd3737;
+	color: black;
 }
 .event_section .event_two h3{
 	color: white;
@@ -166,7 +177,7 @@ body{
 	backface-visibility: hidden;
   }
 
-.event_middle {
+.event_section.event_middle {
 	transition: .5s ease;
 	opacity: 0;
 	position: absolute;
@@ -176,19 +187,32 @@ body{
 	-ms-transform: translate(-50%, -50%)
   }
 
-.img_section:hover  {
+.img_section:hover {
 	opacity: 0.3;
   }
-.img_section:hover .event_middle {
+.img_section:hover .event_section.event_middle  {
 	opacity: 1;
 }
-.text {
+/* .text {	
 	background-color: #4CAF50;
 	color: white;
 	font-size: 16px;
 	padding: 16px 32px;
   }
- 
+  */
+.center-box{
+	width:100%;
+	height:auto;	
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.center-box.centered {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  }
 .product{
 	width: 100%;
 	height: auto;
@@ -403,6 +427,7 @@ body{
 	color: gray;
 	text-align: right;
 }
+
 
 
 @media only screen and (max-width: 500px) {

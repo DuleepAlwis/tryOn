@@ -5,7 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { HomeComponent } from "./home/home.component";
 import { RouterModule, Routes } from "@angular/router";
-import { RegisterComponent } from "./register/register.component";
+import { RegisterComponent } from "./app/register/register.component";
 import { HomeNavigationComponent } from "./home-navigation/home-navigation.component";
 import { AuthService } from "./services/auth.service";
 import { ProductService } from "./services/product.service";
@@ -19,8 +19,10 @@ import { TightsFormComponent } from "./tights-form/tights-form.component";
 import { AccessoriesFormComponent } from "./accessories-form/accessories-form.component";*/
 //import { ReceprionistProductsEditComponent } from "./receprionist-products-edit/receprionist-products-edit.component";
 import { ReceptionistProductsModule } from "./receptionist-products/receptionist-products.module";
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './app/login/login.component';
 import { MeasurementsTableComponent } from './measurements-table/measurements-table.component';
+import { AdminComponent } from './admin/admin.component';
+import { HelperComponent } from './helper/helper.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +32,9 @@ import { MeasurementsTableComponent } from './measurements-table/measurements-ta
     //ReceptionistNavigationComponent,
     ProductsComponent,
     LoginComponent,
-    MeasurementsTableComponent
+    MeasurementsTableComponent,
+    AdminComponent,
+    HelperComponent
     //ReceptionistProductsComponent,
     /*MenSuitsFormComponent,
     TightsFormComponent,
