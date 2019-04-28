@@ -4,7 +4,7 @@
     <div class="col-md-6">
      <span>Step 1</span><h3>Top measurements</h3> 
       <div class="border-light" style="border: 8px">
-        <form [formGroup]="form" (submit)="signup()"> 
+        <form [formGroup]="form1" (submit)="topSubmit()"> 
           <div class="form-row">
               <label for="inputNeck" style=color:#999 class="col-md-3 col-form-label">Neck</label>
             <div class="form-group col-md-2">
@@ -61,67 +61,15 @@
               <div class="form-group col-md-1">cm</div>
               <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal7"><u>Help?</u></button>
           </div>
+          <div class="form-row">
+            <a routerLink="/measurements1" ><button class="btn btn-primary mr-5">Next</button></a>
+          </div> 
         </form>
       </div>
     </div>
     <!-- image -->
     <div class="col-md-5">
         <img src="../../assets/img/jacket.png ">
-    </div>
-    <div class="col-md-6">
-      <div class="col-md-1"></div>
-      <h3>Bottom measurements</h3>
-      <div class="border-light" style="border: 8px">
-            <div class="form-row">
-              <label for="inputpWaist" style=color:#8fccc0 class="col-md-3 col-form-label">Pants Waist</label>
-              <div class="form-group col-md-2">
-                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputpWaist" formControlName="pWaist" >
-              </div>
-              <div class="form-group col-md-1">cm</div>
-              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
-            </div>
-            <div class="form-row">
-              <label for="inputHips" style=color:#fe3a35 class="col-md-3 col-form-label">Hips</label>
-              <div class="form-group col-md-2">
-                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputHips" formControlName="hips" >
-              </div>
-              <div class="form-group col-md-1">cm</div>
-              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
-            </div>
-            <div class="form-row">
-              <label for="inputpLength" style=color:#666 class="col-md-3 col-form-label">Pants Length</label>
-              <div class="form-group col-md-2">
-                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputpLength" formControlName="pLength" >
-              </div>
-              <div class="form-group col-md-1">cm</div>
-              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
-            </div>
-            <div class="form-row">
-              <label for="inputcrotch" style=color:#2aa9de class="col-md-3 col-form-label">Crotch</label>
-              <div class="form-group col-md-2">
-                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputcrotch" formControlName="crotch" >
-              </div>
-              <div class="form-group col-md-1">cm</div>
-              <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
-            </div>
-            <div class="form-row">
-              <label for="inputthigh" style=color:#ff2851 class="col-md-3 col-form-label">Thigh</label>
-              <div class="form-group col-md-2">
-                <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputthigh" formControlName="thigh" >                </div>
-                <div class="form-group col-md-1">cm</div>
-                <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
-            </div>
-            <div class="form-row">
-                <label for="inputknee" style=color:#5751d9 class="col-md-3 col-form-label">Knee</label>
-                <div class="form-group col-md-2">
-                  <input type="text" class="app-form__input app-form__select js-required p-b-0 error" id="inputknee" formControlName="knee" >                </div>
-                  <div class="form-group col-md-1">cm</div>
-                  <button type="button" class="btn btn-inf " data-toggle="modal" data-target="#myModal1"><u>Help?</u></button>
-              </div>
-      </div>
-    </div>
-    <div class="col-md-5">
-        <img src="../../assets/img/pants.png ">
     </div>
 </div>
 
@@ -184,7 +132,6 @@
   </div>
 
  
-
   <!-- Sleeve modal  -->
   <div id="myModal5" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">

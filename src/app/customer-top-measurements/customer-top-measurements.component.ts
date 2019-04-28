@@ -15,14 +15,14 @@ import { AuthService } from "../services/auth.service";
   styleUrls: ['./customer-top-measurements.component.css']
 })
 export class MeasurementsTableComponent implements OnInit {
-  form = new FormGroup({
-    neck: new FormControl(null, [Validators.required]),
-    shoulder: new FormControl(null, [Validators.required]),
-    bicep: new FormControl(null, [Validators.required]),
-    jacket: new FormControl(null, [Validators.required]),
-    sleeve: new FormControl(null, [Validators.required]),
-    chest: new FormControl(null, [Validators.required]),
-    stomach: new FormControl(null, [Validators.required])
+  form1 = new FormGroup({
+    neck: new FormControl(null, [Validators.required,Validators.maxLength(3)]),
+    shoulder: new FormControl(null, [Validators.required,Validators.maxLength(3)]),
+    bicep: new FormControl(null, [Validators.required,Validators.maxLength(3)]),
+    jacket: new FormControl(null, [Validators.required,Validators.maxLength(3)]),
+    sleeve: new FormControl(null, [Validators.required,Validators.maxLength(3)]),
+    chest: new FormControl(null, [Validators.required,Validators.maxLength(3)]),
+    stomach: new FormControl(null, [Validators.required,Validators.maxLength(3)])
   });
 
 
