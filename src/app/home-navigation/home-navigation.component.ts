@@ -30,6 +30,11 @@ export class HomeNavigationComponent implements OnInit {
     console.log(this.form.get("email").value + "123");
   }
 
+  getRole()
+  {
+    return this.authService.getRole();
+  }
+
   isLoggedIn() {
     return this.authService.getIsAuth();
   }

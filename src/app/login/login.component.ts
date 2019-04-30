@@ -38,8 +38,20 @@ export class LoginComponent implements OnInit {
                 responseData.userId,
                 responseData.token,
 
-                responseData.role
+                responseData.role,
+                responseData.email
               );
+              break;
+              case "R":
+              this.route.navigateByUrl("Receptionist");
+              this.authService.setCredentials(
+                responseData.userId,
+                responseData.token,
+
+                responseData.role,
+                responseData.email
+              );
+
 
               break;
           }

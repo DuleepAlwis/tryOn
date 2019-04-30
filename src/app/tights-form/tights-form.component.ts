@@ -5,6 +5,7 @@ import { ActivatedRoute, ParamMap } from "@angular/router";
 import { ProductService } from "../services/product.service";
 import { Cloth } from "../modules/Cloth";
 import { mimeType } from "../cloth-edit/mime-type.validator";
+import { Tights } from '../modules/Tights';
 
 @Component({
   selector: "app-tights-form",
@@ -12,7 +13,7 @@ import { mimeType } from "../cloth-edit/mime-type.validator";
   styleUrls: ["./tights-form.component.css"]
 })
 export class TightsFormComponent implements OnInit {
-  form = new FormGroup({
+ /* form = new FormGroup({
     name: new FormControl("", Validators.required),
     MeasurementSC1: new FormControl("", Validators.required),
     MeasurementSC2: new FormControl("", Validators.required),
@@ -37,6 +38,53 @@ export class TightsFormComponent implements OnInit {
     MeasurementLW1: new FormControl("", Validators.required),
     MeasurementLW2: new FormControl("", Validators.required),
     MeasurementLQ: new FormControl("", Validators.required),
+    MeasurementLP: new FormControl("", Validators.required)
+  });*/
+
+  form = new FormGroup({
+    name: new FormControl("", Validators.required),
+    MeasurementSPantsW1: new FormControl("", Validators.required),
+    MeasurementSPantsW2: new FormControl("", Validators.required),
+    MeasurementMPantsW1: new FormControl("", Validators.required),
+    MeasurementMPantsW2: new FormControl("", Validators.required),
+    MeasurementLPantsW1: new FormControl("", Validators.required),
+    MeasurementLPantsW2: new FormControl("", Validators.required),
+    MeasurementSHips1: new FormControl("", Validators.required),
+    MeasurementSHips2: new FormControl("", Validators.required),
+    MeasurementMHips1: new FormControl("", Validators.required),
+    MeasurementMHips2: new FormControl("", Validators.required),
+    MeasurementLHips1: new FormControl("", Validators.required),
+    MeasurementLHips2: new FormControl("", Validators.required),
+    MeasurementSLength1: new FormControl("", Validators.required),
+    MeasurementSLength2: new FormControl("", Validators.required),
+    MeasurementMLength1: new FormControl("", Validators.required),
+    MeasurementMLength2: new FormControl("", Validators.required),
+    MeasurementLLength1: new FormControl("", Validators.required),
+    MeasurementLLength2: new FormControl("", Validators.required),
+    MeasurementSCrotch1: new FormControl("", Validators.required),
+    MeasurementSCrotch2: new FormControl("", Validators.required),
+    MeasurementMCrotch1: new FormControl("", Validators.required),
+    MeasurementMCrotch2: new FormControl("", Validators.required),
+    MeasurementLCrotch1: new FormControl("", Validators.required),
+    MeasurementLCrotch2: new FormControl("", Validators.required),
+
+    MeasurementSThigh1: new FormControl("", Validators.required),
+    MeasurementSThigh2: new FormControl("", Validators.required),
+    MeasurementMThigh1: new FormControl("", Validators.required),
+    MeasurementMThigh2: new FormControl("", Validators.required),
+    MeasurementLThigh1: new FormControl("", Validators.required),
+    MeasurementLThigh2: new FormControl("", Validators.required),
+    MeasurementSKnee1: new FormControl("", Validators.required),
+    MeasurementSKnee2: new FormControl("", Validators.required),
+    MeasurementMKnee1: new FormControl("", Validators.required),
+    MeasurementMKnee2: new FormControl("", Validators.required),
+    MeasurementLKnee1: new FormControl('', Validators.required),
+    MeasurementLKnee2: new FormControl("", Validators.required),
+    MeasurementSQ: new FormControl("", Validators.required),
+    MeasurementMQ: new FormControl("", Validators.required),
+    MeasurementLQ: new FormControl("", Validators.required),
+    MeasurementSP: new FormControl("", Validators.required),
+    MeasurementMP: new FormControl("", Validators.required),
     MeasurementLP: new FormControl("", Validators.required)
   });
 
@@ -76,7 +124,7 @@ export class TightsFormComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(params => {
       this.title = params.get("title");
-      //console.log(this.title);
+      // console.log(this.title);
       //console.log(params);
       console.log("IBH" + " " + this.productId);
       if (this.productId && this.category) {
@@ -120,7 +168,7 @@ export class TightsFormComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imageLeftPreview = reader.result;
-      //console.log(reader.result);
+      // console.log(reader.result);
     };
     reader.readAsDataURL(file);
   }
@@ -133,7 +181,7 @@ export class TightsFormComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imageRightPreview = reader.result;
-      //console.log(reader.result);
+      // console.log(reader.result);
     };
     reader.readAsDataURL(file);
   }
@@ -193,38 +241,62 @@ export class TightsFormComponent implements OnInit {
   }
 
   addTights() {
-    const cloth: Cloth = {
+    const tights: Tights = {
       category: this.title,
-      name: this.form.get("name").value,
-      MeasurementSC1: this.form.get("MeasurementSC1").value,
-      MeasurementSC2: this.form.get("MeasurementSC2").value,
-      MeasurementSH1: this.form.get("MeasurementSH1").value,
-      MeasurementSH2: this.form.get("MeasurementSH2").value,
-      MeasurementSW1: this.form.get("MeasurementSW1").value,
-      MeasurementSW2: this.form.get("MeasurementSW2").value,
+      name: this.form.get('name').value,
+      MeasurementSPantsW1: this.form.get("MeasurementSPantsW1").value,
+      MeasurementSPantsW2: this.form.get("MeasurementSPantsW2").value,
+      MeasurementMPantsW1: this.form.get("MeasurementMPantsW1").value,
+      MeasurementMPantsW2: this.form.get("MeasurementMPantsW2").value,
+      MeasurementLPantsW1: this.form.get("MeasurementLPantsW1").value,
+      MeasurementLPantsW2: this.form.get("MeasurementLPantsW2").value,
+      MeasurementSHips1: this.form.get("MeasurementSHips1").value,
+      MeasurementSHips2: this.form.get("MeasurementSHips2").value,
+      MeasurementMHips1: this.form.get("MeasurementMHips1").value,
+      MeasurementMHips2: this.form.get("MeasurementMHips2").value,
+      MeasurementLHips1: this.form.get("MeasurementLHips1").value,
+      MeasurementLHips2: this.form.get("MeasurementLHips2").value,
+      MeasurementSLength1: this.form.get("MeasurementSLength1").value,
+      MeasurementSLength2: this.form.get("MeasurementSLength2").value,
+      MeasurementMLength1: this.form.get("MeasurementMLength1").value,
+      MeasurementMLength2: this.form.get("MeasurementMLength2").value,
+      MeasurementLLength1: this.form.get("MeasurementLLength1").value,
+      MeasurementLLength2: this.form.get("MeasurementLLength2").value,
+      MeasurementSCrotch1: this.form.get("MeasurementSCrotch1").value,
+      MeasurementSCrotch2: this.form.get("MeasurementSCrotch2").value,
+      // tslint:disable-next-line:quotemark
+      MeasurementMCrotch1: this.form.get("MeasurementMCrotch2").value,
+      MeasurementMCrotch2: this.form.get("MeasurementMCrotch2").value,
+      MeasurementLCrotch1: this.form.get("MeasurementLCrotch1").value,
+      MeasurementLCrotch2: this.form.get("MeasurementLCrotch2").value,
+      MeasurementSThigh1: this.form.get("MeasurementSThigh1").value,
+      MeasurementSThigh2: this.form.get("MeasurementSThigh2").value,
+      MeasurementMThigh1: this.form.get("MeasurementMThigh1").value,
+      MeasurementMThigh2: this.form.get("MeasurementMThigh2").value,
+      MeasurementLThigh1: this.form.get("MeasurementLThigh1").value,
+      MeasurementLThigh2: this.form.get("MeasurementLThigh2").value,
+      MeasurementSKnee1: this.form.get("MeasurementSKnee1").value,
+      MeasurementSKnee2: this.form.get("MeasurementSKnee2").value,
+      MeasurementMKnee1: this.form.get("MeasurementMKnee1").value,
+      MeasurementMKnee2: this.form.get("MeasurementMKnee2").value,
+      MeasurementLKnee1: this.form.get("MeasurementLKnee1").value,
+      MeasurementLKnee2: this.form.get("MeasurementLKnee1").value,
       MeasurementSQ: this.form.get("MeasurementSQ").value,
-      MeasurementSP: this.form.get("MeasurementSP").value,
-      MeasurementMC1: this.form.get("MeasurementMC1").value,
-      MeasurementMC2: this.form.get("MeasurementMC2").value,
-      MeasurementMH1: this.form.get("MeasurementMH1").value,
-      MeasurementMH2: this.form.get("MeasurementMH2").value,
-      MeasurementMW1: this.form.get("MeasurementMW1").value,
-      MeasurementMW2: this.form.get("MeasurementMW2").value,
       MeasurementMQ: this.form.get("MeasurementMQ").value,
-      MeasurementMP: this.form.get("MeasurementMP").value,
-      MeasurementLC1: this.form.get("MeasurementLC1").value,
-      MeasurementLC2: this.form.get("MeasurementLC2").value,
-      MeasurementLH1: this.form.get("MeasurementLH1").value,
-      MeasurementLH2: this.form.get("MeasurementLH2").value,
-      MeasurementLW1: this.form.get("MeasurementLW1").value,
-      MeasurementLW2: this.form.get("MeasurementLW2").value,
       MeasurementLQ: this.form.get("MeasurementLQ").value,
-      MeasurementLP: this.form.get("MeasurementLP").value
+      MeasurementSP: this.form.get("MeasurementSP").value,
+      MeasurementMP: this.form.get("MeasurementMP").value,
+      MeasurementLP: this.form.get("MeasurementLP").value,
+      imgFront:"",
+      imgBack:"",
+      imgLeft:"",
+      imgRight:"",
+
     };
     if (this.newProduct) {
-      this.productService.addTights(cloth);
+      this.productService.addTights(tights);
     } else {
-      this.productService.updateTights(this.productId, cloth);
+      this.productService.updateTights(this.productId, tights);
     }
   }
 
@@ -236,7 +308,7 @@ export class TightsFormComponent implements OnInit {
       .subscribe(responseData => {
         console.log(responseData);
         this.title = responseData.result[0].category;
-        this.form.patchValue({
+        /*this.form.patchValue({
           name: responseData.result[0].name,
           MeasurementSC1: responseData.result[0].small.chest[0],
           MeasurementSC2: responseData.result[0].small.chest[1],
@@ -246,7 +318,7 @@ export class TightsFormComponent implements OnInit {
           MeasurementSW2: responseData.result[0].small.weist[1],
           MeasurementSQ: responseData.result[0].small.quantity,
           MeasurementSP: responseData.result[0].small.price,
-          /*---*/
+
           MeasurementMC1: responseData.result[0].medium.chest[0],
           MeasurementMC2: responseData.result[0].medium.chest[1],
           MeasurementMH1: responseData.result[0].medium.hips[0],
@@ -255,7 +327,6 @@ export class TightsFormComponent implements OnInit {
           MeasurementMW2: responseData.result[0].medium.weist[1],
           MeasurementMQ: responseData.result[0].medium.quantity,
           MeasurementMP: responseData.result[0].medium.price,
-          /*---*/
           MeasurementLC1: responseData.result[0].large.chest[0],
           MeasurementLC2: responseData.result[0].large.chest[1],
           MeasurementLH1: responseData.result[0].large.hips[0],
@@ -265,12 +336,62 @@ export class TightsFormComponent implements OnInit {
           MeasurementLQ: responseData.result[0].large.quantity,
           MeasurementLP: responseData.result[0].large.price
         });
-
+*/
         /* this.imgFrontPath = responseData.result[0].imgFront;
         this.imgBackPath = responseData.result[0].imgBack;
         this.imgLeftPath = responseData.result[0].imgLeft;
         this.imgRightPath = responseData.result[0].imgRight;
         */
+
+
+       this.form.patchValue({
+        name: responseData.result[0].name,
+        MeasurementSPantsW1: responseData.result[0].small.PantsW[0],
+        MeasurementSPantsW2: responseData.result[0].small.PantsW[1],
+        MeasurementSHips1: responseData.result[0].small.Hips[0],
+        MeasurementSHips2: responseData.result[0].small.Hips[1],
+        MeasurementSLength1: responseData.result[0].small.Length[0],
+        MeasurementSLength2: responseData.result[0].small.Length[1],
+        MeasurementSCrotch1: responseData.result[0].small.Crotch[0],
+        MeasurementSCrotch2: responseData.result[0].small.Crotch[1],
+        MeasurementSThigh1: responseData.result[0].small.Thigh[0],
+        MeasurementSThigh2: responseData.result[0].small.Thigh[1],
+        MeasurementSKnee1: responseData.result[0].small.Knee[0],
+        MeasurementSKnee2: responseData.result[0].small.Knee[1],
+        MeasurementSQ: responseData.result[0].small.quantity,
+        MeasurementSP: responseData.result[0].small.price,
+
+        MeasurementMPantsW1: responseData.result[0].medium.PantsW[0],
+        MeasurementMPantsW2: responseData.result[0].medium.PantsW[1],
+        MeasurementMHips1: responseData.result[0].medium.Hips[0],
+        MeasurementMHips2: responseData.result[0].medium.Hips[1],
+        MeasurementMLength1: responseData.result[0].medium.Length[0],
+        MeasurementMLength2: responseData.result[0].medium.Length[1],
+        MeasurementMCrotch1: responseData.result[0].medium.Crotch[0],
+        MeasurementMCrotch2: responseData.result[0].medium.Crotch[1],
+        MeasurementMThigh1: responseData.result[0].medium.Thigh[0],
+        MeasurementMThigh2: responseData.result[0].medium.Thigh[1],
+        MeasurementMKnee1: responseData.result[0].medium.Knee[0],
+        MeasurementMKnee2: responseData.result[0].medium.Knee[1],
+        MeasurementMQ: responseData.result[0].medium.quantity,
+        MeasurementMP: responseData.result[0].medium.price,
+
+
+        MeasurementLPantsW1: responseData.result[0].large.PantsW[0],
+        MeasurementLPantsW2: responseData.result[0].large.PantsW[1],
+        MeasurementLHips1: responseData.result[0].large.Hips[0],
+        MeasurementLHips2: responseData.result[0].large.Hips[1],
+        MeasurementLLength1: responseData.result[0].large.Length[0],
+        MeasurementLLength2: responseData.result[0].large.Length[1],
+        MeasurementLCrotch1: responseData.result[0].large.Crotch[0],
+        MeasurementLCrotch2: responseData.result[0].large.Crotch[1],
+        MeasurementLThigh1: responseData.result[0].large.Thigh[0],
+        MeasurementLThigh2: responseData.result[0].large.Thigh[1],
+        MeasurementLKnee1: responseData.result[0].large.Knee[0],
+        MeasurementLKnee2: responseData.result[0].large.Knee[1],
+        MeasurementLQ: responseData.result[0].large.quantity,
+        MeasurementLP: responseData.result[0].large.price,
+      });
       });
   }
 

@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
 
   signup() {
     if (
-      !(this.nameInValid() && this.emailInValid() && this.passwordInValid())
+      (this.nameInValid() || this.emailInValid() || this.passwordInValid())
     ) {
       console.log(
         this.form.get("name").value + " " + this.form.get("city").value

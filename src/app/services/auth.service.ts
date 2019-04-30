@@ -22,9 +22,10 @@ import { ShoppingCartService } from "./shopping-cart.service";
 })
 export class AuthService {
   private url = "http://localhost:3000";
-  private role: string;
+  private role: string = "H";
   private userId: string;
   private token: string;
+  private email:string;
   private isAuthenticated: boolean = false;
   private subscription: Subscription;
   private browserRefresh: boolean;
@@ -40,27 +41,38 @@ export class AuthService {
       }
     });
     this.userId = localStorage.length>0 ? localStorage.getItem("id") : "";
-    this.token = localStorage.length>0 
+    this.role = localStorage.length>0 ? localStorage.getItem("role") : "H";
+    this.token = localStorage.length>0
       ? localStorage.getItem("token")
       : "";
   }
 
-  setCredentials(userId: string, token: string, role: string) {
+  setCredentials(userId: string, token: string, role: string,email:string) {
     this.role = role;
     this.userId = userId;
     this.token = token;
+    this.email = email;
+    console.log(this.email);
     this.isAuthenticated = true;
     localStorage.setItem("id", this.userId);
     localStorage.setItem("token", this.token);
+    localStorage.setItem("role",this.role);
   }
 
   logout() {
-    this.role = "";
+    this.role = "H";
     this.userId = "";
     this.token = "";
+    this.email = "";
     this.isAuthenticated = false;
-    this.clearLocalStorage();
-    this.shoppingCartService.clearLocalStorage();
+    localStorage.clear();
+    //this.clearLocalStorage();
+
+    if(this.shoppingCartService.clearLocalStorage())
+  {
+    this.router.navigate(["/"]);
+
+  }
   }
 
   getUserId() {
@@ -68,6 +80,26 @@ export class AuthService {
   }
   getToken() {
     return this.token;
+  }
+
+  setToken(token:string)
+  {
+    this.token = token;
+  }
+
+  setEmail(email:string)
+  {
+    this.email = email;
+  }
+
+  getEmail()
+  {
+    return this.email;
+  }
+
+  getRole()
+  {
+    return this.role;
   }
 
   getIsAuth() {
@@ -80,6 +112,7 @@ export class AuthService {
       userId: string;
       role: string;
       token: string;
+      email:string;
       message: Number;
     }>(this.url + "/api/user/login", authData);
   }
@@ -114,5 +147,15 @@ export class AuthService {
       localStorage.removeItem(localStorage.key(i));
     }
     this.router.navigate(["/"]);
+  }
+
+  resetEmail(email:string)
+  {
+    return this.http.post<{message:Number,email:string}>(this.url+"/api/user/resetEmail",{email:email,id:this.userId});
+  }
+
+   resetPassword(password:string)
+  {
+    return this.http.post<{message:Number}>(this.url+"/api/user/resetPassword",{password:password,id:this.userId});
   }
 }

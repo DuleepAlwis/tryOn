@@ -36,10 +36,11 @@ export class CustomerProfileComponent implements OnInit {
     this.customerService
       .getCustomerProfile(this.authService.getUserId())
       .subscribe(responseData => {
-        console.log(responseData);
+        //console.log(responseData);
         if (responseData.message == 0) {
           this.router.navigate(["/"]);
         } else {
+          console.log(responseData.result);
           this.form.patchValue({
             name: responseData.result.name,
             address: responseData.result.address,

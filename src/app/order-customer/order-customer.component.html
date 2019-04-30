@@ -1,0 +1,83 @@
+<app-home-navigation></app-home-navigation>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Order details</h3>
+      <table class="table">
+
+          <tbody>
+            <tr scope="row" style="padding:0px">
+              <td>Ordered-Date</td>
+              <td>Time</td>
+              <td>Total Price</td>
+              <td>Status</td>
+              <td>Comment</td>
+
+            </tr>
+            <tr scope="row">
+                <td>{{this.orderedDate}}</td>
+                <td>{{ this.time }}</td>
+                <td>{{ this.totalPrice }}</td>
+                <td>{{ this.status }}</td>
+                <td>{{ this.comment }}</td>
+            </tr>
+
+
+          </tbody>
+        </table>
+    </div>
+    <div class="col-md-1"></div>
+    <div class="col-md-3">
+      <h3>Delivery details</h3>
+        <table class="table">
+
+            <tbody>
+              <tr scope="row" style="padding:7px">
+                <td>Address</td>
+                <td>City</td>
+                <td>District</td>
+                <td>Mobile number</td>
+<td>Deliver on</td>
+              </tr>
+              <tr scope="row" style="padding:7px">
+                  <td>{{this.address}}</td>
+                  <td>{{ this.city }}</td>
+                  <td>{{ this.district }}</td>
+                  <td>{{ this.mobilenumber }}</td>
+<td>{{this.dueDate}}</td>
+              </tr>
+
+
+            </tbody>
+          </table>
+    </div>
+    <div class="col-md-1"></div>
+
+      <div class="col-md-4">
+        <h3>Items list</h3>
+          <table class="table">
+
+            <tbody>
+              <tr scope="row" style="padding:7px">
+                <td>Name</td>
+                <td>Quantity</td>
+                <td>Price</td>
+                <td>Size</td>
+              </tr>
+              <tr scope="row" style="padding:7px" *ngFor="let item of this.orderedItems">
+                  <td>{{item.name}}</td>
+                  <td>{{ item.quantity }}</td>
+                  <td>{{ item.price }}</td>
+                  <td>{{ item.size }}</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+  </div>
+</div>

@@ -21,32 +21,37 @@
             cart({{this.itemsCountShoppingCart()}})</a>
 
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href='' style="color:white">Orders</a>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                My Store
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item"  routerLink="/Orderdetails" style="color:black">Orders</a>
+                <a class="dropdown-item" routerLink="/Customer/CustomerSearchProduct" style="color:black" >Find Items</a>
+                <a class="dropdown-item" href='' style="color:black">News later</a>
+            </div>
+          </li>
+
+        <!--<li class="nav-item">
+          <a class="nav-link" routerLink="/Customer/Orderdetails" style="color:white">Orders</a>
 
         </li>
         <li class="nav-item">
           <a class="nav-link" href='' style="color:white">News later</a>
 
-        </li>
-        <li class="nav-item">
-          <div class="btn-group">
-            <!--<button type="button" class="btn btn-info">Costumes & Accessories</button>-->
-            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
-              <span class="sr-only">Toggle Dropdown</span>
-            </button>
+        </li>-->
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Account Settings
+            </a>
             <div class="dropdown-menu">
-              <a class="dropdown-item" [routerLink]="['/Customer/CustomerProfile']" style="color:black">Profile</a>
-              <a class="dropdown-item" href="#" style="color:black">Access credentials</a>
+                <a class="dropdown-item" [routerLink]="['/Customer/CustomerProfile']" style="color:black">Profile</a>
+                <a class="dropdown-item" [routerLink]="['/Customer/ResetCredentials']" style="color:black">Access credentials</a>
 
-              <a class="dropdown-item" style="color:black" (click)="logout()">Logout</a>
+                <a class="dropdown-item" style="color:black" (click)="logout()">Logout</a>
 
-              <!--<a class="dropdown-item" href="#">Separated link</a>-->
-            </div>
-          </div>
-
-        </li>
+              </div>
+          </li>
         <li class="nav-item">
           <a class="nav-link" href='' style="color:white"><span style="display:inline-block;width:35px"></span></a>
 

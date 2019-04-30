@@ -1,185 +1,300 @@
 <app-home-navigation></app-home-navigation>
 <div class="container-fluid">
   <h1>{{this.errorMsg}}</h1>
-  <div class="row" *ngIf="this.clothes">
+  <div class="row">
     <div class="col-md-7">
       <h1 style="text-align: center">Product Description</h1>
 
       <h3>{{ this.item[0].name }}</h3>
-      <table class="table table-bordered rounded" *ngFor="let item of this.item" style="background-color:LightBlue">
-        <h5><b>Measurements</b></h5>
-        <tr>
-          <th>#</th>
-          <th colspan="2" class="text-center">Chest(cm)</th>
-          <th colspan="2" class="text-center">Waist(cm)</th>
-          <th colspan="2" class="text-center">Hips(cm)</th>
-          <th class="text-center">Quantity</th>
-          <th class="text-center">Price(RS.)</th>
+      <table class="table table-bordered rounded" *ngIf="this.clothes" style="background-color:LightBlue">
+          <h5><b>Measurements</b></h5>
+          <tr>
+            <th>#</th>
+            <th colspan="2" class="text-center">Small</th>
+            <th colspan="2" class="text-center">Medium</th>
+            <th colspan="2" class="text-center">Large</th>
+          </tr>
+          <tr>
+            <td>Neck</td>
+            <td>{{ this.item[0].small.neck[0] }}
+            </td>
+            <td class=""> {{ this.item[0].small.neck[1] }}
+            </td>
 
-        </tr>
-        <tr>
-          <td>Small</td>
-          <td>{{item.small.chest[0]}}
-          </td>
-          <td class=""> {{item.small.chest[1]}}
-          </td>
-          <td> {{item.small.weist[0]}}
-          </td>
-          <td class="mr-3"> {{item.small.weist[1]}}
+            <td> {{ this.item[0].medium.neck[0] }}
+            </td>
+            <td class=""> {{ this.item[0].medium.neck[1] }}
+            </td>
 
-          </td>
-          <td> {{item.small.hips[0]}}
-          </td>
-          <td> {{item.small.hips[1]}}
-          </td>
-          <td> {{item.small.quantity}}
-          </td>
-          <td> {{item.small.price}}
-          </td>
-        </tr>
-        <tr>
-          <td>Medium</td>
+            <td> {{ this.item[0].large.neck[0] }}
+            </td>
+            <td class=""> {{ this.item[0].large.neck[1] }}
+            </td>
 
-          <td>{{item.medium.chest[0]}}
-          </td>
-          <td class=""> {{item.medium.chest[1]}}
-          </td>
-          <td> {{item.medium.weist[0]}}
-          </td>
-          <td class="mr-3"> {{item.medium.weist[1]}}
+          </tr>
 
-          </td>
-          <td> {{item.medium.hips[0]}}
-          </td>
-          <td> {{item.medium.hips[1]}}
-          </td>
-          <td> {{item.medium.quantity}}
-          </td>
-          <td> {{item.medium.price}}
-          </td>
-        </tr>
-        <tr>
-          <td>Large</td>
-          <td>{{item.large.chest[0]}}
-          </td>
-          <td class=""> {{item.large.chest[1]}}
-          </td>
-          <td> {{item.large.weist[0]}}
-          </td>
-          <td class="mr-3"> {{item.large.weist[1]}}
+          <tr>
+              <td>Shoulder Width</td>
+              <td> {{ this.item[0].small.shoulderweist[0] }}
+              </td>
+              <td class=""> {{ this.item[0].small.shoulderweist[1] }}
+              </td>
 
-          </td>
-          <td> {{item.large.hips[0]}}
-          </td>
-          <td> {{item.large.hips[1]}}
-          </td>
-          <td> {{item.large.quantity}}
-          </td>
-          <td> {{item.large.price}}
-          </td>
-        </tr>
+              <td> {{ this.item[0].medium.shoulderweist[0] }}
+              </td>
+              <td class=""> {{ this.item[0].medium.shoulderweist[1] }}
+              </td>
+
+              <td> {{ this.item[0].large.shoulderweist[0] }}
+              </td>
+              <td class=""> {{ this.item[0].large.shoulderweist[1] }}
+              </td>
+
+            </tr>
+
+            <tr>
+                <td>Biceps</td>
+                <td> {{ this.item[0].small.biceps[0] }}
+                </td>
+                <td class=""> {{ this.item[0].small.biceps[1] }}
+                </td>
+
+                <td> {{ this.item[0].medium.biceps[0] }}
+                </td>
+                <td class=""> {{ this.item[0].medium.biceps[1] }}
+                </td>
+
+                <td> {{ this.item[0].large.biceps[0] }}
+                </td>
+                <td class=""> {{ this.item[0].large.biceps[1] }}
+                </td>
+
+              </tr>
+
+              <tr>
+                  <td>Jacket Length</td>
+                  <td> {{ this.item[0].small.jacketlength[0] }}
+                  </td>
+                  <td class=""> {{ this.item[0].small.jacketlength[1] }}
+                  </td>
+
+                  <td>{{ this.item[0].medium.jacketlength[0] }}
+                  </td>
+                  <td class=""> {{ this.item[0].medium.jacketlength[1] }}
+                  </td>
+
+                  <td> {{ this.item[0].large.jacketlength[0] }}
+                  </td>
+                  <td class=""> {{ this.item[0].large.jacketlength[1] }}
+                  </td>
+
+                </tr>
+
+                <tr>
+                    <td>Sleeve Length</td>
+                    <td> {{ this.item[0].small.sleevelength[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.sleevelength[1] }}
+                    </td>
+
+                    <td> {{ this.item[0].medium.sleevelength[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.sleevelength[1] }}
+                    </td>
+
+                    <td> {{ this.item[0].large.sleevelength[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.sleevelength[1] }}
+                    </td>
+
+                  </tr>
+
+                  <tr>
+                      <td>Chest</td>
+                      <td> {{ this.item[0].small.chest[0] }}
+                      </td>
+                      <td class=""> {{ this.item[0].small.chest[1] }}
+                      </td>
+
+                      <td> {{ this.item[0].medium.chest[0] }}
+                      </td>
+                      <td class=""> {{ this.item[0].medium.chest[1] }}
+                      </td>
+
+                      <td> {{ this.item[0].large.chest[0] }}
+                      </td>
+                      <td class=""> {{ this.item[0].large.chest[1] }}
+                      </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Quantity & Price</td>
+                        <td> Quantity : {{ this.item[0].small.quantity }}
+                        </td>
+                        <td>Price(Rs.) : {{ this.item[0].small.price }}
+                        </td>
+
+                        <td> Quantity : {{ this.item[0].medium.quantity }}
+                        </td>
+                        <td> Price(Rs.) : {{ this.item[0].medium.price }}
+                        </td>
+
+                        <td>
+                          Quantity : {{ this.item[0].large.price }}
+
+                        </td>
+                        <td>Price(Rs.) : {{ this.item[0].large.price }}
+                        </td>
+                      </tr>
       </table>
-      <button class="btn btn-group-lg btn-primary ml-5" (click)="shoppingCart()">Add to Cart</button>
-    </div>
+      <table class="table table-bordered rounded" *ngIf="this.trousers" style="background-color:LightBlue">
+          <h5><b>Measurements</b></h5>
+          <tr>
+            <th>#</th>
+            <th colspan="2" class="text-center">Small</th>
+            <th colspan="2" class="text-center">Medium</th>
+            <th colspan="2" class="text-center">Large</th>
+          </tr>
+          <tr>
+            <td>Pants Width</td>
+            <td>{{ this.item[0].small.PantsW[0] }}
+            </td>
+            <td class=""> {{ this.item[0].small.PantsW[1] }}
+            </td>
 
-    <div class="col-md-2">
-      <div style="width:250px;height:350px">
-        <div class="card" style="width: 13rem;height:19rem">
+            <td> {{ this.item[0].medium.PantsW[0] }}
+            </td>
+            <td class=""> {{ this.item[0].medium.PantsW[1] }}
+            </td>
 
-          <img class="card-img-top imgCloth" [src]="this.imgFrontPath" alt="Card image cap" width="50%" height="50%">
+            <td> {{ this.item[0].large.PantsW[0] }}
+            </td>
+            <td class=""> {{ this.item[0].large.PantsW[1] }}
+            </td>
 
-          <div class="card-body">
-            <h5 class="card-title">Front preview</h5>
+          </tr>
 
+          <tr>
+              <td>Hips</td>
+              <td> {{ this.item[0].small.Hips[0] }}
+              </td>
+              <td class=""> {{ this.item[0].small.Hips[1] }}
+              </td>
 
-          </div>
-        </div>
+              <td> {{ this.item[0].medium.Hips[0] }}
+              </td>
+              <td class=""> {{ this.item[0].medium.Hips[1] }}
+              </td>
 
-        <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgFrontPath" alt="First slide" width="50%" height="50%">
-              <h3>Front Side</h3>
-            </div>
-            <div class="carousel-item" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgBackPath" alt="Second slide" width="50%" height="50%">
-              <h3>Back Side</h3>
+              <td> {{ this.item[0].large.Hips[0] }}
+              </td>
+              <td class=""> {{ this.item[0].large.Hips[1] }}
+              </td>
 
-            </div>
-            <div class="carousel-item" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgLeftPath" alt="Third slide" width="50%" height="50%">
-              <h3>Left Side</h3>
+            </tr>
 
-            </div>
-            <div class="carousel-item" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgRightPath" alt="Third slide" width="50%" height="50%">
-              <h3>Right Side</h3>
+            <tr>
+                <td>Length</td>
+                <td> {{ this.item[0].small.Length[0] }}
+                </td>
+                <td class=""> {{ this.item[0].small.Length[1] }}
+                </td>
 
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      -->
-      </div>
-      <div style="width:250px;height:350px;display:inline-block">
-        <div class="card" style="width: 13rem;height:19rem">
+                <td> {{ this.item[0].medium.Length[0] }}
+                </td>
+                <td class=""> {{ this.item[0].medium.Length[1] }}
+                </td>
 
-          <img class="card-img-top imgCloth" [src]="this.imgBackPath" alt="Card image cap" width="50%" height="50%">
+                <td> {{ this.item[0].large.Length[0] }}
+                </td>
+                <td class=""> {{ this.item[0].large.Length[1] }}
+                </td>
 
-          <div class="card-body">
-            <h5 class="card-title">Back preview</h5>
+              </tr>
 
+              <tr>
+                  <td>Crotch</td>
+                  <td> {{ this.item[0].small.Crotch[0] }}
+                  </td>
+                  <td class=""> {{ this.item[0].small.Crotch[1] }}
+                  </td>
 
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-2">
-      <div style="width:250px;height:350px">
-        <div class="card" style="width: 13rem;height:19rem">
+                  <td>{{ this.item[0].medium.Crotch[0] }}
+                  </td>
+                  <td class=""> {{ this.item[0].medium.Crotch[1] }}
+                  </td>
 
-          <img class="card-img-top imgCloth" [src]="this.imgLeftPath" alt="Card image cap" width="50%" height="50%">
+                  <td> {{ this.item[0].large.Crotch[0] }}
+                  </td>
+                  <td class=""> {{ this.item[0].large.Crotch[1] }}
+                  </td>
 
-          <div class="card-body">
-            <h5 class="card-title">Left preview</h5>
+                </tr>
 
+                <tr>
+                    <td>Thigh</td>
+                    <td> {{ this.item[0].small.Thigh[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.Thigh[1] }}
+                    </td>
 
-          </div>
-        </div>
-      </div>
-      <div style="width:250px;height:350px">
-        <div class="card" style="width: 13rem;height:19rem">
+                    <td> {{ this.item[0].medium.Thigh[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.Thigh[1] }}
+                    </td>
 
-          <img class="card-img-top imgCloth" [src]="this.imgRightPath" alt="Card image cap" width="50%" height="50%">
+                    <td> {{ this.item[0].large.Thigh[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.Thigh[1] }}
+                    </td>
 
-          <div class="card-body">
-            <h5 class="card-title">Right preview</h5>
+                  </tr>
 
+                  <tr>
+                      <td>Knee</td>
+                      <td> {{ this.item[0].small.Knee[0] }}
+                      </td>
+                      <td class=""> {{ this.item[0].small.Knee[1] }}
+                      </td>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                      <td> {{ this.item[0].medium.Knee[0] }}
+                      </td>
+                      <td class=""> {{ this.item[0].medium.Knee[1] }}
+                      </td>
 
+                      <td> {{ this.item[0].large.Knee[0] }}
+                      </td>
+                      <td class=""> {{ this.item[0].large.Knee[1] }}
+                      </td>
 
-  <div class="row" *ngIf="!this.clothes">
-    <div class="col-md-7">
-      <h1 style="text-align: center">Product Description</h1>
+                    </tr>
 
-      <h3>{{ this.item[0].name }}</h3>
-      <table class="table table-bordered rounded" style="background-color:LightBlue;color:black;padding: 7px">
+                    <tr>
+                        <td>Quantity & Price</td>
+                        <td> Quantity : {{ this.item[0].small.quantity }}
+                        </td>
+                        <td>Price(Rs.) : {{ this.item[0].small.price }}
+                        </td>
+
+                        <td> Quantity : {{ this.item[0].medium.quantity }}
+                        </td>
+                        <td> Price(Rs.) : {{ this.item[0].medium.price }}
+                        </td>
+
+                        <td>
+                          Quantity : {{ this.item[0].large.price }}
+
+                        </td>
+                        <td>Price(Rs.) : {{ this.item[0].large.price }}
+                        </td>
+                      </tr>
+      </table>
+      <table class="table table-bordered rounded" *ngIf="this.accessories" style="background-color:LightBlue;color:black;padding: 7px">
         <h5><b>Measurements</b></h5>
         <div class="form-row">
           <div class="form-group col-md-3">
-            <label for="inputCity">Produc </label>
+            <label for="inputCity">Product </label>
 
             <div class="form-group col-md-6">
               {{ this.item[0].name}}
@@ -233,38 +348,7 @@
           </div>
         </div>
 
-        <!--<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgFrontPath" alt="First slide" width="50%" height="50%">
-              <h3>Front Side</h3>
-            </div>
-            <div class="carousel-item" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgBackPath" alt="Second slide" width="50%" height="50%">
-              <h3>Back Side</h3>
 
-            </div>
-            <div class="carousel-item" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgLeftPath" alt="Third slide" width="50%" height="50%">
-              <h3>Left Side</h3>
-
-            </div>
-            <div class="carousel-item" style="width:200px;height:350px">
-              <img class="d-block w-100" [src]="this.imgRightPath" alt="Third slide" width="50%" height="50%">
-              <h3>Right Side</h3>
-
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      -->
       </div>
       <div style="width:250px;height:350px;display:inline-block">
         <div class="card" style="width: 13rem;height:19rem">
@@ -306,6 +390,9 @@
       </div>
     </div>
   </div>
+
+
+
   <div class="row">
     <div class="col-md-1"></div>
     <div class="col-md-3">

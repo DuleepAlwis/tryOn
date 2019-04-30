@@ -107,7 +107,7 @@
                         <td *ngFor="let product of item">
                             <div
                                 class="mr-3 imgBox"
-                                style="display: inline-block;border:inset;border-width: 7px"
+                                style="display: inline-block"
                             >
 
                                 <div
@@ -118,20 +118,21 @@
                                     <img
                                         class="card-img-top imgCloth"
                                         src="{{product.imgFront}}"
-                                        alt="Card image cap"
+                                        alt="Image 404"
                                         width="50%"
                                         height="50%"
                                     >
 
                                     <div class="card-body">
                                         <h5 class="card-title">{{product.name}}</h5>
-
+                                        <p class="ml-5 mr-5 mt-3">
                                         <a
                                             [routerLink]="['/productview',this.headerTitle,product._id]"
-                                            class="btn btn-primary"
+                                            class="btn btn-primary" stlye="margin-left:77px"
                                         >
                                             View
                                         </a>
+                                        </p>
                                     </div>
                                 </div>
                             </div>

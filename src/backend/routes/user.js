@@ -6,6 +6,9 @@ const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const userCustomer = require("../models/customerUser");
 var nodemailer = require('nodemailer');
+const Customer = require("../models/customerUser");
+
+const customerAuth = require("../middleware/check-customer-auth");
 
 //const userEmployee = require("");
 
@@ -76,16 +79,17 @@ router.post("/login", (req, res, next) => {
         });
       }
       const token = jwt.sign({
-        email: loggedUser.email,
-        userId: loggedUser._id
-      }, "sercet string this", {
+
+        userId: (loggedUser._id+Date())
+      }, "Customer Secret key", {
         expiresIn: "1h"
       });
       // console.log(token);
       res.status(200).json({
         userId: loggedUser._id,
-        role: "C",
-        token: token
+        role: loggedUser.role,
+        token: token,
+        email:loggedUser.email
       });
     })
     .catch(err => {
@@ -93,7 +97,8 @@ router.post("/login", (req, res, next) => {
         return res.status(200).json({
           userId: "",
           role: "",
-          token: ""
+          token: "",
+          email:""
         });
       }
     });
@@ -117,12 +122,23 @@ router.post("/forgotPassword", (req, res, next) => {
       email: email
     }, customer)
     .then((result) => {
+      //Testing mail server
+
+     // let testAccount = nodemailer.createTestAccount();
       var transporter = nodemailer.createTransport({
-        service: 'gmail',
+       service: 'gmail',
         auth: {
           user: 'duleepalwis0@gmail.com',
           pass: 'duleep3alwis'
         }
+
+        /*host: "smtp.ethereal.email",
+        port: 587,
+        secure: false, // true for 465, false for other ports
+        auth: {
+          user: testAccount.user, // generated ethereal user
+          pass: testAccount.pass // generated ethereal password
+        }*/
       });
 
       let mailOptions = {
@@ -157,10 +173,43 @@ router.post("/forgotPassword", (req, res, next) => {
     .catch((result) => {
       res.status(200).json({
         message: 0
-      })
+      });
+    });
+});
+
+router.post("/resetEmail",customerAuth,(req,res,next)=>{
+  Customer.updateOne({_id:req.body.id},req.body.email)
+  .then(result => {
+    res.status(200).json({
+      message:1,
+      email:req.body.email
     })
+  })
+  .catch(result => {
+    res.status(200).json({
+      message:0,
+      email:""
+    });
+  });
+});
 
+router.post("/resetPassword",customerAuth,(req,res,next)=>{
+    hash = crypto.createHash('md5').update(req.body.password).digest('hex');
 
-})
+  Customer.updateOne({_id:req.body.id},{password:hash})
+  .then(result => {
+    res.status(200).json({
+      message:1
+
+    });
+  })
+  .catch(result => {
+    res.status(200).json({
+      message:0,
+      email:""
+    });
+  });
+});
+
 
 module.exports = router;

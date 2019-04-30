@@ -176,7 +176,19 @@ export class ReceprionistProductsEditComponent implements OnInit {
   }
 
   removeProduct(id: string) {
-    console.log(id);
+    console.log(this.itemObjects[id]._id);
+    this.ProductService.removeProduct(this.item,this.itemObjects[id]._id).subscribe(responseData => {
+      if(responseData.message==0)
+      {
+        alert("Something wrong");
+      }
+      else
+      {
+        //console.log(this.itemObjects.splice(id,1));
+        this.itemObjects.splice(id,1);
+        alert("Product removed");
+      }
+    });
   }
 
   selectChangeHandler(event: any) {

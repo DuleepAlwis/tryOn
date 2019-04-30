@@ -4,7 +4,7 @@
     <div class="col-md-7">
       <h1>{{ this.title }}</h1>
     </div>
-    <div class="col-md-4"></div>
+    <div class="col-md-2"></div>
   </div>
   <div class="row">
 
@@ -13,85 +13,150 @@
       <form [formGroup]="form" (submit)="addCloth()">
         <label for="inputEmail4">Description</label>
         <input type="text" class="form-control mb-3" id="inputEmail4" placeholder="" formControlName="name">
-        <table class="table table-bordered rounded" style="background-color:LightBlue">
-          <h5><b>Measurements</b></h5>
-          <tr>
-            <th>#</th>
-            <th colspan="2" class="text-center">Chest(cm)</th>
-            <th colspan="2" class="text-center">Waist(cm)</th>
-            <th colspan="2" class="text-center">Hips(cm)</th>
-            <th class="text-center">Quantity</th>
-            <th class="text-center">Price(RS.)</th>
 
-          </tr>
-          <tr>
-            <td>Small</td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSC1" value="0">
-            </td>
-            <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSC2" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSW1" value="0">
-            </td>
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementSW2"
-                value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSH1" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSH2" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSQ" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSP" value="0">
-            </td>
-          </tr>
-          <tr>
-            <td>Medium</td>
+        <table class="table table-bordered text-black rounded" style="background-color:LightBlue">
+            <h5><b>Measurements</b></h5>
+            <tr>
+              <th>#</th>
+              <th colspan="2" class="text-center">Small</th>
+              <th colspan="2" class="text-center">Medium</th>
+              <th colspan="2" class="text-center">Large</th>
+            </tr>
+            <tr>
+              <td>Neck</td>
+              <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSNeck1" value="0">
+              </td>
+              <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSNeck2" value="0">
+              </td>
 
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementMC1"
-                value="0">
-            </td>
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementMC2"
-                value="0">
-            </td>
+              <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMNeck1" value="0">
+              </td>
+              <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementMNeck2" value="0">
+              </td>
 
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementMW1"
-                value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMW2" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMH1" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMH2" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMQ" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMP" value="0">
-            </td>
-          </tr>
-          <tr>
-            <td>Large</td>
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementLC1"
-                value="0">
-            </td>
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementLC2"
-                value="0">
-            </td>
+              <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLNeck1" value="0">
+              </td>
+              <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementLNeck2" value="0">
+              </td>
 
-            <td class="mr-3"> <input type="number" class="form-control" min="0" formControlName="MeasurementLW1"
-                value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLW2" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLH1" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLH2" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLQ" value="0">
-            </td>
-            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLP" value="0">
-            </td>
-          </tr>
-        </table>
+            </tr>
+
+            <tr>
+                <td>Shoulder Width</td>
+                <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSShoulderW1" value="0">
+                </td>
+                <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSShoulderW2" value="0">
+                </td>
+
+                <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMShoulderW1" value="0">
+                </td>
+                <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementMShoulderW2" value="0">
+                </td>
+
+                <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLShoulderW1" value="0">
+                </td>
+                <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementLShoulderW2" value="0">
+                </td>
+
+              </tr>
+
+              <tr>
+                  <td>Biceps</td>
+                  <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSBicep1" value="0">
+                  </td>
+                  <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSBicep2" value="0">
+                  </td>
+
+                  <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMBicep1" value="0">
+                  </td>
+                  <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementMBicep2" value="0">
+                  </td>
+
+                  <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLBicep1" value="0">
+                  </td>
+                  <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementLBicep2" value="0">
+                  </td>
+
+                </tr>
+
+                <tr>
+                    <td>Jacket Length</td>
+                    <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSJacketL1" value="0">
+                    </td>
+                    <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSJacketL2" value="0">
+                    </td>
+
+                    <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMJacketL1" value="0">
+                    </td>
+                    <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementMJacketL2" value="0">
+                    </td>
+
+                    <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLJacketL1" value="0">
+                    </td>
+                    <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementLJacketL2" value="0">
+                    </td>
+
+                  </tr>
+
+                  <tr>
+                      <td>Sleeve Length</td>
+                      <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSSleeveL1" value="0">
+                      </td>
+                      <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSSleeveL2" value="0">
+                      </td>
+
+                      <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMSleeveL1" value="0">
+                      </td>
+                      <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementMSleeveL2" value="0">
+                      </td>
+
+                      <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLSleeveL1" value="0">
+                      </td>
+                      <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementLSleeveL2" value="0">
+                      </td>
+
+                    </tr>
+
+                    <tr>
+                        <td>Chest</td>
+                        <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSChest1" value="0">
+                        </td>
+                        <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementSChest2" value="0">
+                        </td>
+
+                        <td> <input type="number" class="form-control" min="0" formControlName="MeasurementMChest1" value="0">
+                        </td>
+                        <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementMChest2" value="0">
+                        </td>
+
+                        <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLChest1" value="0">
+                        </td>
+                        <td class=""> <input type="number" class="form-control" min="0" formControlName="MeasurementLChest2" value="0">
+                        </td>
+
+                      </tr>
+
+                      <tr>
+                          <td>Quantity & Price</td>
+                          <td> Quantity<input type="number" class="form-control" min="0" formControlName="MeasurementSQ" value="0">
+                          </td>
+                          <td>Price(Rs.) <input type="number" class="form-control" min="0" formControlName="MeasurementSP" value="0">
+                          </td>
+
+                          <td> Quantity<input type="number" class="form-control" min="0" formControlName="MeasurementMQ" value="0">
+                          </td>
+                          <td> Price(Rs.) <input type="number" class="form-control" min="0" formControlName="MeasurementMP" value="0">
+                          </td>
+
+                          <td>
+                            Quantity
+                             <input type="number" class="form-control" min="0" formControlName="MeasurementLQ" value="0">
+                          </td>
+                          <td>Price(Rs.) <input type="number" class="form-control" min="0" formControlName="MeasurementLP" value="0">
+                          </td>
+                        </tr>
+
+              </table>
         <div class="form-row">
 
           <div class="form-group col-md-1"></div>
@@ -263,63 +328,10 @@
         </div>
       </div>
     </div>
-
-
-
-
   </div>
-  <!--
-    <div class="row" *ngIf="!this.newProduct">
-      <div class="col-md-3"></div>
-    <div class="col-md-3">
-      <div class="card-group">
-  <div class="card" style="width:300px;height:300px">
-    <div style="width:150px;height:150px">
 
-    <img class="card-img-top" [src]="this.imageFontPreview" alt="Card image cap" *ngIf="this.imageFontPreview !=='' && this.imageFontPreview">
-    </div>
-    <div class="card-body">
-      <form [formGroup]="formFrontImage" (submit)="UploadFrontImage()">
-        <div class="form-row">
-
-          <div class="form-group col-md-11">
-            <button type="button" (click)="filePickerFront">Pick Image</button>
-            <input type="file" #filePickerFront (change)="frontImagePicked($event)" style="display:hidden">
-          </div>
-
-        </div>
-        </form>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
-    </div>
-  </div>
-  </div>
-  </div>
-  <div class="col-md-3">
-    <div class="card-group">
-<div class="card" style="width:300px;height:300px">
-  <div style="width:150px;height:150px">
-  <img class="card-img-top" [src]="this.imageFontPreview" alt="Card image cap" *ngIf="this.imageFontPreview !=='' && this.imageFontPreview">
-  </div>
-  <div class="card-body">
-    <form [formGroup]="formFrontImage" (submit)="UploadFrontImage()">
-      <div class="form-row">
-
-        <div class="form-group col-md-11">
-          <button type="button" (click)="filePickerFront">Pick Image</button>
-          <input type="file" #filePickerFront (change)="frontImagePicked($event)" style="display:hidden">
-        </div>
-
-      </div>
-      </form>
-  </div>
-  <div class="card-footer">
-    <small class="text-muted">Last updated 3 mins ago</small>
-  </div>
 </div>
-</div>
-</div>
-</div>
--->
-</div>
+
+
+
+

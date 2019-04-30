@@ -1,0 +1,148 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4">
+            Product Category
+            <div class="col-5 my-1">
+                <select id="productSelect" class="custom-select mr-sm-2" (change)="selectChangeHandler($event)">
+          <option *ngFor="let item of items">{{ item }}</option>
+        </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-5">
+            Measurements
+            <div *ngIf="this.item=='Shirts'">
+
+                <form [formGroup]="formShirt" (submit)="shirtMeasurementSave()">
+                    <table>
+                        <tr>
+                            <td>Neck</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementNeck" value="0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Shoulder Width</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementShoulderW" value="0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Biceps</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementBicep" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Jacket Length</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementJacketL" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Sleeve Length</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementSleeveL" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Chest</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementChest" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="form-group col-md-3">
+                                    <input type="submit" class="btn btn-primary" value="Save" *ngIf="this.newMeasuremnts">
+                                    <input type="submit" class="btn btn-primary" value="Update" *ngIf="!this.newMeasurements">
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+            <div *ngIf="this.item=='Trousers' || this.item=='Shorts'">
+                <form [formGroup]="formBottum" (submit)="bottumMeasurementSave()">
+                    <table>
+                        <tr>
+                            <td>Pants waist</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementPantsW" value="0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hips</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementHips" value="0">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Length</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementLength" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Crotch</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementCrotch" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Thigh</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementThigh" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Knee</td>
+                            <td> <input type="number" class="form-control" min="0" formControlName="MeasurementKnee" value="0">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <div class="form-group col-md-3">
+                                    <input type="submit" class="btn btn-primary" value="Save" *ngIf="this.newMeasuremnts">
+                                    <input type="submit" class="btn btn-primary" value="Update" *ngIf="!this.newMeasurements">
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+
+
+        </div>
+
+        <div class="col-md-7">
+            <h1 style="text-align: center">{{this.headerTitle}}</h1>
+            <table>
+                <tbody>
+                    <tr *ngFor="let item of this.productList" class="mt-1">
+                        <td *ngFor="let product of item">
+                            <div class="mr-3 imgBox" style="display: inline-block">
+
+                                <div class="card" style="width: 18rem;height:19rem">
+
+                                    <img class="card-img-top imgCloth" src="{{product.imgFront}}" alt="Image 404" width="50%" height="50%">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{product.name}}</h5>
+                                        <p class="ml-5 mr-5 mt-3">
+                                            <a [routerLink]="['/productview',this.headerTitle,product._id]" class="btn btn-primary" stlye="margin-left:77px">
+                                          View
+                                      </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

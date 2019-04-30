@@ -5,17 +5,17 @@ const crypto = require('crypto');
 const jwt = require("jsonwebtoken");
 const bodyParser = require("body-parser");
 const Customer = require("../models/customerUser");
+const customerAuth = require("../middleware/check-customer-auth");
 
 //const userEmployee = require("");
 
 const router = express.Router();
-
 /*router.post("/updateProfile",(req,res,next)=>{
     const postData = req.body;
 
 })*/
 
-router.post("/getProfile", (req, res, next) => {
+router.post("/getProfile", customerAuth,(req, res, next) => {
   const id = req.body.id;
   //console.log(id);
   Customer.findById({
@@ -24,11 +24,14 @@ router.post("/getProfile", (req, res, next) => {
     //console.log(result);
     if (result) {
       result.info.email = result.email;
+      console.log(result.info);
       res.status(200).json({
         message: 1,
         result: result.info
       })
     } else {
+      console.log(result);
+      console.log(id);
       res.status(200).json({
         message: 0,
         result: result
@@ -37,7 +40,7 @@ router.post("/getProfile", (req, res, next) => {
   })
 })
 
-router.post("/updateProfile", (req, res, next) => {
+router.post("/updateProfile",customerAuth, (req, res, next) => {
   const id = req.body.id;
   const postData = req.body.data;
   console.log(id);
@@ -73,6 +76,7 @@ router.post("/updateProfile", (req, res, next) => {
         });
       }
     );
-})
+});
+
 
 module.exports = router;

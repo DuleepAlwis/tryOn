@@ -18,13 +18,14 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {}
 
   getAllShorts() {
+    this.items = [[]];
+
     this.productService.getAllTights("Shorts").subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "Shorts";
 
-        this.items = [[]];
         let i = 0;
         let j = 0;
         console.log(responseData.result);
@@ -56,13 +57,14 @@ export class ProductsComponent implements OnInit {
   }
 
   getAllTrousers() {
+    this.items = [[]];
+
     this.productService.getAllTights("Trousers").subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "Trousers";
 
-        this.items = [[]];
 
         let i = 0;
         let j = 0;
@@ -134,13 +136,14 @@ i = i+2
   }
 
   getAllShirts() {
+    this.items = [[]];
+
     this.productService.getAllClothes().subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "Shirts";
 
-        this.items = [[]];
 
         let i = 0;
         let j = 0;
@@ -174,13 +177,14 @@ i = i+2
   }
 
   getAllCaps() {
+    this.items = [[]];
+
     this.productService.getAllCaps().subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "Caps";
 
-        this.items = [[]];
 
         let i = 0;
         let j = 0;
@@ -210,13 +214,14 @@ i = i+2
   }
 
   getAllHandBags() {
+    this.items = [[]];
+
     this.productService.getAllHandBags().subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "HandBags";
 
-        this.items = [[]];
 
         let i = 0;
         let j = 0;
@@ -249,13 +254,14 @@ i = i+2
   }
 
   getAllBelts() {
+    this.items = [[]];
+
     this.productService.getAllBelts().subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "Belts";
 
-        this.items = [[]];
 
         let i = 0;
         let j = 0;
@@ -288,13 +294,14 @@ i = i+2
   }
 
   getAllGloves() {
+    this.items = [[]];
+
     this.productService.getAllGloves().subscribe(responseData => {
       if (responseData.message == 0) {
         this.headerTitle = "Stock is empty";
       } else {
         this.headerTitle = "Gloves";
 
-        this.items = [[]];
 
         let i = 0;
         let j = 0;

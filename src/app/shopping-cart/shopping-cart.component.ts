@@ -69,6 +69,7 @@ export class ShoppingCartComponent implements OnInit {
 
             gender: responseData.result.gender
           });
+          this.email = responseData.result.email;
         }
       });
   }
@@ -140,7 +141,7 @@ export class ShoppingCartComponent implements OnInit {
 
   setQuantity(maxNumber: Number) {
     let i = 0;
-    for (i = 1; i < maxNumber + 1; i++) {
+    for (i = 1; i < (maxNumber + 1); i++) {
       this.quantityArr.push(i);
     }
   }
@@ -222,13 +223,13 @@ export class ShoppingCartComponent implements OnInit {
 
   saveOrder() {
     if (
-      
+
         this.nameInvalid() ||
         this.addressInvalid() ||
         this.cityInvalid() ||
         this.districtInvalid() ||
         this.mobileNoInvalid()
-      
+
     ) {
       alert("Delivery details should be filled");
       return -1;
@@ -243,13 +244,15 @@ export class ShoppingCartComponent implements OnInit {
     };
 
     this.shoppingCartService
-      .saveOrder(this.email,deliveryDetails)
+      .saveOrder(this.email,deliveryDetails,this.authService.getUserId())
       .subscribe(responseData => {
         if (responseData.message == 0) {
           alert("Something wrong Order didn't save");
         } else {
+
           alert("Order Saved, email has been sent");
         }
+        console.log(responseData);
       });
   }
   removeItem(index) {
@@ -257,5 +260,9 @@ export class ShoppingCartComponent implements OnInit {
     this.shoppingCartService.setTotalPrice(this.totalPrice);
     this.cartItems.splice(Number(index), 0);
     this.shoppingCartService.items.splice(Number(index), 1);
+    localStorage.removeItem("items");
+    localStorage.removeItem("totalPrice");
+
+    localStorage.setItem("totalPrice", this.totalPrice);
   }
 }

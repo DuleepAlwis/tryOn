@@ -15,6 +15,8 @@ export class ProductViewComponent implements OnInit {
   item = [];
   errorMsg = "";
   clothes: boolean = false;
+  trousers:boolean = false;
+  accessories:boolean = false;
   imgFrontPath: string;
   imgBackPath: string;
   imgLeftPath: string;
@@ -45,35 +47,49 @@ export class ProductViewComponent implements OnInit {
     switch (this.category) {
       case "Shirts":
         this.clothes = true;
+        this.trousers = false;
+        this.accessories = false;
         this.getShirts();
         break;
       case "Trousers":
-        this.clothes = true;
+      this.clothes = false;
+      this.trousers = true;
+      this.accessories = false;
 
         this.getTrousers();
         break;
       case "Shorts":
-        this.clothes = true;
+      this.clothes = false;
+      this.trousers = true;
+      this.accessories = false;
 
         this.getShorts();
         break;
       case "Caps":
         this.clothes = false;
+        this.trousers = false;
+        this.accessories = true;
 
         this.getCaps();
         break;
       case "HandBags":
         this.clothes = false;
+        this.trousers = false;
+        this.accessories = true;
 
         this.getHandBags();
         break;
       case "Belts":
         this.clothes = false;
+        this.trousers = false;
+        this.accessories = true;
 
         this.getBelts();
         break;
       case "Gloves":
         this.clothes = false;
+        this.trousers = false;
+        this.accessories = true;
 
         this.getGloves();
         break;

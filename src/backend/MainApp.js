@@ -7,6 +7,7 @@ const userRoute = require("./routes/user");
 const customerRoute = require("./routes/customer");
 const productRoute = require("./routes/products");
 const orderRoute = require("./routes/orders");
+const measuremntRoute = require("./routes/measurement");
 const app = express();
 const CONNECTION_URL = "mongodb+srv://dulip:dulip123@cluster0-gwlhh.mongodb.net/tryondb?retryWrites=true";
 const mongoLocal = 'mongodb://localhost:27017/tryondb';
@@ -59,7 +60,7 @@ app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type,Accept"
+    "Origin, X-Requested-With, Content-Type,Accept,Authorization"
   );
   res.setHeader(
     "Access-Control-Allow-Methods",
@@ -82,5 +83,6 @@ app.use("/api/customer", customerRoute);
 app.use("/api/clothes", productRoute);
 app.use("/api/Accessories", productRoute);
 app.use("/api/order", orderRoute);
+app.use("/api/measurement",measuremntRoute);
 console.log("aaa");
 module.exports = app;

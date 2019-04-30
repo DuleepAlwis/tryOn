@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Cloth } from "../modules/Cloth";
+import { Tights } from '../modules/Tights';
+
 import { Accessories } from "../modules/Accessories";
 import {
   HttpClient,
@@ -32,11 +34,11 @@ export class ProductService {
       });
   }
 
-  addTights(cloth: Cloth) {
+  addTights(tights: Tights) {
     this.http
       .post<{ message: Number; result: object }>(
         this.url + "/api/clothes/AddTights",
-        cloth
+        tights
       )
       .subscribe(responseData => {
         if (responseData.message == 0) {
@@ -206,11 +208,11 @@ export class ProductService {
     );
   }
 
-  updateTights(id: string, tight: Cloth) {
+  updateTights(id: string, tights: Tights) {
     this.http
       .post<{ message: Number }>(this.url + "/api/clothes/updateTights", {
         id: id,
-        product: tight
+        product: tights
       })
       .subscribe(responseData => {
         if (responseData.message == 0) {
@@ -325,6 +327,65 @@ export class ProductService {
     return this.http.post<{ message: Number; result: Accessories }>(
       this.url + "/api/clothes/getAccessoriesImages",
       { id: id, category: category }
+    );
+  }
+
+  removeProduct(category: string, id: string)
+  {
+
+    console.log(id);
+    switch(category)
+    {
+      case "Shirts":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteCloth",{id:id}
+      );
+      break;
+
+      case "Trousers":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteTight",{id:id}
+      );
+      break;
+
+      case "Shorts":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteTight",{id:id}
+      );
+      break;
+
+      case "HandBags":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteHandBags",{id:id}
+      );
+      break;
+
+      case "Caps":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteCaps",{id:id}
+      );
+      break;
+
+      case "Belts":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteBelts",{id:id}
+      );
+      break;
+
+      case "Gloves":
+      return this.http.post<{message: Number}>(
+        this.url + "/api/clothes/deleteGloves",{id:id}
+      );
+      break;
+    }
+
+  }
+
+  removeTight( id: string)
+  {
+    console.log(id);
+    return this.http.post<{message: Number}>(
+      this.url + "/api/clothes/deleteTight",{id:id}
     );
   }
 }

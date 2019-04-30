@@ -10,11 +10,16 @@ const orderSchema = mongoose.Schema({
     type: String
   },
 
+  dueDate: {
+    type: String
+    //required: true
+  },
+
   items: {
     type: String
   },
 
-  deliverAddress: {
+  delivery: {
     type: String
   },
 
@@ -27,6 +32,12 @@ const orderSchema = mongoose.Schema({
   },
   status: {
     type: String
+  },
+
+  customerId: {
+    type:mongoose.Schema.Types.ObjectId,
+    ref: 'user',
+    required:true
   }
 
 

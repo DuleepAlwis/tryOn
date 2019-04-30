@@ -85,10 +85,10 @@ export class ShoppingCartService {
     console.log(this.totalPrice);
   }
 
-  saveOrder(email:string,delivery: Object) {
+  saveOrder(email:string,delivery: Object,customerId:string) {
     let date = new Date();
     let orderDate =
-      date.getFullYear() + "-" + date.getMonth() + "-" + date.getDay();
+      date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
     let time = date.getHours()+":"+date.getMinutes() ;
     console.log(delivery);
     return this.http.post<{ message: Number }>(this.url + "/api/order/addOrder", {
@@ -96,10 +96,22 @@ export class ShoppingCartService {
       delivery: JSON.stringify(delivery),
       date:orderDate,
       time:time,
+      dueDate:"2 weeks",
       totalPrice:this.totalPrice,
-      email:email
+      email:email,
+      customerId:customerId
     });
-    
+
+  }
+
+  calculateDeliveryDate(orderDate: string)
+  {
+    const date = orderDate.split("-");
+    let day: Number = 0;
+    let month: Number = 0;
+    let year: Number = 0;
+    day = parseInt(date[2])+14;
+
   }
 
   itemsSerializeValues()
@@ -120,11 +132,12 @@ export class ShoppingCartService {
     localStorage.removeItem("items");
     localStorage.removeItem("tmpItem");
     localStorage.removeItem("totalPrice");
-    for (i = 0; i < localStorage.length + 1; i++) {
+    /*for (i = 0; i < localStorage.length + 1; i++) {
       console.log(localStorage.key(i));
       localStorage.removeItem(localStorage.key(i));
-    }
+    }*/
     console.log("LocalStoarage"+" "+localStorage.getItem("totalPrice"));
+    return true;
   }
 
   clearCart() {

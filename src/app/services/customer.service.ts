@@ -10,7 +10,7 @@ export class CustomerService {
   constructor(private http: HttpClient) {}
 
   getCustomerProfile(userId: string) {
-    return this.http.post<{ message: Number; result: Object }>(
+    return this.http.post<{ message: Number; result: Customer }>(
       this.url + "/api/customer/getProfile",
       { id: userId }
     );
