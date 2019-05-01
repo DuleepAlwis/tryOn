@@ -11,21 +11,20 @@ const userCustomer = require("../models/customerUser");
 const router = express.Router();
 
 //console.log("JKH");
-router.post("/signup", (req, res, next) => {
+router.post("/register", (req, res, next) => {
   //bcrypt.hash(req.body.password, 10)
   let send = 0;
   hash = crypto.createHash('md5').update(req.body.password).digest('hex');
   const customer = new userCustomer({
     email: req.body.email,
     password: hash,
+    firstName: req.body.firstName, 
+    lastName: req.body.lastName,
+    gender:req.body.gender,
     role: "C",
-    info: {
-      name: req.body.name,
-      address: req.body.address,
-      city: req.body.city,
-      district: req.body.district,
-      mobileno: req.body.mobileno
-    }
+    // info: {
+      
+    // }
   });
   console.log(customer);
   customer.save()
@@ -35,6 +34,7 @@ router.post("/signup", (req, res, next) => {
         message: 1,
         result: result
       });
+      
     })
     .catch(err => {
       console.log(err.message);

@@ -13,7 +13,7 @@
   <div class="col-md-5"></div>
   <div class="col-md-3"> 
     <div class=logo>
-      <a  routerLink="/"><img src="../../../assets/img/logo.PNG "></a>
+      <a routerLink="/"><img src="../../../assets/img/logo.PNG "></a>
     </div>
   </div>
 </div>
@@ -22,14 +22,14 @@
     <div class="col-md-3"></div>
     <div class="col-md-6">
       <div class="border-light" style="border: 7px">
-        <form [formGroup]="form" (submit)="signup()"> 
+        <form [formGroup]="form1" (ngSubmit)="signup()"> 
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputEmail">Email</label>
                 <input type="email" class="form-control" id="inputEmail" formControlName="email" >
-                  <div *ngIf="form.get('email').invalid && (form.get('email').dirty || form.get('email').touched)"
+                  <div *ngIf="form1.get('email').invalid && (form1.get('email').dirty || form1.get('email').touched)"
                     class="help-block">Please enter a valid e-mail address
-                    <div *ngIf="form.get('email').errors['required']"
+                    <div *ngIf="form1.get('email').errors['required']"
                       class="help-block">This field is required
                     </div>
                   </div>
@@ -39,9 +39,9 @@
             <div class="form-group col-md-6">
               <label for="inputPassword">Password</label>
               <input type="password" class="form-control" id="inputPassword" formControlName="password">
-              <div *ngIf="form.get('password').invalid && (form.get('password').dirty || form.get('password').touched)"
+              <div *ngIf="form1.get('password').invalid && (form1.get('password').dirty || form1.get('password').touched)"
                 class="help-block">Please enter a valid password
-                <div *ngIf="form.get('email').errors['required']"
+                <div *ngIf="form1.get('email').errors['required']"
                   class="help-block">This field is required
                 </div>
               </div>
@@ -49,27 +49,26 @@
             <div class="form-group col-md-6">
               <label for="confirmPassword">Repeat Password</label> 
               <input type="password" class="form-control" id="confrimPassword" formControlName="confirmpassword">
-                <div *ngIf="form.hasError('notSame')" class="help-block">Password doesn't matctch</div>
+                <div *ngIf="form1.hasError('notSame')" class="help-block">Password doesn't matctch</div>
             </div>
           </div>  
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputfirsttName">First Name</label>
-              <input type="text" class="form-control" id="inputfirsttName" formControlName="firstName" placeholder="First Name">
-              
-                  <div *ngIf="(form.firstNameInValid() && (form.get('firstName').dirty || form.get('firstName').touched))"
-                    class="help-block">
-                    <div *ngIf="form.get('firstName').errors.required">
-                        This field is required
+              <input type="text" class="form-control" id="inputfirsttName" formControlName="firstName" placeholder="First Name" required>
+                <div *ngIf="form1.get('firstName').invalid && (form1.get('firstName').dirty || form1.get('firstName').touched)"
+                  class="help-block">Please enter a valid First Name
+                  <div *ngIf="form1.get('firstName').errors.required" 
+                    class="help-block">This field is required
+                  </div>
                 </div>
-              </div>
             </div>
             <div class="form-group col-md-6">
               <label for="inputlasttName">Last Name</label>
               <input type="text" class="form-control" id="inputlastName" formControlName="lastName" placeholder="Last Name">
-              <div *ngIf="form.get('lastName').errors['required']"
+              <div *ngIf="form1.get('lastName').errors['required']"
                 class="help-block">This field is required
-                  <div *ngIf="form.get('lastName').invalid && (form.get('lastName').dirty || form.get('lastName').touched)"
+                  <div *ngIf="form1.get('lastName').hasError.invalid && (form1.get('lastName').dirty || form1.get('lastName').touched)"
                     class="help-block">Please enter a valid Last Name
                   </div>
               </div>
@@ -86,7 +85,7 @@
             </div>
           </div>
           
-            <a routerLink="/measurements" routerLinkActive="active">Get your personalized model </a>
+            <a routerLink="/measurements" >Get your personalized model </a>
             
           <div class="form-row">
             <label class="container">I have read and understand the <u>Privacy and Cookies Policy</u>
@@ -96,7 +95,7 @@
           </div>
           
           <div class="form-row">
-            <input type="submit" class="btn btn-primary mr-5" value="Sign Up">
+            <input type="submit" class="btn btn-primary mr-5" [disabled]="!form1.valid " value="Sign Up">
           </div>  
         </form>
       </div>
