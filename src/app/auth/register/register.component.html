@@ -26,50 +26,56 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputEmail">Email</label>
-                <input type="email" class="form-control" id="inputEmail" formControlName="email" >
-                  <div *ngIf="form1.get('email').invalid && (form1.get('email').dirty || form1.get('email').touched)"
-                    class="help-block">Please enter a valid e-mail address
-                    <div *ngIf="form1.get('email').errors['required']"
-                      class="help-block">This field is required
-                    </div>
-                  </div>
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-6">
-              <label for="inputPassword">Password</label>
-              <input type="password" class="form-control" id="inputPassword" formControlName="password">
-              <div *ngIf="form1.get('password').invalid && (form1.get('password').dirty || form1.get('password').touched)"
-                class="help-block">Please enter a valid password
+                <input type="email" class="form-control" id="inputEmail" formControlName="email" required autocomplete="new-password" >
+                <div *ngIf="form1.get('email').invalid  && (form1.get('email').dirty || form1.get('email').touched) "
+                class="help-block">Please enter a valid email
                 <div *ngIf="form1.get('email').errors['required']"
                   class="help-block">This field is required
                 </div>
               </div>
             </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputPassword">Password</label>
+              <input type="password" class="form-control" id="inputPassword" formControlName="password" >
+              <div *ngIf="form1.get('matching_passwords').get('password').invalid && (form1.get('matching_passwords').get('password').dirty || form1.get('matching_passwords').get('password').touched)"
+                class="help-block">Please enter a valid password
+                <div *ngIf="form1.get('matching_passwords').get('password').errors['required']"
+                  class="help-block">This field is required
+                  {{form1.get('matching_passwords')}}
+                </div>
+              </div>
+            </div>
             <div class="form-group col-md-6">
               <label for="confirmPassword">Repeat Password</label> 
-              <input type="password" class="form-control" id="confrimPassword" formControlName="confirmpassword">
-                <div *ngIf="form1.hasError('notSame')" class="help-block">Password doesn't matctch</div>
-            </div>
-          </div>  
+              <input type="password" class="form-control" id="confrimPassword" formControlName="confirmpassword" >
+              <div *ngIf="form1.get('matching_passwords').get('confirmpassword').invalid || form1.get('matching_passwords').invalid && (form1.get('matching_passwords').get('confirmpassword').dirty || form1.get('matching_passwords').get('confirmpassword').touched)"
+                class="help-block">Password doesn't match
+                <div *ngIf="form1.get('matching_passwords').get('confirmpassword').errors['required']"
+                  class="help-block">This field is required
+                </div>
+              </div>
+              </div>
+            </div>  
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputfirsttName">First Name</label>
-              <input type="text" class="form-control" id="inputfirsttName" formControlName="firstName" placeholder="First Name" required>
-                <div *ngIf="form1.get('firstName').invalid && (form1.get('firstName').dirty || form1.get('firstName').touched)"
-                  class="help-block">Please enter a valid First Name
-                  <div *ngIf="form1.get('firstName').errors.required" 
-                    class="help-block">This field is required
-                  </div>
+              <input type="text" class="form-control" id="inputfirsttName" formControlName="firstName" placeholder="First Name" >
+              <div *ngIf="form1.get('firstName').invalid  && (form1.get('firstName').dirty || form1.get('firstName').touched) "
+                class="help-block">Please enter a valid First Name
+                <div *ngIf="form1.get('firstName').errors['required']"
+                  class="help-block">This field is required
                 </div>
+              </div>    
             </div>
             <div class="form-group col-md-6">
               <label for="inputlasttName">Last Name</label>
               <input type="text" class="form-control" id="inputlastName" formControlName="lastName" placeholder="Last Name">
-              <div *ngIf="form1.get('lastName').errors['required']"
-                class="help-block">This field is required
-                  <div *ngIf="form1.get('lastName').hasError.invalid && (form1.get('lastName').dirty || form1.get('lastName').touched)"
-                    class="help-block">Please enter a valid Last Name
+              <div *ngIf="form1.get('lastName').hasError.invalid && (form1.get('lastName').dirty || form1.get('lastName').touched)"
+                class="help-block">Please enter a valid Last Name
+                  <div *ngIf="form1.get('lastName').errors['required']"
+                  class="help-block">This field is required
                   </div>
               </div>
             </div>
@@ -78,10 +84,14 @@
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputGender">Gender</label>
+              
               <select class="form-control" id="inputGender" formControlName="gender">
                 <option>Male</option>
                 <option>Female</option>
               </select>
+              <!-- <div *ngIf="form1.get('gender').errors['required']"
+                class="help-block">This field is required
+              </div> -->
             </div>
           </div>
           
@@ -95,6 +105,7 @@
           </div>
           
           <div class="form-row">
+            <div *ngIf="form1.valid" class="notification is-success">Form is valid</div>
             <input type="submit" class="btn btn-primary mr-5" [disabled]="!form1.valid " value="Sign Up">
           </div>  
         </form>

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators, FormGroup, FormBuilder } from "@angular/forms";
 import { AuthService } from "../../services/auth.service";
 import { Customer } from "../../modules/Customer";
+import { PasswordValidator } from 'src/app/validators';
 
 @Component({
   selector: "app-register",
@@ -12,20 +13,32 @@ import { Customer } from "../../modules/Customer";
 
 export class RegisterComponent implements OnInit {
 
-  form1 = new FormGroup({
-    email: new FormControl('', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])),
-    password: new FormControl('',Validators.compose( [Validators.required,Validators.minLength(6)])),
-    confirmpassword: new FormControl('' ),
-    firstName: new FormControl('',Validators.compose([Validators.required,Validators.pattern('^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]+$')])),
-    lastName: new FormControl('', Validators.compose([Validators.required,Validators.pattern("A-Za-z")])),
-    gender: new FormControl('', [Validators.required])
-  });
-
-  constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
+  constructor(private authService: AuthService) {}
+   
   
+  // matching passwords validation
+   matching_passwords_group = new FormGroup({
+    password: new FormControl('', Validators.compose([Validators.minLength(5), Validators.required])),
+    confirmpassword: new FormControl('', Validators.required)}, 
+    (formGroup: FormGroup) => {
+    return PasswordValidator.areEqual(formGroup);
+  });
+
+  //user validation
+  form1 = new FormGroup({
+    email: new FormControl('', Validators.compose([Validators.required, Validators.email])),
+    firstName: new FormControl('',Validators.compose([Validators.required,Validators.pattern("[A-Za-z]*")])),
+    lastName: new FormControl('', Validators.compose([Validators.required,Validators.pattern("[A-Za-z]*")])),
+    gender: new FormControl('', [Validators.required]),
+    password: new FormControl('',Validators.compose( [Validators.required,Validators.minLength(6)])),
+    matching_passwords: this.matching_passwords_group,
+  
+    terms: new FormControl(false, Validators.pattern('true'))
+  } );
+
   firstNameInValid() {
     return this.form1.get("firstName").invalid;
   }
@@ -41,6 +54,7 @@ export class RegisterComponent implements OnInit {
   passwordInValid() {
     return this.form1.get("password").invalid;
   }
+ 
 
   signup() {
     if (
@@ -67,4 +81,4 @@ export class RegisterComponent implements OnInit {
    }
       
    }
-}
+  }
