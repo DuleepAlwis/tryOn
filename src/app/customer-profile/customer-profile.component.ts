@@ -25,6 +25,11 @@ export class CustomerProfileComponent implements OnInit {
     gender: new FormControl("", [Validators.required])
   });
 
+  districts = ["Ampara", "Anuradhapura","Badulla","Batticaloa","Colombo","Galle","Gampaha",
+  "Hambantota","Jaffna", "Kalutara","Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar", "Matale",
+  "Matara", "Moneragala", "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+  "Trincomalee", "Vavuniya"];
+
   private email: string;
   constructor(
     private authService: AuthService,
@@ -59,7 +64,7 @@ export class CustomerProfileComponent implements OnInit {
   }
 
   update() {
-    if (this.nameInValid()) {
+    if (!this.nameInValid()) {
       console.log(
         this.form.get("name").value + " " + this.form.get("city").value
       );
@@ -71,7 +76,8 @@ export class CustomerProfileComponent implements OnInit {
         district: this.form.get("district").value,
         mobileno: this.form.get("mobileno").value,
 
-        gender: this.form.get("gender").value
+        gender: this.form.get("gender").value,
+        password:""
       };
       console.log(customer);
       this.customerService

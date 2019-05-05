@@ -1,17 +1,22 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
-            Product Category
+            <h3>Product Category</h3>
             <div class="col-5 my-1">
                 <select id="productSelect" class="custom-select mr-sm-2" (change)="selectChangeHandler($event)">
           <option *ngFor="let item of items">{{ item }}</option>
         </select>
             </div>
         </div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <span style="display:inline-block;width:17px"></span>
+            <button class="btn btn-outline-info ml-5 mt-3" (click)="getProducts()"><i class="fas fa-search"></i> Search products</button>
+        </div>
     </div>
 
     <div class="row">
-        <div class="col-md-5">
+        <div class="col-md-3">
             Measurements
             <div *ngIf="this.item=='Shirts'">
 
@@ -55,7 +60,7 @@
                             <td>
                                 <div class="form-group col-md-3">
                                     <input type="submit" class="btn btn-primary" value="Save" *ngIf="this.newMeasuremnts">
-                                    <input type="submit" class="btn btn-primary" value="Update" *ngIf="!this.newMeasurements">
+                                    <input type="submit" class="btn btn-primary" value="Update" *ngIf="!this.newMeasuremnts">
 
                                 </div>
                             </td>
@@ -105,7 +110,7 @@
                             <td>
                                 <div class="form-group col-md-3">
                                     <input type="submit" class="btn btn-primary" value="Save" *ngIf="this.newMeasuremnts">
-                                    <input type="submit" class="btn btn-primary" value="Update" *ngIf="!this.newMeasurements">
+                                    <input type="submit" class="btn btn-primary" value="Update" *ngIf="!this.newMeasuremnts">
 
                                 </div>
                             </td>
@@ -121,8 +126,8 @@
             <h1 style="text-align: center">{{this.headerTitle}}</h1>
             <table>
                 <tbody>
-                    <tr *ngFor="let item of this.productList" class="mt-1">
-                        <td *ngFor="let product of item">
+                    <tr *ngFor="let productItem of this.productList" class="mt-1">
+                        <td *ngFor="let product of productItem">
                             <div class="mr-3 imgBox" style="display: inline-block">
 
                                 <div class="card" style="width: 18rem;height:19rem">
@@ -132,7 +137,7 @@
                                     <div class="card-body">
                                         <h5 class="card-title">{{product.name}}</h5>
                                         <p class="ml-5 mr-5 mt-3">
-                                            <a [routerLink]="['/productview',this.headerTitle,product._id]" class="btn btn-primary" stlye="margin-left:77px">
+                                            <a [routerLink]="['/productview',this.item,product._id]" class="btn btn-primary" stlye="margin-left:77px">
                                           View
                                       </a>
                                         </p>

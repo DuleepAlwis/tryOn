@@ -4,11 +4,8 @@
         <div class="col-md-3">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <button
-                        class="btn btn-outline-info"
-                        (click)="getAllShirts()"
-                    >
-                        Shirts
+                    <button class="btn btn-outline-info" (click)="getAllShirts()">
+                        <i class="fas fa-tshirt"></i>Shirts
                     </button>
                     <!-- <div class="dropdown">
             <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -22,19 +19,13 @@
           </div> -->
                 </li>
                 <li class="list-group-item">
-                    <button
-                        class="btn btn-outline-info"
-                        (click)="getAllShorts()"
-                    >
-                        Shorts
+                    <button class="btn btn-outline-info" (click)="getAllShorts()">
+                        <i class="fab fa-shirtsinbulk"></i>Shorts
                     </button>
                 </li>
                 <li class="list-group-item">
-                    <button
-                        class="btn btn-outline-info"
-                        (click)="getAllTrousers()"
-                    >
-                        Trousers
+                    <button class="btn btn-outline-info" (click)="getAllTrousers()">
+                        <i class="fab fa-shirtsinbulk"></i>Trousers
                     </button>
                 </li>
                 <!-- <li class="list-group-item">
@@ -51,43 +42,21 @@
         </li> -->
                 <li class="list-group-item">
                     <div class="dropdown">
-                        <button
-                            class="btn btn-outline-info down-toggle"
-                            type="button"
-                            id="dropdownMenuButton3"
-                            data-toggle="dropdown"
-                            aria-haspopup="true"
-                            aria-expanded="false"
-                        >
-                            Accessories products
+                        <button class="btn btn-outline-info down-toggle" type="button" id="dropdownMenuButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-briefcase"></i> Accessories products
                         </button>
-                        <div
-                            class="dropdown-menu"
-                            aria-labelledby="dropdownMenuButton3"
-                        >
-                            <a
-                                class="dropdown-item"
-                                (click)="getAllBelts()"
-                            >
-                                Belts
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                            <a class="dropdown-item" (click)="getAllBelts()">
+                                <i class="fas fa-bacon"></i> Belts
                             </a>
-                            <a
-                                class="dropdown-item"
-                                (click)="getAllHandBags()"
-                            >
-                                Hand bags
+                            <a class="dropdown-item" (click)="getAllHandBags()">
+                                <i class="fas fa-shopping-bag"></i>Hand bags
                             </a>
-                            <a
-                                class="dropdown-item"
-                                (click)="getAllCaps()"
-                            >
-                                Caps
+                            <a class="dropdown-item" (click)="getAllCaps()">
+                                <i class="fab fa-redhat"></i> Caps
                             </a>
-                            <a
-                                class="dropdown-item"
-                                (click)="getAllGloves()"
-                            >
-                                Gloves
+                            <a class="dropdown-item" (click)="getAllGloves()">
+                                <i class="fas fa-mitten"></i> Gloves
                             </a>
 
                         </div>
@@ -100,36 +69,20 @@
             <h1 style="text-align: center">{{this.headerTitle}}</h1>
             <table>
                 <tbody>
-                    <tr
-                        *ngFor="let item of this.items"
-                        class="mt-1"
-                    >
+                    <tr *ngFor="let item of this.items" class="mt-1">
                         <td *ngFor="let product of item">
-                            <div
-                                class="mr-3 imgBox"
-                                style="display: inline-block"
-                            >
+                            <div class="mr-3" style="display: inline-block">
 
-                                <div
-                                    class="card"
-                                    style="width: 18rem;height:19rem"
-                                >
-
-                                    <img
-                                        class="card-img-top imgCloth"
-                                        src="{{product.imgFront}}"
-                                        alt="Image 404"
-                                        width="50%"
-                                        height="50%"
-                                    >
-
+                                <div class="card" style="width: 18rem;height:19rem">
+                                    <div class="zoom-effect-container">
+                                        <div class="image-card">
+                                            <img class="card-img-top img-fluid" src="{{product.imgFront}}" alt="Image 404" width="50%" height="50%">
+                                        </div>
+                                    </div>
                                     <div class="card-body">
                                         <h5 class="card-title">{{product.name}}</h5>
                                         <p class="ml-5 mr-5 mt-3">
-                                        <a
-                                            [routerLink]="['/productview',this.headerTitle,product._id]"
-                                            class="btn btn-primary" stlye="margin-left:77px"
-                                        >
+                                            <a [routerLink]="['/productview',this.headerTitle,product._id]" class="btn btn-primary" stlye="margin-left:77px">
                                             View
                                         </a>
                                         </p>

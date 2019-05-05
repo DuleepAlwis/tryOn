@@ -181,7 +181,11 @@ export class AccessoriesFormComponent implements OnInit {
       length: this.form.get("length").value,
       width: this.form.get("width").value,
       quantity: this.form.get("quantity").value,
-      price: this.form.get("price").value
+      price: this.form.get("price").value,
+      imgFront:"",
+      imgBack:"",
+      imgLeft:"",
+      imgRight:""
     };
     console.log(accessories);
     if (this.newProduct) {

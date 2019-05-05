@@ -1,92 +1,92 @@
 <app-home-navigation></app-home-navigation>
 <div class="container-fluid">
-  <h1>{{this.errorMsg}}</h1>
-  <div class="row">
-    <div class="col-md-7">
-      <h1 style="text-align: center">Product Description</h1>
+    <h1>{{this.errorMsg}}</h1>
+    <div class="row">
+        <div class="col-md-7">
+            <h1 style="text-align: center">Product Description</h1>
 
-      <h3>{{ this.item[0].name }}</h3>
-      <table class="table table-bordered rounded" *ngIf="this.clothes" style="background-color:LightBlue">
-          <h5><b>Measurements</b></h5>
-          <tr>
-            <th>#</th>
-            <th colspan="2" class="text-center">Small</th>
-            <th colspan="2" class="text-center">Medium</th>
-            <th colspan="2" class="text-center">Large</th>
-          </tr>
-          <tr>
-            <td>Neck</td>
-            <td>{{ this.item[0].small.neck[0] }}
-            </td>
-            <td class=""> {{ this.item[0].small.neck[1] }}
-            </td>
+            <h3>{{ this.item[0].name }}</h3>
+            <table class="table table-bordered rounded" *ngIf="this.clothes" style="background-color:LightBlue">
+                <h5><b>Measurements</b></h5>
+                <tr>
+                    <th>#</th>
+                    <th colspan="2" class="text-center">Small</th>
+                    <th colspan="2" class="text-center">Medium</th>
+                    <th colspan="2" class="text-center">Large</th>
+                </tr>
+                <tr>
+                    <td>Neck</td>
+                    <td>{{ this.item[0].small.neck[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.neck[1] }}
+                    </td>
 
-            <td> {{ this.item[0].medium.neck[0] }}
-            </td>
-            <td class=""> {{ this.item[0].medium.neck[1] }}
-            </td>
+                    <td> {{ this.item[0].medium.neck[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.neck[1] }}
+                    </td>
 
-            <td> {{ this.item[0].large.neck[0] }}
-            </td>
-            <td class=""> {{ this.item[0].large.neck[1] }}
-            </td>
+                    <td> {{ this.item[0].large.neck[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.neck[1] }}
+                    </td>
 
-          </tr>
+                </tr>
 
-          <tr>
-              <td>Shoulder Width</td>
-              <td> {{ this.item[0].small.shoulderweist[0] }}
-              </td>
-              <td class=""> {{ this.item[0].small.shoulderweist[1] }}
-              </td>
+                <tr>
+                    <td>Shoulder Width</td>
+                    <td> {{ this.item[0].small.shoulderweist[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.shoulderweist[1] }}
+                    </td>
 
-              <td> {{ this.item[0].medium.shoulderweist[0] }}
-              </td>
-              <td class=""> {{ this.item[0].medium.shoulderweist[1] }}
-              </td>
+                    <td> {{ this.item[0].medium.shoulderweist[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.shoulderweist[1] }}
+                    </td>
 
-              <td> {{ this.item[0].large.shoulderweist[0] }}
-              </td>
-              <td class=""> {{ this.item[0].large.shoulderweist[1] }}
-              </td>
+                    <td> {{ this.item[0].large.shoulderweist[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.shoulderweist[1] }}
+                    </td>
 
-            </tr>
+                </tr>
 
-            <tr>
-                <td>Biceps</td>
-                <td> {{ this.item[0].small.biceps[0] }}
-                </td>
-                <td class=""> {{ this.item[0].small.biceps[1] }}
-                </td>
+                <tr>
+                    <td>Biceps</td>
+                    <td> {{ this.item[0].small.biceps[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.biceps[1] }}
+                    </td>
 
-                <td> {{ this.item[0].medium.biceps[0] }}
-                </td>
-                <td class=""> {{ this.item[0].medium.biceps[1] }}
-                </td>
+                    <td> {{ this.item[0].medium.biceps[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.biceps[1] }}
+                    </td>
 
-                <td> {{ this.item[0].large.biceps[0] }}
-                </td>
-                <td class=""> {{ this.item[0].large.biceps[1] }}
-                </td>
+                    <td> {{ this.item[0].large.biceps[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.biceps[1] }}
+                    </td>
 
-              </tr>
+                </tr>
 
-              <tr>
-                  <td>Jacket Length</td>
-                  <td> {{ this.item[0].small.jacketlength[0] }}
-                  </td>
-                  <td class=""> {{ this.item[0].small.jacketlength[1] }}
-                  </td>
+                <tr>
+                    <td>Jacket Length</td>
+                    <td> {{ this.item[0].small.jacketlength[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.jacketlength[1] }}
+                    </td>
 
-                  <td>{{ this.item[0].medium.jacketlength[0] }}
-                  </td>
-                  <td class=""> {{ this.item[0].medium.jacketlength[1] }}
-                  </td>
+                    <td>{{ this.item[0].medium.jacketlength[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.jacketlength[1] }}
+                    </td>
 
-                  <td> {{ this.item[0].large.jacketlength[0] }}
-                  </td>
-                  <td class=""> {{ this.item[0].large.jacketlength[1] }}
-                  </td>
+                    <td> {{ this.item[0].large.jacketlength[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.jacketlength[1] }}
+                    </td>
 
                 </tr>
 
@@ -107,128 +107,128 @@
                     <td class=""> {{ this.item[0].large.sleevelength[1] }}
                     </td>
 
-                  </tr>
+                </tr>
 
-                  <tr>
-                      <td>Chest</td>
-                      <td> {{ this.item[0].small.chest[0] }}
-                      </td>
-                      <td class=""> {{ this.item[0].small.chest[1] }}
-                      </td>
+                <tr>
+                    <td>Chest</td>
+                    <td> {{ this.item[0].small.chest[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.chest[1] }}
+                    </td>
 
-                      <td> {{ this.item[0].medium.chest[0] }}
-                      </td>
-                      <td class=""> {{ this.item[0].medium.chest[1] }}
-                      </td>
+                    <td> {{ this.item[0].medium.chest[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.chest[1] }}
+                    </td>
 
-                      <td> {{ this.item[0].large.chest[0] }}
-                      </td>
-                      <td class=""> {{ this.item[0].large.chest[1] }}
-                      </td>
+                    <td> {{ this.item[0].large.chest[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.chest[1] }}
+                    </td>
 
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <td>Quantity & Price</td>
-                        <td> Quantity : {{ this.item[0].small.quantity }}
-                        </td>
-                        <td>Price(Rs.) : {{ this.item[0].small.price }}
-                        </td>
+                <tr>
+                    <td>Quantity & Price</td>
+                    <td> Quantity : {{ this.item[0].small.quantity }}
+                    </td>
+                    <td>Price(Rs.) : {{ this.item[0].small.price }}
+                    </td>
 
-                        <td> Quantity : {{ this.item[0].medium.quantity }}
-                        </td>
-                        <td> Price(Rs.) : {{ this.item[0].medium.price }}
-                        </td>
+                    <td> Quantity : {{ this.item[0].medium.quantity }}
+                    </td>
+                    <td> Price(Rs.) : {{ this.item[0].medium.price }}
+                    </td>
 
-                        <td>
-                          Quantity : {{ this.item[0].large.price }}
+                    <td>
+                        Quantity : {{ this.item[0].large.price }}
 
-                        </td>
-                        <td>Price(Rs.) : {{ this.item[0].large.price }}
-                        </td>
-                      </tr>
-      </table>
-      <table class="table table-bordered rounded" *ngIf="this.trousers" style="background-color:LightBlue">
-          <h5><b>Measurements</b></h5>
-          <tr>
-            <th>#</th>
-            <th colspan="2" class="text-center">Small</th>
-            <th colspan="2" class="text-center">Medium</th>
-            <th colspan="2" class="text-center">Large</th>
-          </tr>
-          <tr>
-            <td>Pants Width</td>
-            <td>{{ this.item[0].small.PantsW[0] }}
-            </td>
-            <td class=""> {{ this.item[0].small.PantsW[1] }}
-            </td>
+                    </td>
+                    <td>Price(Rs.) : {{ this.item[0].large.price }}
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-bordered rounded" *ngIf="this.trousers" style="background-color:LightBlue">
+                <h5><b>Measurements</b></h5>
+                <tr>
+                    <th>#</th>
+                    <th colspan="2" class="text-center">Small</th>
+                    <th colspan="2" class="text-center">Medium</th>
+                    <th colspan="2" class="text-center">Large</th>
+                </tr>
+                <tr>
+                    <td>Pants Width</td>
+                    <td>{{ this.item[0].small.PantsW[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.PantsW[1] }}
+                    </td>
 
-            <td> {{ this.item[0].medium.PantsW[0] }}
-            </td>
-            <td class=""> {{ this.item[0].medium.PantsW[1] }}
-            </td>
+                    <td> {{ this.item[0].medium.PantsW[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.PantsW[1] }}
+                    </td>
 
-            <td> {{ this.item[0].large.PantsW[0] }}
-            </td>
-            <td class=""> {{ this.item[0].large.PantsW[1] }}
-            </td>
+                    <td> {{ this.item[0].large.PantsW[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.PantsW[1] }}
+                    </td>
 
-          </tr>
+                </tr>
 
-          <tr>
-              <td>Hips</td>
-              <td> {{ this.item[0].small.Hips[0] }}
-              </td>
-              <td class=""> {{ this.item[0].small.Hips[1] }}
-              </td>
+                <tr>
+                    <td>Hips</td>
+                    <td> {{ this.item[0].small.Hips[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.Hips[1] }}
+                    </td>
 
-              <td> {{ this.item[0].medium.Hips[0] }}
-              </td>
-              <td class=""> {{ this.item[0].medium.Hips[1] }}
-              </td>
+                    <td> {{ this.item[0].medium.Hips[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.Hips[1] }}
+                    </td>
 
-              <td> {{ this.item[0].large.Hips[0] }}
-              </td>
-              <td class=""> {{ this.item[0].large.Hips[1] }}
-              </td>
+                    <td> {{ this.item[0].large.Hips[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.Hips[1] }}
+                    </td>
 
-            </tr>
+                </tr>
 
-            <tr>
-                <td>Length</td>
-                <td> {{ this.item[0].small.Length[0] }}
-                </td>
-                <td class=""> {{ this.item[0].small.Length[1] }}
-                </td>
+                <tr>
+                    <td>Length</td>
+                    <td> {{ this.item[0].small.Length[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.Length[1] }}
+                    </td>
 
-                <td> {{ this.item[0].medium.Length[0] }}
-                </td>
-                <td class=""> {{ this.item[0].medium.Length[1] }}
-                </td>
+                    <td> {{ this.item[0].medium.Length[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.Length[1] }}
+                    </td>
 
-                <td> {{ this.item[0].large.Length[0] }}
-                </td>
-                <td class=""> {{ this.item[0].large.Length[1] }}
-                </td>
+                    <td> {{ this.item[0].large.Length[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.Length[1] }}
+                    </td>
 
-              </tr>
+                </tr>
 
-              <tr>
-                  <td>Crotch</td>
-                  <td> {{ this.item[0].small.Crotch[0] }}
-                  </td>
-                  <td class=""> {{ this.item[0].small.Crotch[1] }}
-                  </td>
+                <tr>
+                    <td>Crotch</td>
+                    <td> {{ this.item[0].small.Crotch[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.Crotch[1] }}
+                    </td>
 
-                  <td>{{ this.item[0].medium.Crotch[0] }}
-                  </td>
-                  <td class=""> {{ this.item[0].medium.Crotch[1] }}
-                  </td>
+                    <td>{{ this.item[0].medium.Crotch[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.Crotch[1] }}
+                    </td>
 
-                  <td> {{ this.item[0].large.Crotch[0] }}
-                  </td>
-                  <td class=""> {{ this.item[0].large.Crotch[1] }}
-                  </td>
+                    <td> {{ this.item[0].large.Crotch[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.Crotch[1] }}
+                    </td>
 
                 </tr>
 
@@ -249,154 +249,150 @@
                     <td class=""> {{ this.item[0].large.Thigh[1] }}
                     </td>
 
-                  </tr>
+                </tr>
 
-                  <tr>
-                      <td>Knee</td>
-                      <td> {{ this.item[0].small.Knee[0] }}
-                      </td>
-                      <td class=""> {{ this.item[0].small.Knee[1] }}
-                      </td>
+                <tr>
+                    <td>Knee</td>
+                    <td> {{ this.item[0].small.Knee[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].small.Knee[1] }}
+                    </td>
 
-                      <td> {{ this.item[0].medium.Knee[0] }}
-                      </td>
-                      <td class=""> {{ this.item[0].medium.Knee[1] }}
-                      </td>
+                    <td> {{ this.item[0].medium.Knee[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].medium.Knee[1] }}
+                    </td>
 
-                      <td> {{ this.item[0].large.Knee[0] }}
-                      </td>
-                      <td class=""> {{ this.item[0].large.Knee[1] }}
-                      </td>
+                    <td> {{ this.item[0].large.Knee[0] }}
+                    </td>
+                    <td class=""> {{ this.item[0].large.Knee[1] }}
+                    </td>
 
-                    </tr>
+                </tr>
 
-                    <tr>
-                        <td>Quantity & Price</td>
-                        <td> Quantity : {{ this.item[0].small.quantity }}
-                        </td>
-                        <td>Price(Rs.) : {{ this.item[0].small.price }}
-                        </td>
+                <tr>
+                    <td>Quantity & Price</td>
+                    <td> Quantity : {{ this.item[0].small.quantity }}
+                    </td>
+                    <td>Price(Rs.) : {{ this.item[0].small.price }}
+                    </td>
 
-                        <td> Quantity : {{ this.item[0].medium.quantity }}
-                        </td>
-                        <td> Price(Rs.) : {{ this.item[0].medium.price }}
-                        </td>
+                    <td> Quantity : {{ this.item[0].medium.quantity }}
+                    </td>
+                    <td> Price(Rs.) : {{ this.item[0].medium.price }}
+                    </td>
 
-                        <td>
-                          Quantity : {{ this.item[0].large.price }}
+                    <td>
+                        Quantity : {{ this.item[0].large.price }}
 
-                        </td>
-                        <td>Price(Rs.) : {{ this.item[0].large.price }}
-                        </td>
-                      </tr>
-      </table>
-      <table class="table table-bordered rounded" *ngIf="this.accessories" style="background-color:LightBlue;color:black;padding: 7px">
-        <h5><b>Measurements</b></h5>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="inputCity">Product </label>
+                    </td>
+                    <td>Price(Rs.) : {{ this.item[0].large.price }}
+                    </td>
+                </tr>
+            </table>
+            <table class="table table-bordered rounded" *ngIf="this.accessories" style="background-color:LightBlue;color:black;padding: 7px">
+                <h5><b>Measurements</b></h5>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputCity">Product </label>
 
-            <div class="form-group col-md-6">
-              {{ this.item[0].name}}
+                        <div class="form-group col-md-6">
+                            {{ this.item[0].name}}
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="inputName">Quantity : </label> {{ this.item[0].quantity}}
+
+                    </div>
+                    <div class="form-group col-md-2"></div>
+                    <div class="form-group col-md-2">
+                        <label for="inputName">Price : </label> Rs. {{ this.item[0].price}}
+
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputName">Length : </label> {{ this.item[0].length}} cm
+
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputName">Width : </label> {{ this.item[0].width}} cm
+
+                    </div>
+
+                </div>
+            </table>
+            <button class="btn btn-group-lg btn-primary ml-5" (click)="shoppingCart()"><i class="fas fa-shopping-cart"></i>Add to Cart</button>
+        </div>
+
+        <div class="col-md-2">
+            <div style="width:250px;height:350px">
+                <div class="card" style="width: 13rem;height:19rem">
+
+                    <img class="card-img-top mask flex-center ui-icon-circle-zoomin" [src]="this.imgFrontPath" alt="Card image cap" width="50%" height="50%">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Front preview</h5>
+
+
+                    </div>
+                </div>
+
+
             </div>
-          </div>
+            <div style="width:250px;height:350px;display:inline-block">
+                <div class="card" style="width: 13rem;height:19rem">
 
+                    <img class="card-img-top mask flex-center ui-icon-circle-zoomin" [src]="this.imgBackPath" alt="Card image cap" width="50%" height="50%">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Back preview</h5>
+
+
+                    </div>
+                </div>
+            </div>
         </div>
+        <div class="col-md-2">
+            <div style="width:250px;height:350px">
+                <div class="card" style="width: 13rem;height:19rem">
+
+                    <img class="card-img-top mask flex-center ui-icon-circle-zoomin" [src]="this.imgLeftPath" alt="Card image cap" width="50%" height="50%">
+
+                    <div class="card-body">
+                        <h5 class="card-title">Left preview</h5>
 
 
-        <div class="form-row">
+                    </div>
+                </div>
+            </div>
+            <div style="width:250px;height:350px">
+                <div class="card" style="width: 13rem;height:19rem">
 
-          <div class="form-group col-md-2">
-            <label for="inputName">Quantity : </label>
-            {{ this.item[0].quantity}}
+                    <img class="card-img-top mask flex-center ui-icon-circle-zoomin" [src]="this.imgRightPath" alt="Card image cap" width="50%" height="50%">
 
-          </div>
-          <div class="form-group col-md-2"></div>
-          <div class="form-group col-md-2">
-            <label for="inputName">Price : </label>
-            Rs. {{ this.item[0].price}}
+                    <div class="card-body">
+                        <h5 class="card-title">Right preview</h5>
 
-          </div>
+
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="inputName">Length : </label>
-            {{ this.item[0].length}} cm
-
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputName">Width : </label>
-            {{ this.item[0].width}} cm
-
-          </div>
-
-        </div>
-      </table>
-      <button class="btn btn-group-lg btn-primary ml-5" (click)="shoppingCart()">Add to Cart</button>
     </div>
 
-    <div class="col-md-2">
-      <div style="width:250px;height:350px">
-        <div class="card" style="width: 13rem;height:19rem">
-
-          <img class="card-img-top imgCloth" [src]="this.imgFrontPath" alt="Card image cap" width="50%" height="50%">
-
-          <div class="card-body">
-            <h5 class="card-title">Front preview</h5>
 
 
-          </div>
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-3">
+
         </div>
-
-
-      </div>
-      <div style="width:250px;height:350px;display:inline-block">
-        <div class="card" style="width: 13rem;height:19rem">
-
-          <img class="card-img-top imgCloth" [src]="this.imgBackPath" alt="Card image cap" width="50%" height="50%">
-
-          <div class="card-body">
-            <h5 class="card-title">Back preview</h5>
-
-
-          </div>
-        </div>
-      </div>
     </div>
-    <div class="col-md-2">
-      <div style="width:250px;height:350px">
-        <div class="card" style="width: 13rem;height:19rem">
-
-          <img class="card-img-top imgCloth" [src]="this.imgLeftPath" alt="Card image cap" width="50%" height="50%">
-
-          <div class="card-body">
-            <h5 class="card-title">Left preview</h5>
-
-
-          </div>
-        </div>
-      </div>
-      <div style="width:250px;height:350px">
-        <div class="card" style="width: 13rem;height:19rem">
-
-          <img class="card-img-top imgCloth" [src]="this.imgRightPath" alt="Card image cap" width="50%" height="50%">
-
-          <div class="card-body">
-            <h5 class="card-title">Right preview</h5>
-
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-3">
-
-    </div>
-  </div>
 </div>

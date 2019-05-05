@@ -31,6 +31,8 @@ export class ReceprionistProductsEditComponent implements OnInit {
   getAll() {
     /*const item = document.getElementById("productSelect").value;
     console.log(item);*/
+    this.itemObjects = [];
+
     this.message = this.item + " stock is empty";
 
     this.itemObjects.push({
@@ -43,6 +45,7 @@ export class ReceprionistProductsEditComponent implements OnInit {
     console.log(this.item);
 
     switch (this.item) {
+
       case "Shirts":
         this.ProductService.getAllClothes().subscribe(responseData => {
           if (Number(responseData.message) == 0) {
@@ -50,7 +53,6 @@ export class ReceprionistProductsEditComponent implements OnInit {
           } else {
             this.type = "clothes";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = "Shirts";
@@ -66,7 +68,6 @@ export class ReceprionistProductsEditComponent implements OnInit {
           } else {
             this.type = "accessories";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = this.;
@@ -82,7 +83,6 @@ export class ReceprionistProductsEditComponent implements OnInit {
           } else {
             this.type = "accessories";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = this.;
@@ -98,7 +98,6 @@ export class ReceprionistProductsEditComponent implements OnInit {
           } else {
             this.type = "accessories";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = this.;
@@ -114,7 +113,6 @@ export class ReceprionistProductsEditComponent implements OnInit {
           } else {
             this.type = "accessories";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = this.;
@@ -125,12 +123,12 @@ export class ReceprionistProductsEditComponent implements OnInit {
         break;
       case "Trousers":
         this.ProductService.getAllTights("Trousers").subscribe(responseData => {
+
           if (Number(responseData.message) == 0) {
             this.message = this.item + " stock is empty";
           } else {
             this.type = "tights";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = "Shirts";
@@ -141,12 +139,12 @@ export class ReceprionistProductsEditComponent implements OnInit {
         break;
       case "Shorts":
         this.ProductService.getAllTights("Shorts").subscribe(responseData => {
+
           if (Number(responseData.message) == 0) {
             this.message = this.item + " stock is empty";
           } else {
             this.type = "tights";
 
-            this.itemObjects.length = 0;
             this.itemObjects = responseData.result;
             console.log(this.itemObjects);
             //this.message = "Shirts";

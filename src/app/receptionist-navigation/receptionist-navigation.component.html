@@ -1,56 +1,66 @@
 <div class="bg-success">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-light">
-    <a class="navbar-brand justify-content-center ml-5" href="#" style="font-size: 35px"><img
-        src="../../assets/img/images1.jpg" class="rounded-circle" style="width:25%;height:25%">tryOn</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-info bg-light">
+        <a class="navbar-brand justify-content-center ml-5 text-success" href="#" style="font-size: 35px"><img src="../../assets/img/images1.jpg" class="rounded-circle" style="width:25%;height:25%">tryOn</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav mt-5" style="font-size: 25px">
-        <li class="nav-item">
-          <!--<a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>-->
-          <a class="nav-link" routerLink='' style="color:white">Home</a>
-        </li>
-        <li class="nav-item">
-          <!-- Example split danger button -->
-          <div class="btn-group">
-            <!--<button type="button" class="btn btn-info">Costumes & Accessories</button>-->
-            <button type="button" class="btn btn-dark dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false" style="font-size: 25px">
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav mt-5" style="font-size: 25px">
+                <li class="nav-item">
+                    <!--<a class="nav-link text-light" href="#">Home <span class="sr-only">(current)</span></a>-->
+                    <a class="nav-link text-success" routerLink=''>Home</a>
+                </li>
+                <!--<li class="nav-item">-->
+                <!-- Example split danger button -->
+                <!--<div class="btn-group">
+                        <button type="button" class="btn btn-info">Costumes & Accessories</button>
+                        <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split mr-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 25px">
               Costumes & Accessories
               <span class="sr-only">Toggle Dropdown</span>
             </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" routerLink="/Receptionist" style="color:black">Add Items</a>
-              <a class="dropdown-item" routerLink="/Receptionistproductedit" style="color:black">Edit
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item text-success" routerLink="/Receptionist">Add Items</a>
+                            <a class="dropdown-item text-success" routerLink="/Receptionistproductedit">Edit
                 Items</a>
-              <!--<a [routerLink]="['/Receptionistproductedit',null]">Edit Items</a>-->
+                            <!--<a [routerLink]="['/Receptionistproductedit',null]">Edit Items</a>-->
 
-              <a class="dropdown-item" href="#" style="color:black">Upload Images</a>
+                <!--<a class="dropdown-item" href="#" style="color:black">Upload Images</a>-->
 
-              <div class="dropdown-divider"></div>
-              <!--<a class="dropdown-item" href="#">Separated link</a>-->
-            </div>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/Orderdetails" style="color:white">Orders</a>
+                <!-- <div class="dropdown-divider"></div>
+                        </div>
+                    </div>
 
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href='' style="color:white">About us</a>
+                </li>-->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-success" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Costumes & Accessories
+                  </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item text-success" routerLink="/Receptionist">Add Items</a>
+                        <a class="dropdown-item text-success" routerLink="/Receptionistproductedit">Edit
+        Items</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" routerLink="/Orderdetails">Orders</a>
 
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" style="color:white" (click)="this.logout()">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href=''>About us</a>
 
-        </li>
-      </ul>
-    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" (click)="this.logout()">Logout</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-success" href=''><span style="display:inline-block;width:35px"></span></a>
+
+                </li>
+            </ul>
+        </div>
 
 
 
-  </nav>
+    </nav>
 </div>
-

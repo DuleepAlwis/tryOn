@@ -1,3 +1,4 @@
+import { productImg } from './../modules/productImg';
 import { Injectable } from "@angular/core";
 import { Cloth } from "../modules/Cloth";
 import { Tights } from '../modules/Tights';
@@ -193,7 +194,7 @@ export class ProductService {
   }
 
   getClothImages(id: string) {
-    return this.http.post<{ message: Number; result: object }>(
+    return this.http.post<{ message: Number; result: productImg }>(
       this.url + "/api/clothes/getClothImages",
       { id: id }
     );

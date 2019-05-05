@@ -17,7 +17,7 @@ router.post("/saveShirtMeasuremnt", (req, res, next) => {
     const measuremnt = new shirtMeasuremnt({
         MeasurementNeck: measurementData.MeasurementNeck,
         MeasurementShoulderW: measurementData.MeasurementShoulderW,
-        MeasurementBicepk: measurementData.MeasurementBicepk,
+        MeasurementBicep: measurementData.MeasurementBicep,
         MeasurementJacketL: measurementData.MeasurementJacketL,
         MeasurementSleeveL: measurementData.MeasurementSleeveL,
         MeasurementChest: measurementData.MeasurementChest,
@@ -26,10 +26,10 @@ router.post("/saveShirtMeasuremnt", (req, res, next) => {
 
     measuremnt.save()
         .then((result) => {
-            console.log(result);
+            // console.log(result);
             res.status(200).json({
                 message: 1,
-                id: result_id
+                id: result._id
             });
         })
         .catch((result) => {
@@ -57,10 +57,10 @@ router.post("/saveBottumMeasuremnt", (req, res, next) => {
 
     measuremnt.save()
         .then((result) => {
-            console.log(result);
+            //  console.log(result);
             res.status(200).json({
                 message: 1,
-                id: result_id
+                id: result._id
             });
         })
         .catch((result) => {
@@ -86,12 +86,14 @@ router.post("/updateBottumMeasuremnt", (req, res, next) => {
         customerId: req.body.id
     };
 
-    measuremnt.update({ _id: measurementId }, measuremnt)
+    bottumMeasuremnt.updateOne({
+            customerId: req.body.id
+        }, measuremnt)
         .then((result) => {
-            console.log(result);
+            // console.log(result);
             res.status(200).json({
                 message: 1,
-                id: result_id
+                id: result._id
             });
         })
         .catch((result) => {
@@ -106,11 +108,11 @@ router.post("/updateBottumMeasuremnt", (req, res, next) => {
 router.post("/updateShirtMeasuremnt", (req, res, next) => {
 
     measurementData = JSON.parse(req.body.data);
-    measurementId = req.body.id;
+    customerd = req.body.id;
     const measuremnt = {
         MeasurementNeck: measurementData.MeasurementNeck,
         MeasurementShoulderW: measurementData.MeasurementShoulderW,
-        MeasurementBicepk: measurementData.MeasurementBicepk,
+        MeasurementBicep: measurementData.MeasurementBicep,
         MeasurementJacketL: measurementData.MeasurementJacketL,
         MeasurementSleeveL: measurementData.MeasurementSleeveL,
         MeasurementChest: measurementData.MeasurementChest,
@@ -118,13 +120,13 @@ router.post("/updateShirtMeasuremnt", (req, res, next) => {
     };
 
     shirtMeasuremnt.updateOne({
-            _id: measurementId
+            customerId: req.body.id
         }, measuremnt)
         .then((result) => {
-            console.log(result);
+            //  console.log(result);
             res.status(200).json({
                 message: 1,
-                id: result_id
+                id: result._id
             });
         })
         .catch((result) => {
@@ -144,7 +146,7 @@ router.post("/getBottum", (req, res, next) => {
         let message = 0;
         if (data.length > 0) {
             message = 1;
-            console.log(data);
+            //  console.log(data);
 
         }
         if (err) {
@@ -179,20 +181,20 @@ router.post("/getShirt", (req, res, next) => {
             console.log(err);
         }
 
-        if (message == 1) {
-            res.status(200).json({
-                message: 1,
-                result: data
-            });
-        }
+
+        res.status(200).json({
+            message: message,
+            result: data
+        });
 
 
-        if (message == 0) {
+
+        /*if (message == 0) {
             res.status(200).json({
                 message: 0,
                 result: {}
             });
-        }
+        }*/
     });
 });
 

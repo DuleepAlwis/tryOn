@@ -1,124 +1,124 @@
 <app-customer-navigation></app-customer-navigation>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-1"></div>
-    <div class="col-md-4">
-      <div *ngIf="this.cloth">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div *ngIf="this.cloth">
 
-        <h3>{{this.product.name}}</h3>
-        <div class="form-row">
-          <div class="form-group col-md-3">
-            <label for="inputState">Sizes</label>
-            <select id="inputState" class="form-control" (change)="setMaxQuantity($event)">
+                <h3>{{this.product.name}}</h3>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label for="inputState">Sizes</label>
+                        <select id="inputState" class="form-control" (change)="setMaxQuantity($event)">
               <option selected value="Small">Small</option>
               <option value="Medium">Medium</option>
               <option value="Large">Large</option>
             </select>
-          </div>
-          <div class="form-group col-md-2">
-            <label for="inputState">Quantity</label>
-            <select id="inputState" class="form-control" (change)="calculateProductPrice($event)">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputState">Quantity</label>
+                        <select id="inputState" class="form-control" (change)="calculateProductPrice($event)">
               <option *ngFor="let num of this.quantityArr" value="{{num}}">{{num}}</option>
             </select>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputState">Price(Rs.)</label>
-            <h5 class="form-control">{{this.productPrice}}</h5>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputState"></label>
-            <button class="btn btn-primary mt-3" (click)="addClothToCart()" *ngIf="this.displayBtn">Add to Cart</button>
-          </div>
-        </div>
-      </div>
-      <!-------------Accessories---------------------------->
-      <div *ngIf="this.accessories">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState">Price(Rs.)</label>
+                        <h5 class="form-control">{{this.productPrice}}</h5>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState"><span style="display:inline-block;width:17px"></span></label>
+                        <button class="btn btn-primary" (click)="addClothToCart()" *ngIf="this.displayBtn">Add to <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <!-------------Accessories---------------------------->
+            <div *ngIf="this.accessories">
 
-        <h3>{{this.product.name}}</h3>
-        <div class="form-row">
+                <h3>{{this.product.name}}</h3>
+                <div class="form-row">
 
-          <div class="form-group col-md-2">
-            <label for="inputState">Quantity</label>
-            <select id="inputState" class="form-control" (change)="calculateProductPrice($event)">
+                    <div class="form-group col-md-2">
+                        <label for="inputState">Quantity</label>
+                        <select id="inputState" class="form-control" (change)="calculateProductPrice($event)">
               <option *ngFor="let num of this.quantityArr" value="{{num}}">{{num}}</option>
             </select>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputState">Price(Rs.)</label>
-            <h5 class="form-control">{{this.productPrice}}</h5>
-          </div>
-          <div class="form-group col-md-3">
-            <label for="inputState"></label>
-            <button class="btn btn-primary mt-3" (click)="addClothToCart()" *ngIf="this.displayBtn">Add to
-              Cart</button>
-          </div>
-        </div>
-      </div>
-      <div class="mt-5" style="border-style:inset;border-color:coral;padding:7px">
-        <h3>Delivery details</h3>
-        <form [formGroup]="formDelivery">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState">Price(Rs.)</label>
+                        <h5 class="form-control">{{this.productPrice}}</h5>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="inputState"><span style="display:inline-block;width:17px"></span></label>
+                        <button class="btn btn-primary" (click)="addClothToCart()" *ngIf="this.displayBtn">Add to
+                            <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5" style="border-style:inset;border-color:coral;padding:7px">
+                <span style="display: inline-block"><h3><i class="fas fa-truck"></i> Address</h3></span>
+                <form [formGroup]="formDelivery">
 
-          <div class="form-row">
-            <div class="form-group col-md-7">
-              <label for="inputName">Name</label>
-              <input type="text" class="form-control" id="inputName" formControlName="name" placeholder="Name">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group col-md-4">
-              <label for="inputAddress">Address</label>
-              <input type="type" class="form-control" id="inputAddress" formControlName="address"
-                placeholder="11A,AAA Rd">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity" formControlName="city" placeholder="City">
-            </div>
-            <div class="form-group col-md-4">
-              <label for="inputCity">District</label>
-              <select class="form-control" id="inputDistrict" formControlName="district">
+                    <div class="form-row">
+                        <div class="form-group col-md-7">
+                            <label for="inputName">Name</label>
+                            <input type="text" class="form-control" id="inputName" formControlName="name" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="inputAddress">Address</label>
+                            <input type="type" class="form-control" id="inputAddress" formControlName="address" placeholder="11A,AAA Rd">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCity">City</label>
+                            <input type="text" class="form-control" id="inputCity" formControlName="city" placeholder="City">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputCity">District</label>
+                            <select class="form-control" id="inputDistrict" formControlName="district">
                 <option>Any</option>
               </select>
-            </div>
-          </div>
-          <div class="form-row">
+                        </div>
+                    </div>
+                    <div class="form-row">
 
-            <div class="form-group col-md-4">
-              <label for="inputMobile">Mobile Number</label>
-              <input type="text" class="form-control" id="inputMobile" formControlName="mobileno"
-                placeholder="0715896321">
-            </div>
-            <div class="form-group col-md-2">
-              <label for="inputGender">Gender</label>
-              <select class="form-control" id="inputGender" formControlName="gender">
+                        <div class="form-group col-md-4">
+                            <label for="inputMobile">Mobile Number</label>
+                            <input type="text" class="form-control" id="inputMobile" formControlName="mobileno" placeholder="0715896321">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label for="inputGender">Gender</label>
+                            <select class="form-control" id="inputGender" formControlName="gender">
                 <option>Male</option>
                 <option>Female</option>
 
               </select>
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
-        </form>
-      </div>
+        </div>
+
+
+
+
+        <div class="col-md-1"></div>
+        <div class="col-md-4 mt-3">
+            <h3><span><i class="fas fa-shopping-cart"></i></span>Cart</h3>
+            <div style="height:350px;border-style: inset">
+                <table class="p-1">
+                    <tr *ngFor="let item of this.cartItems;index as i" class="mt-1 mr-1" style="list-style:none">
+                        {{ item.name }} Size : {{ item.size}} | Quantity : {{item.quantity}} || Price: {{item.price}}
+                        <button class="btn btn-danger ml-3" (click)="removeItem(i)"><i class="fas fa-trash-alt"></i>
+
+                          </button>
+                    </tr>
+                </table>
+            </div>
+            <h5>Total Price: {{this.totalPrice }}</h5>
+            <button class="btn btn-primary" (click)="this.saveOrder()">Save Order</button>
+        </div>
     </div>
-
-
-
-
-    <div class="col-md-1"></div>
-    <div class="col-md-4 mt-3">
-      <h3>Shopping Cart</h3>
-      <div style="width:750px;height:350px;border-style:groove">
-        <ul>
-          <li *ngFor="let item of this.cartItems;index as i" class="mt-1 mr-3" style="list-style:none">
-            {{ item.name }} Size : {{ item.size}} | Quantity : {{item.quantity}} || Price: {{item.price}}
-            <button class="btn btn-danger ml-3" (click)="removeItem(i)">Remove</button>
-          </li>
-        </ul>
-      </div>
-      <h5>Total Price: {{this.totalPrice }}</h5>
-      <button class="btn btn-primary" (click)="this.saveOrder()">Save Order</button>
-    </div>
-  </div>
 </div>
 
 

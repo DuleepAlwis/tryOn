@@ -1,16 +1,16 @@
 <app-receptionist-navigation></app-receptionist-navigation>
 <nav aria-label="breadcrumb" class="mt-5">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/suitform',items[1]]">Shirts </a> </li>
-    <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/tightsform',items[2]]">Trousers</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/tightsform',items[3]]">Shorts</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/suitform',items[4]]">Sarees</a></li>
-    <li class="breadcrumb-item"><a [routerLink]="['/Receptionist/accessoriesform','Accessories']">Accessories</a></li>
-    <!--<li class="breadcrumb-item"><a
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><i class="fas fa-tshirt"></i><a [routerLink]="['/Receptionist/suitform',items[1]]">Shirts </a> </li>
+        <li class="breadcrumb-item"><i class="fab fa-shirtsinbulk"></i><a [routerLink]="['/Receptionist/tightsform',items[2]]">Trousers</a></li>
+        <li class="breadcrumb-item"><i class="fab fa-shirtsinbulk"></i><a [routerLink]="['/Receptionist/tightsform',items[3]]">Shorts</a></li>
+        <li class="breadcrumb-item"><i class="fas fa-briefcase"></i><a [routerLink]="['/Receptionist/suitform',items[4]]">Sarees</a></li>
+        <li class="breadcrumb-item"><i class="fas fa-briefcase"></i><a [routerLink]="['/Receptionist/accessoriesform','Accessories']">Accessories</a></li>
+        <!--<li class="breadcrumb-item"><a
         [routerLink]="[{ outlets: { addProduts: ['/Receptionist/suitform',items[1]] }}]">Example</a></li>
     <a [routerLink]="[{ outlets: { primary:['Receptionist'],addProducts: ['aaa'] }}]">Contact</a>
     <a routerLink="/aaa">Contact1</a>-->
-  </ol>
+    </ol>
 </nav>
 
 <router-outlet></router-outlet>

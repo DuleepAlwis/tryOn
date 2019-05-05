@@ -14,22 +14,22 @@ export class SearchProductService {
 
   saveShirtMeasurement(customerId: string,data:ShirtMeasuremnt)
   {
-    return this.http.post<{message: Number,id:string}>(this.url+"/api/measuremnt/shirtSave",{id:customerId,data:data});
+    return this.http.post<{message: Number,id:string}>(this.url+"/api/measurement/saveShirtMeasuremnt",{id:customerId,data:JSON.stringify(data)});
   }
 
   saveBottumMeasurement(customerId: string,data:BottumMeasuremnt)
   {
-    return this.http.post<{message: Number,id:string}>(this.url+'/api/measuremnt/bottumSave',{id:customerId,data:data});
+    return this.http.post<{message: Number,id:string}>(this.url+'/api/measurement/saveBottumMeasuremnt',{id:customerId,data:JSON.stringify(data)});
   }
 
-  updateShirtMeasurement(measuremntId: string,data:ShirtMeasuremnt)
+  updateShirtMeasurement(customerId: string,data:ShirtMeasuremnt)
   {
-    return this.http.post<{message: Number,id:string}>(this.url+"/api/measuremnt/shirtUpdate",{id:measuremntId,data:data});
+    return this.http.post<{message: Number,id:string}>(this.url+"/api/measurement/updateShirtMeasuremnt",{id:customerId,data:JSON.stringify(data)});
   }
 
-  updateBottumMeasurement(measuremntId: string,data:BottumMeasuremnt)
+  updateBottumMeasurement(customerId: string,data:BottumMeasuremnt)
   {
-    return this.http.post<{message: Number,id:string}>(this.url+'/api/measuremnt/bottumUpdate',{id:measuremntId,data:data});
+    return this.http.post<{message: Number,id:string}>(this.url+'/api/measurement/updateBottumMeasuremnt',{id:customerId,data:JSON.stringify(data)});
   }
 
 

@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl("", [
       Validators.required,
-      Validators.pattern("A-Za-z")
+      Validators.pattern('^[a-zA-Z]+$')
     ]),
     address: new FormControl("", [Validators.required]),
     city: new FormControl("", [Validators.required]),
@@ -22,11 +22,17 @@ export class RegisterComponent implements OnInit {
     password: new FormControl("", [Validators.required]),
     gender: new FormControl("", [Validators.required])
   });
+
+  districts = ["Ampara", "Anuradhapura","Badulla","Batticaloa","Colombo","Galle","Gampaha",
+  "Hambantota","Jaffna", "Kalutara","Kandy", "Kegalle", "Kilinochchi", "Kurunegala", "Mannar", "Matale",
+  "Matara", "Moneragala", "Mullaitivu", "Nuwara Eliya", "Polonnaruwa", "Puttalam", "Ratnapura",
+  "Trincomalee", "Vavuniya"];
   constructor(private authService: AuthService) {}
 
   ngOnInit() {}
 
   nameInValid() {
+    console.log(this.form.get("name").invalid);
     return this.form.get("name").invalid;
   }
 
@@ -40,11 +46,27 @@ export class RegisterComponent implements OnInit {
 
   signup() {
     if (
-      (this.nameInValid() || this.emailInValid() || this.passwordInValid())
+      (this.nameInValid())
     ) {
       console.log(
         this.form.get("name").value + " " + this.form.get("city").value
       );
+      alert("Something wrong with the name");
+    }
+    else if(this.passwordInValid())
+    {
+      alert("Something wrong with the password");
+
+    }
+    else if(this.emailInValid())
+    {
+      alert("Something wrong with the email");
+
+    }
+      else
+      {
+
+
       let customer: Customer = {
         name: this.form.get("name").value,
         address: this.form.get("address").value,

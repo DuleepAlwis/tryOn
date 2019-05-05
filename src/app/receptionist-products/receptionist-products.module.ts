@@ -21,6 +21,6 @@ import { ClothEditComponent } from "../cloth-edit/cloth-edit.component";
     ReceprionistProductsEditComponent,
     ClothEditComponent
   ],
-  imports: [CommonModule, ReceptionistProductsRoutesModule, ReactiveFormsModule]
+  imports: [CommonModule, ReceptionistProductsRoutesModule, ReactiveFormsModule, FormsModule]
 })
 export class ReceptionistProductsModule {}
