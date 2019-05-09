@@ -42,3 +42,8 @@
 .nav-link {
     color: honeydew !important
 }
+
+.order-table th {
+    position: sticky !important;
+    top: 0 !important;
+}

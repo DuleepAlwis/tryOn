@@ -91,6 +91,7 @@ export class ShoppingCartService {
       date.getFullYear() + "-" + (date.getMonth()+1) + "-" + date.getDate();
     let time = date.getHours()+":"+date.getMinutes() ;
     console.log(delivery);
+
     return this.http.post<{ message: Number }>(this.url + "/api/order/addOrder", {
       items: JSON.stringify(this.itemsSerializeValues()),
       delivery: JSON.stringify(delivery),
@@ -103,6 +104,29 @@ export class ShoppingCartService {
     });
 
   }
+
+  itemQuantityUpdate()
+  {
+    let products = [Object];
+    let i = 0;
+    for(i=0;i<this.items.length;i++)
+    {
+      let tmp = this.items[i];
+      products.push({category:tmp.category,id:tmp.productId,quantity:tmp.quantity});
+    }
+    this.http.post<{message:Number}>(this.url+"/api/order/quantityUpdate",{products:JSON.stringify(this.items),count:products.length}).subscribe(
+      responseData => {
+        if(responseData.message==0)
+        {
+          console.log("WRONG");
+        }
+        else
+        {
+          console.log("OK");
+        }
+      }
+    );
+  } 
 
   calculateDeliveryDate(orderDate: string)
   {

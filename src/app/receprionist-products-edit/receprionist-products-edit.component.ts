@@ -24,6 +24,7 @@ export class ReceprionistProductsEditComponent implements OnInit {
   message = "";
   item = this.items[0];
   type = "";
+  isLoading = true;
   constructor(private ProductService: ProductService, private route: Router) {}
 
   ngOnInit() {}
@@ -35,14 +36,14 @@ export class ReceprionistProductsEditComponent implements OnInit {
 
     this.message = this.item + " stock is empty";
 
-    this.itemObjects.push({
+    /*this.itemObjects.push({
       type: "Aac",
       id: "123",
       name: "AAA",
       quantity: 67,
       price: 55.5
     });
-    console.log(this.item);
+    console.log(this.item);*/
 
     switch (this.item) {
 
@@ -154,6 +155,7 @@ export class ReceprionistProductsEditComponent implements OnInit {
         });
         break;
     }
+    this.isLoading = false;
   }
 
   viewProducts(index: string) {

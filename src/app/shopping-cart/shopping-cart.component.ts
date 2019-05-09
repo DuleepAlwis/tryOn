@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { AuthService } from "../services/auth.service";
 import { CustomerService } from "../services/customer.service";
+import { ENGINE_METHOD_DIGESTS } from 'constants';
 
 @Component({
   selector: "app-shopping-cart",
@@ -165,6 +166,7 @@ export class ShoppingCartComponent implements OnInit {
     console.log("product "+this.productPrice);
 
     let cartProduct = {
+      category:this.category,
       productId: this.product._id,
       name: this.product.name,
       quantity: this.quantity,
@@ -249,7 +251,7 @@ export class ShoppingCartComponent implements OnInit {
         if (responseData.message == 0) {
           alert("Something wrong Order didn't save");
         } else {
-
+         // this.shoppingCartService.itemQuantityUpdate();
           alert("Order Saved, email has been sent");
         }
         console.log(responseData);

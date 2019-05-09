@@ -13,6 +13,7 @@ export class OrdersComponent implements OnInit {
   // tslint:disable-next-line:quotemark
   orders: Array<Orders>;
   message: string = " ";
+  isLoading = true;
   constructor(private authService: AuthService, private orderService: OrderService) { }
 
   ngOnInit() {
@@ -26,6 +27,7 @@ export class OrdersComponent implements OnInit {
          // console.log(responseData.result);
           this.orders = responseData.result;
           //console.log(this.orders);
+          this.isLoading = false;
         }
       });
     }
@@ -40,6 +42,8 @@ export class OrdersComponent implements OnInit {
          // console.log(responseData.result);
           this.orders = responseData.result;
           //console.log(this.orders);
+          this.isLoading = false;
+
         }
       });
     }

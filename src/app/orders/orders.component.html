@@ -12,59 +12,72 @@
         <div class="col-md-3"></div>
         <div class="col-md-7">
             <!--Customer-->
-            <table class="table table-hover overflow-auto" *ngIf="this.getRole()=='C'">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Ordered date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Total Price(Rs.)</th>
-                        <th scope="col">Status</th>
-                        <th scope="col"></th>
+            <div style="height:350px;overflow-y: scroll">
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <h1 style="text-align:center">{{ this.message }}</h1>
-                    <tr *ngFor="let order of this.orders">
-                        <th scope="row"></th>
-                        <td>{{ order.date }}</td>
-                        <td>{{ order.time }}</td>
-                        <td>{{order.totalPrice }}</td>
-                        <td>{{order.status }}</td>
-                        <td><a class="btn btn-primary" [routerLink]="['/OrderCustomer',order._id]">View</a></td>
-                    </tr>
+                <table class="table sticky-header order-table" *ngIf="this.getRole()=='C'" style="">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Ordered date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Total Price(Rs.)</th>
+                            <th scope="col">Status</th>
+                            <th scope="col"></th>
 
-                </tbody>
-            </table>
+                        </tr>
+                    </thead>
 
-            <!--Receptionist-->
+                    <tbody>
+                        <div *ngIf="this.isLoading" class="spinner-border text-primary ml-5 mr-5" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <h1 style="text-align:center">{{ this.message }}</h1>
+                        <tr *ngFor="let order of this.orders">
+                            <th scope="row"></th>
+                            <td>{{ order.date }}</td>
+                            <td>{{ order.time }}</td>
+                            <td>{{order.totalPrice }}</td>
+                            <td>{{order.status }}</td>
+                            <td><a class="btn btn-primary" [routerLink]="['/OrderCustomer',order._id]">View</a></td>
+                        </tr>
 
-            <table class="table table-hover overflow-auto" *ngIf="this.getRole()=='R'">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Ordered date</th>
-                        <th scope="col">Time</th>
-                        <th scope="col">Total Price(Rs.)</th>
-                        <th scope="col">Status</th>
-                        <th scope="col"></th>
+                    </tbody>
+                </table>
 
-                    </tr>
-                </thead>
-                <tbody>
-                    <h1 style="text-align:center">{{ this.message }}</h1>
-                    <tr *ngFor="let order of this.orders">
-                        <th scope="row"></th>
-                        <td>{{ order.date }}</td>
-                        <td>{{ order.time }}</td>
-                        <td>{{order.totalPrice }}</td>
-                        <td>{{order.status }}</td>
-                        <td><a class="btn btn-primary" [routerLink]="['/OrderCustomer',order._id]">View</a></td>
-                    </tr>
+                <!--Receptionist-->
 
-                </tbody>
-            </table>
+                <table class="table order-table" *ngIf="this.getRole()=='R'" style="overflow-y: scroll">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Ordered date</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Total Price(Rs.)</th>
+                            <th scope="col">Status</th>
+                            <th scope="col"></th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <div *ngIf="this.isLoading" class="spinner-border text-primary ml-5 mr-5" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <h1 style="text-align:center">{{ this.message }}</h1>
+                        <tr *ngFor="let order of this.orders">
+                            <th scope="row"></th>
+                            <td>{{ order.date }}</td>
+                            <td>{{ order.time }}</td>
+                            <td>{{order.totalPrice }}</td>
+                            <td>{{order.status }}</td>
+                            <td><a class="btn btn-primary" [routerLink]="['/OrderCustomer',order._id]">View</a></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     </div>
 

@@ -41,7 +41,8 @@ export class AuthService {
       }
     });
     this.userId = localStorage.length>0 ? localStorage.getItem("id") : "";
-    this.role = localStorage.length>0 ? localStorage.getItem("role") : "H";
+    this.role  = localStorage.getItem("role")==null?"H": localStorage.getItem("role");
+    //this.role = localStorage.length>0 ? localStorage.getItem("role") : "H";
     this.token = localStorage.length>0
       ? localStorage.getItem("token")
       : "";
