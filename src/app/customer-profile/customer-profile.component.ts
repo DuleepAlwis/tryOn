@@ -15,7 +15,7 @@ export class CustomerProfileComponent implements OnInit {
   form = new FormGroup({
     name: new FormControl("", [
       Validators.required,
-      Validators.pattern("A-Za-z")
+      Validators.pattern('^[a-zA-Z]+$')
     ]),
     address: new FormControl("", [Validators.required]),
     city: new FormControl("", [Validators.required]),
