@@ -1,57 +1,40 @@
 <div class="example1">
-  <h3>AURUDU SALE. UP TO 50% OFF! </h3>
-</div>
-<!-- navbar -->
-<nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
-	<div class="logo">
-    <a  routerLink="/"><img src="../../assets/img/logo1.PNG "></a>
+    <h3>AURUDU SALE. UP TO 50% OFF! </h3>
   </div>
-  <div class="col sm-6 col-md-4">
-    <ul class="nav nav-tabs" routerLinkActive="active">
-     <!--nav-items  -->
-      <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" routerLink="/" >HOME</a></li>
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/men">MEN</a></li> 
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/women">WOMEN</a></li> 
-      <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/contact">CONTACT</a></li>
-    </ul>
-  </div>
-     <!-- Search -->
-     <div class="col-md-3">
-        <form class="form-inline md-form form-sm" [formGroup]="form">
-          <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput>
-            <i class="fas fa-search" aria-hidden="true"></i><i class="fas fa-search"></i>
-        </form>
-      </div>
-    <!-- end Search -->
-    <ul class="navbar-nav ml-auto">
-        <!-- login -->
-          <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-        <ng-template #anonymousUser>
-          <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
-        </ng-template>
-        <li ngbDropdown *ngIf="appUser; else anonymousUser" class="nav-item dropdown">
-                   <a 
-                       ngbDropdownToggle
-                       class="nav-link dropdown-toggle" 
-                       id="navbarDropdown" 
-                       role="button" 
-                       data-toggle="dropdown" 
-                       aria-haspopup="true" 
-                       aria-expanded="false">
-                       {{ appUser.name || 'Username' }} 
-                   </a>
-                   <div>
-                       class="dropdown-menu" 
-                       aria-labelledby="navbarDropdown">
-                       <a class="dropdown-item" routerLink="/my/orders">My Orders</a>
-                       <ng-container *ngIf="appUser.isAdmin">
-                           <a class="dropdown-item" routerLink="/admin/orders">Manage Orders</a>
-                           <a class="dropdown-item" routerLink="/admin/products">Manage Products</a>
-                       </ng-container>
-                       <a class="dropdown-item logout" (click)="logout()">Logout</a>
-                   </div>
-        </li>
-        <li class="nav-item"><a class="nav-link" routerLink="register">Register</a></li>
-    </ul>
-</nav>
- 
+  <!-- navbar -->
+  <nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+    <div class="logo">
+      <a  routerLink="/"><img src="../../assets/img/logo1.PNG "></a>
+    </div>
+    <div class="col sm-6 col-md-4">
+      <ul class="nav nav-tabs" routerLinkActive="active">
+       <!--nav-items  -->
+        <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"><a class="nav-link" routerLink="/" >HOME</a></li>
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/men">MEN</a></li> 
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/women">WOMEN</a></li> 
+        <li class="nav-item" routerLinkActive="active"><a class="nav-link" routerLink="/contact">CONTACT</a></li>
+      </ul>
+    </div>
+       <!-- Search -->
+       <div class="col-md-3">
+          <form class="form-inline md-form form-sm" [formGroup]="form">
+            <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" mdbInput>
+              <i class="fas fa-search" aria-hidden="true"></i><i class="fas fa-search"></i>
+          </form>
+        </div>
+      <!-- end Search -->
+      <ul class="navbar-nav ml-auto">
+          <!-- login -->
+            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
+          <ng-template [ngIf]="!authService.isAuthenticated()">
+            <li class="nav-item"><a class="nav-link" routerLink="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="register">Register</a></li>
+          </ng-template>
+          <li appDropdown *ngIf="authService.isAuthenticated()">
+            <a class="dropdown-toggle" role="button">Profile<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <!-- <li><a (click)="">Data</a></li> -->
+              </ul>
+          </li>
+        </ul>
+  </nav>

@@ -34,8 +34,8 @@ export class RegisterComponent implements OnInit {
     lastName: new FormControl('', Validators.compose([Validators.required,Validators.pattern("[A-Za-z]*")])),
     gender: new FormControl('', [Validators.required]),
     password: new FormControl('',Validators.compose( [Validators.required,Validators.minLength(6)])),
+    confirmpassword:new FormControl(),
     matching_passwords: this.matching_passwords_group,
-  
     terms: new FormControl(false, Validators.pattern('true'))
   } );
 
@@ -81,4 +81,6 @@ export class RegisterComponent implements OnInit {
    }
       
    }
+   
+
   }

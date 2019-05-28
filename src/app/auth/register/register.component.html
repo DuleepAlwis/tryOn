@@ -43,7 +43,7 @@
                 class="help-block">Please enter a valid password
                 <div *ngIf="form1.get('matching_passwords').get('password').errors['required']"
                   class="help-block">This field is required
-                  {{form1.get('matching_passwords')}}
+                  
                 </div>
               </div>
             </div>
@@ -94,14 +94,21 @@
               </div> -->
             </div>
           </div>
-          
+            
+            <!-- {{this.matching_passwords_group.controls['password'].value}} -->
+            <!-- {{this.matching_passwords_groups'.controls('password').value}} -->
+            
             <a routerLink="/measurements" >Get your personalized model </a>
             
           <div class="form-row">
-            <label class="container">I have read and understand the <u>Privacy and Cookies Policy</u>
-              <input type="checkbox">
+            <div class="form-group col-md-6">
+              <div class="form-control" formControlName="terms">
+              <label class="container">I have read and understand the <u>Privacy and Cookies Policy</u>
+                <input type="checkbox">
                 <span class="checkmark"></span>
-            </label>
+              </label>
+              </div>
+            </div>
           </div>
           
           <div class="form-row">

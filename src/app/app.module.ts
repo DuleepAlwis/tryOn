@@ -24,6 +24,7 @@ import { MeasurementsTableComponent } from './customer-top-measurements/customer
 import { AdminComponent } from './admin/admin.component';
 import { HelperComponent } from './helper/helper.component';
 import { CustomerBottomMeasurementsComponent } from './customer-bottom-measurements/customer-bottom-measurements.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { CustomerBottomMeasurementsComponent } from './customer-bottom-measureme
     MeasurementsTableComponent,
     AdminComponent,
     HelperComponent,
-    CustomerBottomMeasurementsComponent
+    CustomerBottomMeasurementsComponent,
+    UserProfileComponent
     //ReceptionistProductsComponent,
     /*MenSuitsFormComponent,
     TightsFormComponent,

@@ -7,6 +7,7 @@ import { MeasurementsTableComponent } from './customer-top-measurements/customer
 import { AdminComponent } from './admin/admin.component';
 import { HelperComponent } from './helper/helper.component';
 import { CustomerBottomMeasurementsComponent } from './customer-bottom-measurements/customer-bottom-measurements.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   // { path: 'women', component: WomenSuitsFormComponent },
   // { path: 'contact', component: ContactComponent }
   { path: 'measurements', component: MeasurementsTableComponent  },
-  { path: 'measurements1', component: CustomerBottomMeasurementsComponent  }
+  { path: 'measurements1', component: CustomerBottomMeasurementsComponent  },
+  { path: 'profile', component: UserProfileComponent  }
+
 ];
 
 @NgModule({
